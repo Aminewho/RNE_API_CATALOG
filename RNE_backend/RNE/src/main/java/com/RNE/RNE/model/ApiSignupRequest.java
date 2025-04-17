@@ -18,11 +18,27 @@ public class ApiSignupRequest {
     @Column(name = "api_id")
     private String apiId;
 
-    private boolean approved = false;
-
     @Column(name = "requested_at")
     private LocalDateTime requestedAt = LocalDateTime.now();
 
+
+    public enum Status {
+        NEW,
+        REJECTED,
+        ACCEPTED
+    }
+
+    @Enumerated(EnumType.STRING)
+    private Status status = Status.NEW;
+
+    // Getters and Setters
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
     // Getters and Setters
     public Long getId() {
         return id;
@@ -63,15 +79,7 @@ public class ApiSignupRequest {
     public void setApiId(String apiId) {
         this.apiId = apiId;
     }
-
-    public boolean isApproved() {
-        return approved;
-    }
-
-    public void setApproved(boolean approved) {
-        this.approved = approved;
-    }
-
+    
     public LocalDateTime getRequestedAt() {
         return requestedAt;
     }

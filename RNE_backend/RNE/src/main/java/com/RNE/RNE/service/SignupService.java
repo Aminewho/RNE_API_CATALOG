@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class SignupService {
 
@@ -18,4 +19,5 @@ public class SignupService {
     public List<ApiSignupRequest> getAllSignupRequests() {
         return repository.findAll();
     }
+
 }
