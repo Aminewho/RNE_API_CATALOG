@@ -1,6 +1,6 @@
 package com.RNE.RNE.controller;
 
-import com.RNE.RNE.model.ApiSignupRequest;
+import com.RNE.RNE.model.SignupRequest;
 import com.RNE.RNE.service.SignupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +12,8 @@ public class SignupController {
     @Autowired
     private SignupService signupService;
 
-    @PostMapping("/{apiId}")
-    public ApiSignupRequest signup(@PathVariable String apiId, @RequestBody ApiSignupRequest request) {
-        request.setApiId(apiId);
-    System.out.println("request**" + request);
-    return signupService.submitSignup(request);
+    @PostMapping
+    public SignupRequest signup(@RequestBody SignupRequest request) {
+        return signupService.submitSignup(request);
     }
 }

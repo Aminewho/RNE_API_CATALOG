@@ -1,0 +1,6 @@
+- 172.23.0.1 - - [15/May/2025:15:42:04.372 +0000] "OPTIONS /pizzashack/1.0.0/menu HTTP/1.1" - - "https://localhost:9443/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+- 172.23.0.1  - [15/May/2025:15:42:04.372 +0000] "- - " 200 - "-" "-"
+- 172.23.0.1 - - [15/May/2025:15:42:04.372 +0000] "GET /pizzashack/1.0.0/menu HTTP/1.1" - - "https://localhost:9443/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+- 127.0.0.1 - - [15/May/2025:15:42:04.412 +0000] "GET /am/sample/pizzashack/v1/api/menu HTTP/1.1" - - "https://localhost:9443/" "Synapse-PT-HttpComponents-NIO"
+- 127.0.0.1  - [15/May/2025:15:42:04.412 +0000] "- - " 200 - "-" "-"
+- 172.23.0.1  - [15/May/2025:15:42:04.372 +0000] "- - " 200 - "-" "-"

@@ -1,0 +1,48 @@
+2025-04-28T10:28:18,320 [-] [https-jsse-nio-9443-exec-21] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-04-28T10:28:18,320 [-] [https-jsse-nio-9443-exec-46] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-04-28T10:28:18,320 [-] [https-jsse-nio-9443-exec-31] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-04-28T10:28:37,753 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T10:33:02,783 [-] [https-jsse-nio-9443-exec-32] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-04-28T10:33:02,783 [-] [https-jsse-nio-9443-exec-15] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-04-28T10:33:02,967 [-] [https-jsse-nio-9443-exec-19] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-04-28T10:33:17,492 [-] [HTTPS-Listener I/O dispatcher-19]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T10:33:17,602 [-] [PassThroughMessageProcessor-10]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+2025-04-28T12:01:04,341 [-] [https-jsse-nio-9443-exec-25] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@72d5899e
+2025-04-28T12:01:04,344 [-] [https-jsse-nio-9443-exec-39] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@334a6bcf
+2025-04-28T12:01:04,358 [-] [https-jsse-nio-9443-exec-8] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-04-28T12:01:04,358 [-] [https-jsse-nio-9443-exec-16] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-04-28T12:01:04,358 [-] [https-jsse-nio-9443-exec-16] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-04-28T12:01:04,358 [-] [https-jsse-nio-9443-exec-8] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-04-28T12:04:01,542 [-] [HTTPS-Listener I/O dispatcher-22]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:04:01,542 [-] [HTTPS-Listener I/O dispatcher-21]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:05:14,444 [-] [HTTPS-Listener I/O dispatcher-24]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:05:15,740 [-] [HTTPS-Listener I/O dispatcher-13]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:08:15,704 [-] [HTTPS-Listener I/O dispatcher-14]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:08:31,728 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:08:48,957 [-] [HTTPS-Listener I/O dispatcher-16]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:10:22,813 [-] [HTTPS-Listener I/O dispatcher-17]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:38:41,010 [-] [Start Level: Equinox Container: abf11c2b-138d-49d5-94c8-ce614b67bf3c]  WARN {org.apache.tomcat.util.digester.Digester} Match [Server/Service/Engine/Host/Valve] failed to set property [maxDays] to []
+2025-04-28T12:38:49,211 [-] [Framework Event Dispatcher: Equinox Container: abf11c2b-138d-49d5-94c8-ce614b67bf3c]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [addRemoteServerConfig]
+2025-04-28T12:38:49,211 [-] [Framework Event Dispatcher: Equinox Container: abf11c2b-138d-49d5-94c8-ce614b67bf3c]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [resetRemoteServerConfig]
+2025-04-28T12:38:49,681 [-] [Framework Event Dispatcher: Equinox Container: abf11c2b-138d-49d5-94c8-ce614b67bf3c]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [searchByAttribute]
+2025-04-28T12:38:51,519 [-] [Framework Event Dispatcher: Equinox Container: abf11c2b-138d-49d5-94c8-ce614b67bf3c]  WARN {org.wso2.carbon.identity.application.mgt.internal.ApplicationManagementServiceComponent} Templates directory not found at /home/wso2carbon/wso2am-4.5.0/repository/resources/identity/authntemplates
+2025-04-28T12:38:51,803 [-] [Framework Event Dispatcher: Equinox Container: abf11c2b-138d-49d5-94c8-ce614b67bf3c]  WARN {org.wso2.carbon.identity.auth.valve.internal.AuthenticationValveServiceComponent} File invalid_tenant_domain_response.html not found. The default content will be used as the error page content.
+2025-04-28T12:38:51,845 [-] [Framework Event Dispatcher: Equinox Container: abf11c2b-138d-49d5-94c8-ce614b67bf3c]  WARN {org.wso2.carbon.identity.auth.service.internal.AuthenticationServiceComponent} 
+
+##################################  ALERT  ##################################
+[WARNING]: Internal authentication is utilizing default credentials,
+which may expose the environment to potential security risks.
+If this is a production environment, change the credentials immediately.
+Please refer to the WSO2 security advisory: https://security.docs.wso2.com/en/latest/security-announcements/security-advisories/2023/WSO2-2023-2617/
+#############################################################################
+
+2025-04-28T12:38:54,022 [-] [Framework Event Dispatcher: Equinox Container: abf11c2b-138d-49d5-94c8-ce614b67bf3c]  WARN {org.wso2.carbon.identity.event.internal.IdentityEventServiceComponent} Properties for OrganizationCreationHandler is not configured. This event handler will not be activated
+2025-04-28T12:38:54,051 [-] [Framework Event Dispatcher: Equinox Container: abf11c2b-138d-49d5-94c8-ce614b67bf3c]  WARN {org.wso2.carbon.identity.application.authentication.framework.internal.FrameworkServiceComponent} Adaptive authentication is disabled.
+2025-04-28T12:39:14,901 [-] [https-jsse-nio-9443-exec-37] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@7b0d7159
+2025-04-28T12:39:14,955 [-] [https-jsse-nio-9443-exec-22] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-04-28T12:39:14,955 [-] [https-jsse-nio-9443-exec-22] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-04-28T12:39:22,697 [-] [HTTPS-Listener I/O dispatcher-13]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:39:22,697 [-] [HTTPS-Listener I/O dispatcher-14]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-28T12:39:22,712 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.transport.http.access.AccessConfiguration} Error loading properties from file: access-log.properties
+2025-04-28T12:39:22,714 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} Error loading properties from a file at from the System defined location: access-log.properties
+2025-04-28T12:39:22,716 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} Error loading properties from a file at from the System defined location: access-log.properties

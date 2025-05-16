@@ -1,0 +1,7 @@
+TID: [-1234] [publisher] [2025-05-08 10:31:51,821] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@70a22a63
+TID: [-1234] [publisher] [2025-05-08 10:31:51,821] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@6ed1290c
+TID: [-1234] [api/am/publisher] [2025-05-08 10:31:51,844] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/publisher] [2025-05-08 10:31:51,844] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/publisher] [2025-05-08 10:31:51,844] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [-1234] [api/am/publisher] [2025-05-08 10:31:51,844] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [] [] [2025-05-08 16:46:12,147]  INFO {org.wso2.carbon.identity.application.authentication.framework.store.SessionCleanUpService} - Session Data cleanup task is running successfully for removing expired Data

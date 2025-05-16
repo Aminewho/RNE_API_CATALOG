@@ -1,0 +1,17 @@
+2025-05-05T14:42:54,012 [-] [Start Level: Equinox Container: ae460bb0-8c58-431f-a30e-98852c20475a]  WARN {org.apache.tomcat.util.digester.Digester} Match [Server/Service/Engine/Host/Valve] failed to set property [maxDays] to []
+2025-05-05T14:43:10,469 [-] [Framework Event Dispatcher: Equinox Container: ae460bb0-8c58-431f-a30e-98852c20475a]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [addRemoteServerConfig]
+2025-05-05T14:43:10,469 [-] [Framework Event Dispatcher: Equinox Container: ae460bb0-8c58-431f-a30e-98852c20475a]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [resetRemoteServerConfig]
+2025-05-05T14:43:11,100 [-] [Framework Event Dispatcher: Equinox Container: ae460bb0-8c58-431f-a30e-98852c20475a]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [searchByAttribute]
+2025-05-05T14:43:13,410 [-] [Framework Event Dispatcher: Equinox Container: ae460bb0-8c58-431f-a30e-98852c20475a]  WARN {org.wso2.carbon.identity.application.mgt.internal.ApplicationManagementServiceComponent} Templates directory not found at /home/wso2carbon/wso2am-4.5.0/repository/resources/identity/authntemplates
+2025-05-05T14:43:13,652 [-] [Framework Event Dispatcher: Equinox Container: ae460bb0-8c58-431f-a30e-98852c20475a]  WARN {org.wso2.carbon.identity.auth.valve.internal.AuthenticationValveServiceComponent} File invalid_tenant_domain_response.html not found. The default content will be used as the error page content.
+2025-05-05T14:43:13,682 [-] [Framework Event Dispatcher: Equinox Container: ae460bb0-8c58-431f-a30e-98852c20475a]  WARN {org.wso2.carbon.identity.auth.service.internal.AuthenticationServiceComponent} 
+
+##################################  ALERT  ##################################
+[WARNING]: Internal authentication is utilizing default credentials,
+which may expose the environment to potential security risks.
+If this is a production environment, change the credentials immediately.
+Please refer to the WSO2 security advisory: https://security.docs.wso2.com/en/latest/security-announcements/security-advisories/2023/WSO2-2023-2617/
+#############################################################################
+
+2025-05-05T14:43:15,493 [-] [Framework Event Dispatcher: Equinox Container: ae460bb0-8c58-431f-a30e-98852c20475a]  WARN {org.wso2.carbon.identity.event.internal.IdentityEventServiceComponent} Properties for OrganizationCreationHandler is not configured. This event handler will not be activated
+2025-05-05T14:43:15,516 [-] [Framework Event Dispatcher: Equinox Container: ae460bb0-8c58-431f-a30e-98852c20475a]  WARN {org.wso2.carbon.identity.application.authentication.framework.internal.FrameworkServiceComponent} Adaptive authentication is disabled.

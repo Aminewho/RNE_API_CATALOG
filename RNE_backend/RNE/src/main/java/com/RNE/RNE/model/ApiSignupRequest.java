@@ -1,10 +1,10 @@
-package com.RNE.RNE.model;
+/*package com.RNE.RNE.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "api_signup_requests")
+@Table(name = "signup_requests")
 public class ApiSignupRequest {
 
     @Id
@@ -87,4 +87,4 @@ public class ApiSignupRequest {
     public void setRequestedAt(LocalDateTime requestedAt) {
         this.requestedAt = requestedAt;
     }
-}
+}*/

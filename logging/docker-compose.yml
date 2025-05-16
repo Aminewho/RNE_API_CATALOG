@@ -1,0 +1,58 @@
+version: '3.8'
+
+services:
+  wso2am:
+    image: wso2/wso2am:4.5.0
+    container_name: wso2am
+    ports:
+      - "9443:9443"
+      - "8280:8280"
+      - "8243:8243"
+    volumes:
+      - ./logs:/home/wso2carbon/wso2am-4.5.0/repository/logs
+    networks:
+      - elknet
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.9
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+    ports:
+      - "9200:9200"
+    networks:
+      - elknet
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.9
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    networks:
+      - elknet
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.17.9
+    volumes:
+      - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+    ports:
+      - "5044:5044"
+    depends_on:
+      - elasticsearch
+    networks:
+      - elknet
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:7.17.9
+    user: root
+    volumes:
+      #- ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./logs:/logs
+    depends_on:
+      - logstash
+    networks:
+      - elknet
+
+networks:
+  elknet:

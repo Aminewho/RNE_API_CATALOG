@@ -1,0 +1,6 @@
+- 172.23.0.1 - - [25/Apr/2025:13:22:16.698 +0000] "OPTIONS /test/1.0.0 HTTP/1.1" - - "https://localhost:9443/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+- 172.23.0.1  - [25/Apr/2025:13:22:16.698 +0000] "- - " 200 - "-" "-"
+- 172.23.0.1 - - [25/Apr/2025:13:22:16.698 +0000] "GET /test/1.0.0 HTTP/1.1" - - "https://localhost:9443/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+- 91.208.207.217 - - [25/Apr/2025:13:22:17.129 +0000] "GET /v3/05b6181a-92a7-40d7-a76c-ed793ab3b9f0 HTTP/1.1" - - "https://localhost:9443/" "Synapse-PT-HttpComponents-NIO"
+- 91.208.207.217  - [25/Apr/2025:13:22:17.129 +0000] "- - " 200 - "-" "-"
+- 172.23.0.1  - [25/Apr/2025:13:22:16.698 +0000] "- - " 200 - "-" "-"

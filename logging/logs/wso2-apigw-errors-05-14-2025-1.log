@@ -1,0 +1,20 @@
+2025-05-14T10:49:19,984 [-] [https-jsse-nio-9443-exec-17] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@653fa664
+2025-05-14T10:49:20,081 [-] [https-jsse-nio-9443-exec-2] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-05-14T10:49:20,081 [-] [https-jsse-nio-9443-exec-2] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-05-14T16:19:29,954 [-] [https-jsse-nio-9443-exec-49] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@59666971
+2025-05-14T16:19:29,954 [-] [https-jsse-nio-9443-exec-3] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@69c5f510
+2025-05-14T16:19:30,001 [-] [https-jsse-nio-9443-exec-36] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-05-14T16:19:30,001 [-] [https-jsse-nio-9443-exec-31] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-05-14T16:19:30,001 [-] [https-jsse-nio-9443-exec-31] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-05-14T16:19:30,001 [-] [https-jsse-nio-9443-exec-36] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-05-14T16:56:13,090 [-] [https-jsse-nio-9443-exec-33] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@4002febd
+2025-05-14T16:56:13,101 [-] [https-jsse-nio-9443-exec-8] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-05-14T16:56:13,101 [-] [https-jsse-nio-9443-exec-8] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-05-14T16:56:21,699 [-] [https-jsse-nio-9443-exec-13] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-05-14T16:56:21,699 [-] [https-jsse-nio-9443-exec-22] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-05-14T16:56:21,879 [-] [https-jsse-nio-9443-exec-34] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-05-14T16:56:35,649 [-] [HTTPS-Listener I/O dispatcher-16]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-05-14T16:56:35,878 [-] [PassThroughMessageProcessor-11]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+2025-05-14T16:56:46,483 [-] [https-jsse-nio-9443-exec-41] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-05-14T16:56:46,484 [-] [https-jsse-nio-9443-exec-50] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-05-14T16:56:46,616 [-] [https-jsse-nio-9443-exec-20] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing

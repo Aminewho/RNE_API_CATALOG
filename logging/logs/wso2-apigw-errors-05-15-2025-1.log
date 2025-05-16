@@ -1,0 +1,6 @@
+2025-05-15T15:41:35,203 [-] [https-jsse-nio-9443-exec-22] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@1bb312bb
+2025-05-15T15:41:35,209 [-] [https-jsse-nio-9443-exec-40] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@1612796c
+2025-05-15T15:41:35,221 [-] [https-jsse-nio-9443-exec-14] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-05-15T15:41:35,221 [-] [https-jsse-nio-9443-exec-14] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-05-15T15:41:35,224 [-] [https-jsse-nio-9443-exec-11] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-05-15T15:42:04,360 [-] [HTTPS-Listener I/O dispatcher-18]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown

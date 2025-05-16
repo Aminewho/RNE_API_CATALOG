@@ -1,0 +1,31 @@
+2025-04-25T11:42:57,279 [-] [Start Level: Equinox Container: 0da23680-a09c-49fa-a2e6-901d59b2c848]  WARN {org.apache.tomcat.util.digester.Digester} Match [Server/Service/Engine/Host/Valve] failed to set property [maxDays] to []
+2025-04-25T11:43:05,217 [-] [Framework Event Dispatcher: Equinox Container: 0da23680-a09c-49fa-a2e6-901d59b2c848]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [addRemoteServerConfig]
+2025-04-25T11:43:05,217 [-] [Framework Event Dispatcher: Equinox Container: 0da23680-a09c-49fa-a2e6-901d59b2c848]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [resetRemoteServerConfig]
+2025-04-25T11:43:05,625 [-] [Framework Event Dispatcher: Equinox Container: 0da23680-a09c-49fa-a2e6-901d59b2c848]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [searchByAttribute]
+2025-04-25T11:43:07,211 [-] [Framework Event Dispatcher: Equinox Container: 0da23680-a09c-49fa-a2e6-901d59b2c848]  WARN {org.wso2.carbon.identity.application.mgt.internal.ApplicationManagementServiceComponent} Templates directory not found at /home/wso2carbon/wso2am-4.5.0/repository/resources/identity/authntemplates
+2025-04-25T11:43:07,415 [-] [Framework Event Dispatcher: Equinox Container: 0da23680-a09c-49fa-a2e6-901d59b2c848]  WARN {org.wso2.carbon.identity.auth.valve.internal.AuthenticationValveServiceComponent} File invalid_tenant_domain_response.html not found. The default content will be used as the error page content.
+2025-04-25T11:43:07,445 [-] [Framework Event Dispatcher: Equinox Container: 0da23680-a09c-49fa-a2e6-901d59b2c848]  WARN {org.wso2.carbon.identity.auth.service.internal.AuthenticationServiceComponent} 
+
+##################################  ALERT  ##################################
+[WARNING]: Internal authentication is utilizing default credentials,
+which may expose the environment to potential security risks.
+If this is a production environment, change the credentials immediately.
+Please refer to the WSO2 security advisory: https://security.docs.wso2.com/en/latest/security-announcements/security-advisories/2023/WSO2-2023-2617/
+#############################################################################
+
+2025-04-25T11:43:09,475 [-] [Framework Event Dispatcher: Equinox Container: 0da23680-a09c-49fa-a2e6-901d59b2c848]  WARN {org.wso2.carbon.identity.event.internal.IdentityEventServiceComponent} Properties for OrganizationCreationHandler is not configured. This event handler will not be activated
+2025-04-25T11:43:09,500 [-] [Framework Event Dispatcher: Equinox Container: 0da23680-a09c-49fa-a2e6-901d59b2c848]  WARN {org.wso2.carbon.identity.application.authentication.framework.internal.FrameworkServiceComponent} Adaptive authentication is disabled.
+2025-04-25T13:20:30,496 [-] [https-jsse-nio-9443-exec-22] ERROR {org.apache.jsp.services.refresh.refresh_jsp} Oauth application details not found for 'publisher portal'
+2025-04-25T13:20:30,543 [-] [https-jsse-nio-9443-exec-21] ERROR {org.apache.jsp.services.refresh.refresh_jsp} Oauth application details not found for 'publisher portal'
+2025-04-25T13:20:30,544 [-] [https-jsse-nio-9443-exec-33] ERROR {org.apache.jsp.services.refresh.refresh_jsp} Oauth application details not found for 'publisher portal'
+2025-04-25T13:20:30,581 [-] [https-jsse-nio-9443-exec-49] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-04-25T13:20:30,581 [-] [https-jsse-nio-9443-exec-13] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-04-25T13:20:30,581 [-] [https-jsse-nio-9443-exec-13] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-04-25T13:20:30,581 [-] [https-jsse-nio-9443-exec-49] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-04-25T13:20:30,581 [-] [https-jsse-nio-9443-exec-11] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-04-25T13:20:30,581 [-] [https-jsse-nio-9443-exec-11] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-04-25T13:21:19,767 [-] [https-jsse-nio-9443-exec-19]  WARN {org.wso2.carbon.identity.oidc.session.OIDCInboundSessionContextMgtListener} No session state found for the received Session ID : 44ef450a-08c2-4867-8e9b-292bb2c3467e
+2025-04-25T13:22:16,678 [-] [HTTPS-Listener I/O dispatcher-13]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-04-25T13:22:16,690 [-] [HTTPS-Listener I/O dispatcher-14]  WARN {org.apache.synapse.transport.http.access.AccessConfiguration} Error loading properties from file: access-log.properties
+2025-04-25T13:22:16,692 [-] [HTTPS-Listener I/O dispatcher-14]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} Error loading properties from a file at from the System defined location: access-log.properties
+2025-04-25T13:22:16,693 [-] [HTTPS-Listener I/O dispatcher-14]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} Error loading properties from a file at from the System defined location: access-log.properties

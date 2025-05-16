@@ -1,0 +1,6 @@
+TID: [] [] [2025-05-07 13:53:01,613]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-05-07 13:53:01,669]  WARN {org.apache.synapse.transport.http.access.AccessConfiguration} - Error loading properties from file: access-log.properties
+TID: [] [] [2025-05-07 13:53:01,672]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} - Error loading properties from a file at from the System defined location: access-log.properties
+TID: [] [] [2025-05-07 13:53:01,675]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} - Error loading properties from a file at from the System defined location: access-log.properties
+TID: [] [] [2025-05-07 13:53:01,848]  INFO {org.apache.synapse.core.axis2.TimeoutHandler} - This engine will expire all callbacks after GLOBAL_TIMEOUT: 120 seconds, irrespective of the timeout action, after the specified or optional timeout
+TID: [] [] [2025-05-07 13:53:01,970]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected

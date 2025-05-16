@@ -1,4 +1,4 @@
-package com.RNE.RNE.model;
+/*package com.RNE.RNE.model;
 
 
 import jakarta.persistence.Entity;
@@ -23,4 +23,4 @@ public class Api {
 
     @ManyToMany(mappedBy = "apis")
     private Set<User> users = new HashSet<>();
-}
+}*/

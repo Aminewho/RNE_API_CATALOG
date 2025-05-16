@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function SignupPage() {
-  const { apiId } = useParams();
 
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    username: '',
-    password: ''
+    matriculeFiscale: '',
+    secteurActivite: '',
+    raisonSociale: '',
+    adresse: '',
+    nomPremierResponsable: '',
+    prenomPremierResponsable: '',
+    emailPremierResponsable: '',
+    telPremierResponsable: '',
+    nomResponsableTechnique: '',
+    prenomResponsableTechnique: '',
+    emailResponsableTechnique: '',
+    telResponsableTechnique: '',
+    ip: '',
+    tel: '',
+    email: ''
   });
 
   const handleChange = (e) => {
@@ -23,12 +32,7 @@ export default function SignupPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:8080/signup/${apiId}`, {
-        name: formData.name,
-        email: formData.email,
-        username: formData.username,
-        password: formData.password
-      });
+      await axios.post(`http://localhost:8080/signup`, formData);
       alert("Your signup request has been submitted. An email will be sent upon approval.");
     } catch (error) {
       console.error('Signup failed:', error);
@@ -37,62 +41,80 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: '500px' }}>
-      <h3 className="mb-4 text-center">Signup for API Access</h3>
-      <p className="text-muted text-center">API ID: <strong>{apiId}</strong></p>
+    <div className="container mt-5" style={{ maxWidth: '700px' }}>
+      <h3 className="mb-4 text-center">Signup</h3>
+     
 
       <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Full Name</label>
-          <input
-            type="text"
-            className="form-control"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your full name"
-            required
-          />
-        </div>
+        {/* Company Info */}
+        <h5>Company Information</h5>
+        {['matriculeFiscale', 'secteurActivite', 'raisonSociale', 'adresse'].map(field => (
+          <div className="mb-3" key={field}>
+            <label className="form-label">{field}</label>
+            <input
+              type="text"
+              className="form-control"
+              name={field}
+              value={formData[field]}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        ))}
 
-        <div className="mb-3">
-          <label className="form-label">Email Address</label>
-          <input
-            type="email"
-            className="form-control"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="name@example.com"
-            required
-          />
-        </div>
+        {/* Premier Responsable */}
+        <h5>Premier Responsable</h5>
+        {[
+          'nomPremierResponsable', 'prenomPremierResponsable',
+          'emailPremierResponsable', 'telPremierResponsable'
+        ].map(field => (
+          <div className="mb-3" key={field}>
+            <label className="form-label">{field}</label>
+            <input
+              type="text"
+              className="form-control"
+              name={field}
+              value={formData[field]}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        ))}
 
-        <div className="mb-3">
-          <label className="form-label">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            placeholder="Choose a username"
-            required
-          />
-        </div>
+        {/* Responsable Technique */}
+        <h5>Responsable Technique</h5>
+        {[
+          'nomResponsableTechnique', 'prenomResponsableTechnique',
+          'emailResponsableTechnique', 'telResponsableTechnique'
+        ].map(field => (
+          <div className="mb-3" key={field}>
+            <label className="form-label">{field}</label>
+            <input
+              type="text"
+              className="form-control"
+              name={field}
+              value={formData[field]}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        ))}
 
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <input
-            type="password"
-            className="form-control"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            placeholder="Create a password"
-            required
-          />
-        </div>
+        {/* Contact Info */}
+        <h5>Contact Information</h5>
+        {['ip', 'tel', 'email'].map(field => (
+          <div className="mb-3" key={field}>
+            <label className="form-label">{field}</label>
+            <input
+              type={field === 'email' ? 'email' : 'text'}
+              className="form-control"
+              name={field}
+              value={formData[field]}
+              onChange={handleChange}
+              required
+            />
+          </div>
+        ))}
 
         <button type="submit" className="btn btn-success w-100">
           Submit Signup Request

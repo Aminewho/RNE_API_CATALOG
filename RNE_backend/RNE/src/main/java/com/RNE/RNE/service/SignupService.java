@@ -1,7 +1,7 @@
 package com.RNE.RNE.service;
 
-import com.RNE.RNE.model.ApiSignupRequest;
-import com.RNE.RNE.repository.ApiSignupRequestRepository;
+import com.RNE.RNE.model.SignupRequest;
+import com.RNE.RNE.repository.SignupRequestRepository;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 public class SignupService {
 
     @Autowired
-    private ApiSignupRequestRepository repository;
+    private SignupRequestRepository repository;
 
-    public ApiSignupRequest submitSignup(ApiSignupRequest request) {
+    public SignupRequest submitSignup(SignupRequest request) {
         return repository.save(request);
     }
-    public List<ApiSignupRequest> getAllSignupRequests() {
+    public List<SignupRequest> getAllSignupRequests() {
         return repository.findAll();
     }
 

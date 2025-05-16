@@ -1,6 +1,4 @@
 package com.RNE.RNE.service;
-
-import com.RNE.RNE.dto.LoginRequest;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -49,6 +47,7 @@ public class Wso2ApiService {
 }
 
 public String getApiList() throws JsonProcessingException {
+   // String accessToken = getAccessToken();
     String accessToken = getAccessToken();
 
     HttpHeaders headers = new HttpHeaders();

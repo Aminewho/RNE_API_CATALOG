@@ -1,0 +1,4 @@
+2025-05-07T13:53:01,613 [-] [HTTPS-Listener I/O dispatcher-13]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-05-07T13:53:01,669 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.transport.http.access.AccessConfiguration} Error loading properties from file: access-log.properties
+2025-05-07T13:53:01,672 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} Error loading properties from a file at from the System defined location: access-log.properties
+2025-05-07T13:53:01,675 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} Error loading properties from a file at from the System defined location: access-log.properties

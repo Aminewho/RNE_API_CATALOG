@@ -19,6 +19,8 @@ const ApiCard = ({ api }) => {
       <p className="card-text">By: {api.provider}</p>
       <p className="card-text">Version: {api.version}</p>
       <p className="card-text">Context: {api.context}</p>
+      <p className="card-text">createdTime: {api.createdTime}</p>
+
     </div>
   </div>
 </div>

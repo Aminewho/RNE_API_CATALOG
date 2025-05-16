@@ -1,0 +1,9 @@
+TID: [-1234] [publisher] [2025-05-15 15:41:35,203] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@1bb312bb
+TID: [-1234] [publisher] [2025-05-15 15:41:35,209] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@1612796c
+TID: [-1234] [api/am/publisher] [2025-05-15 15:41:35,221] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/publisher] [2025-05-15 15:41:35,221] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [-1234] [api/am/publisher] [2025-05-15 15:41:35,224] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [] [] [2025-05-15 15:42:04,360]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-05-15 15:42:04,514]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-05-15 15:43:17,059]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-05-15 15:43:17,077]  INFO {org.wso2.carbon.event.output.adapter.jms.internal.util.JMSConnectionFactory} - JMS ConnectionFactory : notificationJMSPublisher initialized

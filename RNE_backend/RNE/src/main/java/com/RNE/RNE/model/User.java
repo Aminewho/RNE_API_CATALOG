@@ -4,29 +4,44 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.JoinColumn;
 import java.util.Set;
 import java.util.HashSet; 
 
 @Entity
+@Table(name="users")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
-    private String fullName;
-    private String email;
     private String username;
     private String password;
+    private String role = "ROLE_USER";
 
-    @ManyToMany
-    @JoinTable(
-        name = "user_api_access",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "api_id")
-    )
-    private Set<Api> apis = new HashSet<>();
+    // Business Info
+    private String matriculeFiscale;
+    private String secteurActivite;
+    private String raisonSociale;
+    private String adresse;
+
+    // Premier PremierResponsable
+    private String nomPremierResponsable;
+    private String prenomPremierResponsable;
+    private String emailPremierResponsable;
+    private String telPremierResponsable;
+
+    // PremierResponsable ResponsableTechnique
+    private String nomResponsableTechnique;
+    private String prenomResponsableTechnique;
+    private String emailResponsableTechnique;
+    private String telResponsableTechnique;
+
+    private String ip;
+    private String tel;
+    private String email;
 
     // Getters and Setters
     public Long getId() {
@@ -35,22 +50,6 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getFullName() {
-        return fullName;
-    }
-
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getUsername() {
@@ -65,15 +64,133 @@ public class User {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(String password){
         this.password = password;
     }
 
-    public Set<Api> getApis() {
-        return apis;
+    public String getRole() {
+        return role;
     }
 
-    public void setApis(Set<Api> apis) {
-        this.apis = apis;
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getMatriculeFiscale() {
+        return matriculeFiscale;
+    }
+
+    public void setMatriculeFiscale(String matriculeFiscale) {
+        this.matriculeFiscale = matriculeFiscale;
+    }
+
+    public String getSecteurActivite() {
+        return secteurActivite;
+    }
+
+    public void setSecteurActivite(String secteurActivite) {
+        this.secteurActivite = secteurActivite;
+    }
+
+    public String getRaisonSociale() {
+        return raisonSociale;
+    }
+
+    public void setRaisonSociale(String raisonSociale) {
+        this.raisonSociale = raisonSociale;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public String getNomPremierResponsable() {
+        return nomPremierResponsable;
+    }
+
+    public void setNomPremierResponsable(String nomPremierResponsable) {
+        this.nomPremierResponsable = nomPremierResponsable;
+    }
+
+    public String getPrenomPremierResponsable() {
+        return prenomPremierResponsable;
+    }
+
+    public void setPrenomPremierResponsable(String prenomPremierResponsable) {
+        this.prenomPremierResponsable = prenomPremierResponsable;
+    }
+
+    public String getEmailPremierResponsable() {
+        return emailPremierResponsable;
+    }
+
+    public void setEmailPremierResponsable(String emailPremierResponsable) {
+        this.emailPremierResponsable = emailPremierResponsable;
+    }
+
+    public String getTelPremierResponsable() {
+        return telPremierResponsable;
+    }
+
+    public void setTelPremierResponsable(String telPremierResponsable) {
+        this.telPremierResponsable = telPremierResponsable;
+    }
+
+    public String getNomResponsableTechnique() {
+        return nomResponsableTechnique;
+    }
+
+    public void setNomResponsableTechnique(String nomResponsableTechnique) {
+        this.nomResponsableTechnique = nomResponsableTechnique;
+    }
+
+    public String getPrenomResponsableTechnique() {
+        return prenomResponsableTechnique;
+    }
+
+    public void setPrenomResponsableTechnique(String prenomResponsableTechnique) {
+        this.prenomResponsableTechnique = prenomResponsableTechnique;
+    }
+
+    public String getEmailResponsableTechnique() {
+        return emailResponsableTechnique;
+    }
+
+    public void setEmailResponsableTechnique(String emailResponsableTechnique) {
+        this.emailResponsableTechnique = emailResponsableTechnique;
+    }
+
+    public String getTelResponsableTechnique() {
+        return telResponsableTechnique;
+    }
+
+    public void setTelResponsableTechnique(String telResponsableTechnique) {
+        this.telResponsableTechnique = telResponsableTechnique;
+    }
+
+    public String getIpAutorisee() {
+        return ip;
+    }
+
+    public void setIpAutorisee(String ipAutorisee) {
+        this.ip = ipAutorisee;
+    }
+
+    public String getTel() {
+        return tel;
+    }
+
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

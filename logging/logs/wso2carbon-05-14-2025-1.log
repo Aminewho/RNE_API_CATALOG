@@ -1,0 +1,24 @@
+TID: [-1234] [devportal] [2025-05-14 10:49:19,984] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@653fa664
+TID: [-1234] [api/am/devportal] [2025-05-14 10:49:20,081] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/devportal] [2025-05-14 10:49:20,081] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [-1234] [] [2025-05-14 10:53:39,191]  INFO {org.wso2.carbon.core.services.util.CarbonAuthenticationUtil} - 'admin@carbon.super [-1234]' logged in at [2025-05-14 10:53:39,190+0000]
+TID: [-1234] [publisher] [2025-05-14 16:19:29,954] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@59666971
+TID: [-1234] [publisher] [2025-05-14 16:19:29,954] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@69c5f510
+TID: [-1234] [api/am/publisher] [2025-05-14 16:19:30,001] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/publisher] [2025-05-14 16:19:30,001] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/publisher] [2025-05-14 16:19:30,001] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [-1234] [api/am/publisher] [2025-05-14 16:19:30,001] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [-1234] [devportal] [2025-05-14 16:56:13,090] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@4002febd
+TID: [-1234] [api/am/devportal] [2025-05-14 16:56:13,101] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/devportal] [2025-05-14 16:56:13,101] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [-1234] [api/am/devportal] [2025-05-14 16:56:21,699] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-05-14 16:56:21,699] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-05-14 16:56:21,879] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [] [] [2025-05-14 16:56:35,649]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-05-14 16:56:35,863]  INFO {org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler} - org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler Initialised
+TID: [] [] [2025-05-14 16:56:35,878]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+TID: [-1234] [api/am/devportal] [2025-05-14 16:56:46,483] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-05-14 16:56:46,484] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-05-14 16:56:46,616] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [internal/data/v1] [2025-05-14 16:57:12,460]  INFO {org.wso2.carbon.event.output.adapter.jms.internal.util.JMSConnectionFactory} - JMS ConnectionFactory : tokenRevocationJMSPublisher initialized
+TID: [] [] [2025-05-14 16:57:19,687]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
