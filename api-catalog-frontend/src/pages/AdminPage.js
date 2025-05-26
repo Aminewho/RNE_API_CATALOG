@@ -1,13 +1,15 @@
 
 
 import React, { useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
 export default function AdminPage() {
   const [signupRequests, setSignupRequests] = useState([]);
   const [showFormId, setShowFormId] = useState(null); // To track which row's form is open
   const [credentials, setCredentials] = useState({ username: '', password: '' });
-
+  const navigate = useNavigate();
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -17,16 +19,22 @@ export default function AdminPage() {
         setSignupRequests(response.data);
       } catch (error) {
         console.error('Error fetching signup requests:', error);
+        if (error.response && error.response.status === 401) {
+          navigate('/login'); // ← use navigate instead of window.location.href
+        }
       }
     };
-
     fetchData();
-  }, []);
+  }, [navigate]);
+
+
+
 
   const handleApproveClick = (id) => {
     setShowFormId(id); // Show form for this specific request
     setCredentials({ username: '', password: '' }); // Reset input
   };
+
 
   const handleFormSubmit = async (id) => {
     try {
@@ -44,8 +52,9 @@ export default function AdminPage() {
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: '90%' }}>
-      <h2 className="mb-4 text-center">Admin Dashboard</h2>
+      <div className="container mt-5" style={{ maxWidth: '100%' }}>
+    <h2 className="mb-4 text-center">Admin Dashboard</h2>
+    <div style={{ overflowX: 'auto' }}>
       <table className="table table-bordered table-hover table-sm">
         <thead className="table-dark">
           <tr>
@@ -71,9 +80,11 @@ export default function AdminPage() {
               <td>{request.secteurActivite}</td>
               <td>{request.raisonSociale}</td>
               <td>{request.adresse}</td>
-              <td>{request.nomPremierResponsable} {request.prenomPremierResponsable}</td>
+              <td>{request.nomPremierResponsable} </td>
+              <td>{request.prenomPremierResponsable}</td>
               <td>{request.emailPremierResponsable}</td>
-              <td>{request.nomResponsableTechnique} {request.prenomResponsableTechnique}</td>
+              <td>{request.nomResponsableTechnique} </td>
+              <td>{request.prenomResponsableTechnique}</td>
               <td>{request.emailResponsableTechnique}</td>
               <td>{request.email}</td>
               <td>{request.tel}</td>
@@ -114,6 +125,7 @@ export default function AdminPage() {
           ))}
         </tbody>
       </table>
+    </div>
     </div>
   );
 }

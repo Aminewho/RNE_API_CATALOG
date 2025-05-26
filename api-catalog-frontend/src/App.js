@@ -7,6 +7,7 @@ import SignupPage from './pages/SignupPage';
 import AdminPage from './pages/AdminPage';
 import ManageUsers from './pages/ManageUsers';
 import ManageAPIs from './pages/ManageAPIs';
+import ManageWso2Instances from './pages/ManageWso2Instances';
 
 function App() {
   const handleListApis = () => {
@@ -27,6 +28,7 @@ function App() {
           <Route path="signup-requests" element={<AdminPage />} />
           <Route path="users" element={<ManageUsers />} />
           <Route path="apis" element={<ManageAPIs />} />
+          <Route path="wso2" element={<ManageWso2Instances/>} />
         </Route>
       </Routes>
     </Router>

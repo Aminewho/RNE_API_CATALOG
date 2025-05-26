@@ -27,6 +27,11 @@ export default function AdminSidebar() {
             Manage APIs
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink to="/admin/wso2" className="nav-link text-white" activeclassname="active">
+            Manage wso2 instances
+          </NavLink>
+        </li>
         <li className="nav-item mt-3">
           <NavLink to="/logout" className="nav-link text-danger">
             Logout

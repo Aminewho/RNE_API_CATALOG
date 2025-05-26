@@ -1,0 +1,4 @@
+TID: [-1234] [2025-05-23 10:31:08,332]  INFO {AUDIT_LOG} - Initiator=w**************r Action=Get-User-Claim-Values Target=a***n Data={"Claims":{},"Profile":"default"} Outcome=Success
+TID: [-1234] [2025-05-23 10:31:08,335]  INFO {AUDIT_LOG} - Initiator=w**************r Action=Get-User-Claim-Values Target=a***n Data={"Claims":{},"Profile":"default"} Outcome=Success
+TID: [-1234] [2025-05-23 10:31:08,335]  INFO {AUDIT_LOG} - Initiator=w**************r Action=Get-User-Claim-Values Target=a***n Data={"Claims":{},"Profile":"default"} Outcome=Success
+TID: [-1234] [2025-05-23 10:31:08,342]  INFO {AUDIT_LOG} - 'admin@carbon.super [-1234]' logged in at [2025-05-23 10:31:08,341+0000]

@@ -10,26 +10,33 @@ export default function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const formData = new URLSearchParams();
       formData.append('username', username);
       formData.append('password', password);
-
-      const response =await axios.post('http://localhost:8080/login', formData, {
+  
+      const response = await axios.post('http://localhost:8080/login', formData, {
         withCredentials: true,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       });
-      console.log("response",response.data);
-      // Redirect to API list or dashboard after login
-      navigate('/admin');
+  
+      const role = response.data.role;
+  
+      if (role === 'ROLE_ADMIN') {
+        navigate('/admin');
+      } else if (role === 'ROLE_USER') {
+        navigate('/user'); // or '/dashboard' or any other user-specific route
+      } else {
+        alert("Unknown role, cannot navigate.");
+      }
+  
     } catch (err) {
       alert("Login failed: " + (err.response?.data?.message || err.message));
     }
   };
-
+  
   return (
     <div className="container mt-5" style={{ maxWidth: '500px' }}>
       <h3 className="mb-4 text-center">Login </h3>

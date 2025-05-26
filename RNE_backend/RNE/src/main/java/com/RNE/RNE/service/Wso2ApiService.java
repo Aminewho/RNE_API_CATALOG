@@ -2,8 +2,6 @@ package com.RNE.RNE.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -19,8 +17,8 @@ public class Wso2ApiService {
     private RestTemplate restTemplate;
 
    public String getAccessToken() throws JsonProcessingException {
-    String clientId = "Gxev01mBnnZzueZQT4YFB64mtE8a";
-    String clientSecret = "5Io6BnTd3lb6aH8Hcm1m2miTZYca";
+    String clientId = "vOJ1PyTYOJKJlJCvyahU2z_G9C8a";
+    String clientSecret = "7ZXf9rSObMrVfW9OEsmHfggCKXIa";
     String username = "admin";
     String password = "admin";
 
@@ -61,6 +59,4 @@ public String getApiList() throws JsonProcessingException {
 
     return response.getBody();
 }
-
-    
 }
