@@ -1,0 +1,14 @@
+.api-card {
+    min-height: 300px; /* Ensure consistent height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .api-description {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 80px;
+    white-space: normal;
+  }

@@ -1,5 +1,6 @@
 package com.RNE.RNE.controller;
 
+import com.RNE.RNE.model.Api;
 import com.RNE.RNE.model.SignupRequest;
 import com.RNE.RNE.model.SignupRequest;
 import com.RNE.RNE.model.User;
@@ -8,7 +9,12 @@ import com.RNE.RNE.service.SignupService;
 import com.RNE.RNE.service.AdminService;
 import com.RNE.RNE.service.UserService;
 import com.RNE.RNE.service.Wso2InstanceService;
+import com.RNE.RNE.service.Wso2ApiService;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.RNE.RNE.repository.Wso2InstanceRepository;
+import com.RNE.RNE.repository.ApiRepository;
 
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +36,12 @@ public class AdminController {
     private UserService userService;
     @Autowired
     private Wso2InstanceService instanceService;
-
+    @Autowired
+    private Wso2ApiService wso2ApiService;
+    @Autowired
+    private Wso2InstanceRepository wso2InstanceRepository;
+    @Autowired
+    private ApiRepository apiRepository;
 
     @GetMapping("/signups")
     public List<SignupRequest> getAllSignupRequests() {
@@ -74,5 +85,57 @@ public class AdminController {
         return ResponseEntity.ok(instances);
     }
 
-   
+   @GetMapping("/apis")
+    public ResponseEntity<List<JsonNode>> getAllApisFromAllInstances() {
+        List<JsonNode> apis = wso2ApiService.getAllApisFromAllInstances();
+        return ResponseEntity.ok(apis);
+    }
+    @GetMapping("/catalog/apis")
+    public ResponseEntity<List<Api>> getCatalogApis() {
+        List<Api> apis = apiRepository.findAll();
+        if (apis.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.ok(apis);
+    }
+    @DeleteMapping("/catalog/apis/{id}")
+    public ResponseEntity<String> deleteApiFromCatalog(@PathVariable String id) {
+        Optional<Api> apiOptional = apiRepository.findById(id);
+        if (apiOptional.isPresent()) {
+            apiRepository.delete(apiOptional.get());
+            return ResponseEntity.ok("API deleted from catalog");
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("API not found in catalog");
+        }
+    }
+    @PostMapping("/catalog/add")
+    public ResponseEntity<?> addApi(@RequestBody Api incomingApi) {
+        List<JsonNode> availableApis = wso2ApiService.getAllApisFromAllInstances();
+
+        Optional<JsonNode> matchingApi = availableApis.stream()
+            .filter(node -> node.get("id").asText().equals(incomingApi.getId()))
+            .findFirst();
+
+        if (matchingApi.isEmpty()) {
+            return ResponseEntity.badRequest().body("API not found in WSO2 instances");
+    }
+
+    // Find Wso2Instance by baseUrl
+    String baseUrl = matchingApi.get().get("baseUrl").asText();
+    Wso2Instance instance = wso2InstanceRepository.findByBaseUrl(baseUrl);
+    if (instance == null) {
+        return ResponseEntity.badRequest().body("WSO2 instance not found for base URL");
+    }
+
+    Api api = new Api();
+    api.setId(matchingApi.get().get("id").asText());
+    api.setName(matchingApi.get().get("name").asText());
+    api.setVersion(matchingApi.get().get("version").asText());
+    api.setContext(matchingApi.get().get("context").asText());
+    api.setProvider(matchingApi.get().get("provider").asText());
+    api.setInstance(instance); 
+
+    apiRepository.save(api);
+    return ResponseEntity.ok("API added to catalog");
+}
 }

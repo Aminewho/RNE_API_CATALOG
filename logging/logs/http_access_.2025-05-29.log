@@ -1,0 +1,246 @@
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/llm-providers HTTP/1.1 200 495 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.352
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/apis?gatewayLabel=Default HTTP/1.1 200 550 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.351
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/endpoint-certificates HTTP/1.1 200 2 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.351
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/application-key-mappings HTTP/1.1 200 397 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.028
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/subscription-policies HTTP/1.1 200 621 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.351
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/revokedjwt HTTP/1.1 200 764 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.571
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/subscriptions HTTP/1.1 200 463 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.029
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/correlation-configs HTTP/1.1 200 408 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.356
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/api-logging-configs HTTP/1.1 200 11 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.355
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/api-policies HTTP/1.1 200 328 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.979
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/subscription-policies HTTP/1.1 200 621 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.994
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/application-policies HTTP/1.1 200 290 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.974
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/keyTemplates HTTP/1.1 200 2 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.575
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/api-policies HTTP/1.1 200 328 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.025
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/applications HTTP/1.1 200 423 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.017
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/webhooks-subscriptions HTTP/1.1 200 29 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.391
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/gateway-policy-artifacts?gatewayLabel=RGVmYXVsdA&type=Synapse HTTP/1.1 200 39 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.391
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/block HTTP/1.1 200 75 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.611
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/apis?gatewayLabel=Default HTTP/1.1 200 550 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.046
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/ga-config HTTP/1.1 200 396 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.119
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/application-policies HTTP/1.1 200 290 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.119
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/scopes HTTP/1.1 200 39 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.192
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /oauth2/token/.well-known/openid-configuration HTTP/1.1 200 2404 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.215
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/global-policies HTTP/1.1 200 39 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.115
+127.0.0.1 - - [29/May/2025:08:18:19 +0000] GET /internal/data/v1/keymanagers HTTP/1.1 200 975 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.546
+127.0.0.1 - - [29/May/2025:08:18:20 +0000] GET /internal/data/v1/runtime-artifacts?gatewayLabel=RGVmYXVsdA&type=Synapse HTTP/1.1 200 5955 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.545
+172.23.0.1 - - [29/May/2025:08:18:23 +0000] - 400 - - - 0.000
+172.23.0.1 - - [29/May/2025:08:18:23 +0000] - 400 - - - 0.000
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/login.jsp HTTP/1.1 200 3682 - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 1.975
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/css/global.css HTTP/1.1 200 5311 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.008
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] - 400 - - - 0.000
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] - 400 - - - 0.000
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/styles/css/main.css HTTP/1.1 200 1240 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.007
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/dialog/css/dialog.css HTTP/1.1 200 510 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.012
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] - 400 - - - 0.000
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/css/carbonFormStyles.css HTTP/1.1 200 2050 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.003
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] - 400 - - - 0.000
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/dialog/css/jqueryui/jqueryui-themeroller.css HTTP/1.1 200 8544 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.012
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/jquery-3.6.0.min.js HTTP/1.1 200 31389 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.025
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/jquery-migrate-3.3.2.js HTTP/1.1 200 8236 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.007
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/csrfPrevention.js HTTP/1.1 200 4370 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.028
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/jquery.form.js HTTP/1.1 200 13555 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.017
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] - 400 - - - 0.000
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] POST /carbon/admin/js/csrfPrevention.js HTTP/1.1 200 52 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.011
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/jquery.validate.js HTTP/1.1 200 13953 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.031
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/jquery.cookie.js HTTP/1.1 200 1407 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.004
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/dialog/js/jqueryui/jquery-ui.min.js HTTP/1.1 200 68539 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.063
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/jquery.ui.widget.min.js HTTP/1.1 200 3168 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.009
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/jquery.ui.tabs.min.js HTTP/1.1 200 6857 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.013
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/jquery.ui.core.min.js HTTP/1.1 200 6487 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.015
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/cookies.js HTTP/1.1 200 1136 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.008
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/WSRequest.js HTTP/1.1 200 12981 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.015
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/main.js HTTP/1.1 200 15412 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.018
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/customControls.js HTTP/1.1 200 1193 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.007
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/dialog/js/dialog.js HTTP/1.1 200 2644 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.007
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/yui/build/yahoo-dom-event/yahoo-dom-event.js HTTP/1.1 200 13405 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.018
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/yui/build/animation/animation-min.js HTTP/1.1 200 4957 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.012
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/js/template.js HTTP/1.1 200 3596 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.009
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/yui/build/yahoo/yahoo-min.js HTTP/1.1 200 3057 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.007
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/images/up-arrow.gif HTTP/1.1 200 615 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.008
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/yui/build/selector/selector-min.js HTTP/1.1 200 4236 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.010
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/images/user-guide.gif HTTP/1.1 200 2228 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.010
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] - 400 - - - 0.000
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/images/forum.gif HTTP/1.1 200 1977 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.006
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/images/issue-tracker.gif HTTP/1.1 200 1821 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.008
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/styles/images/api-header-region-bg.png HTTP/1.1 200 255 https://localhost:9443/carbon/styles/css/main.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.004
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/styles/images/api-server-menu-panel-bg.png HTTP/1.1 200 218 https://localhost:9443/carbon/styles/css/main.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.005
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/styles/images/api-header-back.png HTTP/1.1 200 22845 https://localhost:9443/carbon/styles/css/main.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.008
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/styles/images/api-logo.png HTTP/1.1 200 4077 https://localhost:9443/carbon/styles/css/main.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.004
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/styles/images/api-server-menu-header.gif HTTP/1.1 200 176 https://localhost:9443/carbon/styles/css/main.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.005
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/images/1px.gif HTTP/1.1 200 43 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.005
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/images/help.gif HTTP/1.1 200 411 https://localhost:9443/carbon/admin/css/global.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.003
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/images/menu_header.gif HTTP/1.1 404 823 https://localhost:9443/carbon/styles/css/main.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.006
+172.23.0.1 - - [29/May/2025:08:18:25 +0000] GET /carbon/admin/images/favicon.ico HTTP/1.1 200 17542 https://localhost:9443/carbon/admin/login.jsp Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.008
+127.0.0.1 - - [29/May/2025:08:23:39 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.025
+172.23.0.1 - - [29/May/2025:08:23:39 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.284
+172.23.0.1 - - [29/May/2025:08:23:41 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 1.265
+172.23.0.1 - - [29/May/2025:08:23:41 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.053
+127.0.0.1 - - [29/May/2025:08:23:41 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.030
+172.23.0.1 - - [29/May/2025:08:23:41 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.048
+172.23.0.1 - - [29/May/2025:08:23:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.074
+127.0.0.1 - - [29/May/2025:08:23:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.042
+172.23.0.1 - - [29/May/2025:08:23:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.072
+172.23.0.1 - - [29/May/2025:08:23:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.028
+127.0.0.1 - - [29/May/2025:08:23:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.022
+172.23.0.1 - - [29/May/2025:08:23:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.032
+172.23.0.1 - - [29/May/2025:08:24:07 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.070
+127.0.0.1 - - [29/May/2025:08:24:07 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.035
+172.23.0.1 - - [29/May/2025:08:24:07 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.059
+172.23.0.1 - - [29/May/2025:08:24:08 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.035
+127.0.0.1 - - [29/May/2025:08:24:08 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.031
+172.23.0.1 - - [29/May/2025:08:24:08 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.045
+172.23.0.1 - - [29/May/2025:08:24:11 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.043
+127.0.0.1 - - [29/May/2025:08:24:11 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.028
+172.23.0.1 - - [29/May/2025:08:24:11 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.062
+172.23.0.1 - - [29/May/2025:08:24:11 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.016
+127.0.0.1 - - [29/May/2025:08:24:11 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.024
+172.23.0.1 - - [29/May/2025:08:24:11 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.030
+172.23.0.1 - - [29/May/2025:08:28:58 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.027
+127.0.0.1 - - [29/May/2025:08:28:58 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [29/May/2025:08:28:58 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.040
+172.23.0.1 - - [29/May/2025:08:28:58 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.042
+127.0.0.1 - - [29/May/2025:08:28:58 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.015
+172.23.0.1 - - [29/May/2025:08:28:58 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.029
+172.23.0.1 - - [29/May/2025:08:29:25 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.046
+127.0.0.1 - - [29/May/2025:08:29:25 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.021
+172.23.0.1 - - [29/May/2025:08:29:25 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.030
+172.23.0.1 - - [29/May/2025:08:29:25 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.016
+127.0.0.1 - - [29/May/2025:08:29:25 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [29/May/2025:08:29:25 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.015
+172.23.0.1 - - [29/May/2025:08:30:49 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.050
+127.0.0.1 - - [29/May/2025:08:30:49 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.023
+172.23.0.1 - - [29/May/2025:08:30:49 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.065
+172.23.0.1 - - [29/May/2025:08:30:49 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.019
+127.0.0.1 - - [29/May/2025:08:30:49 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.023
+172.23.0.1 - - [29/May/2025:08:30:49 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.025
+172.23.0.1 - - [29/May/2025:08:30:55 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.095
+127.0.0.1 - - [29/May/2025:08:30:55 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.028
+172.23.0.1 - - [29/May/2025:08:30:55 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.020
+172.23.0.1 - - [29/May/2025:08:30:55 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.058
+127.0.0.1 - - [29/May/2025:08:30:55 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.027
+172.23.0.1 - - [29/May/2025:08:30:55 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.034
+172.23.0.1 - - [29/May/2025:08:30:55 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.027
+127.0.0.1 - - [29/May/2025:08:30:55 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [29/May/2025:08:30:55 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.020
+172.23.0.1 - - [29/May/2025:08:30:55 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.017
+127.0.0.1 - - [29/May/2025:08:30:55 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [29/May/2025:08:30:55 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.011
+172.23.0.1 - - [29/May/2025:08:30:56 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.035
+127.0.0.1 - - [29/May/2025:08:30:56 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.026
+172.23.0.1 - - [29/May/2025:08:30:56 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.037
+172.23.0.1 - - [29/May/2025:09:04:52 +0000] - 400 - - - 0.000
+172.23.0.1 - - [29/May/2025:10:18:03 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.212
+127.0.0.1 - - [29/May/2025:10:18:03 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.033
+172.23.0.1 - - [29/May/2025:10:18:03 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.284
+172.23.0.1 - - [29/May/2025:10:18:03 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.041
+127.0.0.1 - - [29/May/2025:10:18:03 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.015
+172.23.0.1 - - [29/May/2025:10:18:03 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.027
+172.23.0.1 - - [29/May/2025:10:40:53 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.078
+127.0.0.1 - - [29/May/2025:10:40:53 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.028
+172.23.0.1 - - [29/May/2025:10:40:53 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.119
+172.23.0.1 - - [29/May/2025:10:41:07 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.034
+127.0.0.1 - - [29/May/2025:10:41:07 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.017
+172.23.0.1 - - [29/May/2025:10:41:07 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.033
+172.23.0.1 - - [29/May/2025:10:41:09 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.050
+127.0.0.1 - - [29/May/2025:10:41:09 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.042
+172.23.0.1 - - [29/May/2025:10:41:09 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.055
+172.23.0.1 - - [29/May/2025:11:06:00 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.068
+127.0.0.1 - - [29/May/2025:11:06:00 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [29/May/2025:11:06:00 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.094
+172.23.0.1 - - [29/May/2025:11:06:00 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.021
+127.0.0.1 - - [29/May/2025:11:06:00 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.012
+172.23.0.1 - - [29/May/2025:11:06:00 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.020
+172.23.0.1 - - [29/May/2025:11:15:38 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.033
+127.0.0.1 - - [29/May/2025:11:15:38 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [29/May/2025:11:15:38 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.041
+172.23.0.1 - - [29/May/2025:11:15:38 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.024
+127.0.0.1 - - [29/May/2025:11:15:38 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.014
+172.23.0.1 - - [29/May/2025:11:15:38 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.020
+172.23.0.1 - - [29/May/2025:11:15:42 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.013
+127.0.0.1 - - [29/May/2025:11:15:42 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [29/May/2025:11:15:42 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.021
+172.23.0.1 - - [29/May/2025:11:18:58 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.016
+127.0.0.1 - - [29/May/2025:11:18:58 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [29/May/2025:11:18:58 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.044
+172.23.0.1 - - [29/May/2025:11:18:58 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.022
+127.0.0.1 - - [29/May/2025:11:18:58 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.014
+172.23.0.1 - - [29/May/2025:11:18:58 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.025
+172.23.0.1 - - [29/May/2025:11:33:55 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.030
+127.0.0.1 - - [29/May/2025:11:33:55 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [29/May/2025:11:33:55 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.042
+172.23.0.1 - - [29/May/2025:11:33:55 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.014
+127.0.0.1 - - [29/May/2025:11:33:55 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [29/May/2025:11:33:55 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.013
+172.23.0.1 - - [29/May/2025:11:44:52 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.019
+127.0.0.1 - - [29/May/2025:11:44:52 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [29/May/2025:11:44:52 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.037
+172.23.0.1 - - [29/May/2025:11:48:14 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.020
+127.0.0.1 - - [29/May/2025:11:48:14 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [29/May/2025:11:48:14 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.024
+172.23.0.1 - - [29/May/2025:11:48:14 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.044
+127.0.0.1 - - [29/May/2025:11:48:14 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.016
+172.23.0.1 - - [29/May/2025:11:48:14 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.024
+172.23.0.1 - - [29/May/2025:11:48:19 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.016
+127.0.0.1 - - [29/May/2025:11:48:19 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [29/May/2025:11:48:19 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.019
+172.23.0.1 - - [29/May/2025:11:48:20 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.022
+127.0.0.1 - - [29/May/2025:11:48:20 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.017
+172.23.0.1 - - [29/May/2025:11:48:20 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.025
+172.23.0.1 - - [29/May/2025:11:48:22 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.027
+127.0.0.1 - - [29/May/2025:11:48:22 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.012
+172.23.0.1 - - [29/May/2025:11:48:22 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.020
+172.23.0.1 - - [29/May/2025:11:48:23 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.011
+127.0.0.1 - - [29/May/2025:11:48:23 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [29/May/2025:11:48:23 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.022
+172.23.0.1 - - [29/May/2025:14:14:16 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.105
+127.0.0.1 - - [29/May/2025:14:14:16 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.022
+172.23.0.1 - - [29/May/2025:14:14:16 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.173
+172.23.0.1 - - [29/May/2025:14:14:16 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.015
+127.0.0.1 - - [29/May/2025:14:14:16 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [29/May/2025:14:14:16 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.019
+172.23.0.1 - - [29/May/2025:14:23:13 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.040
+127.0.0.1 - - [29/May/2025:14:23:13 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [29/May/2025:14:23:13 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.040
+172.23.0.1 - - [29/May/2025:14:23:13 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.011
+127.0.0.1 - - [29/May/2025:14:23:13 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.015
+172.23.0.1 - - [29/May/2025:14:23:13 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.031
+172.23.0.1 - - [29/May/2025:14:31:14 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.044
+127.0.0.1 - - [29/May/2025:14:31:14 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [29/May/2025:14:31:14 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.037
+172.23.0.1 - - [29/May/2025:14:31:14 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.013
+127.0.0.1 - - [29/May/2025:14:31:14 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [29/May/2025:14:31:14 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.011
+172.23.0.1 - - [29/May/2025:14:31:48 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.015
+127.0.0.1 - - [29/May/2025:14:31:49 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [29/May/2025:14:31:49 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.019
+172.23.0.1 - - [29/May/2025:14:31:49 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+127.0.0.1 - - [29/May/2025:14:31:49 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.019
+172.23.0.1 - - [29/May/2025:14:31:49 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.032
+172.23.0.1 - - [29/May/2025:14:34:38 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.019
+127.0.0.1 - - [29/May/2025:14:34:38 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [29/May/2025:14:34:38 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.048
+172.23.0.1 - - [29/May/2025:14:34:38 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.024
+127.0.0.1 - - [29/May/2025:14:34:38 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.018
+172.23.0.1 - - [29/May/2025:14:34:38 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.021
+172.23.0.1 - - [29/May/2025:14:34:43 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.020
+127.0.0.1 - - [29/May/2025:14:34:43 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [29/May/2025:14:34:43 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.014
+172.23.0.1 - - [29/May/2025:14:34:43 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.015
+127.0.0.1 - - [29/May/2025:14:34:43 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [29/May/2025:14:34:43 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.019
+172.23.0.1 - - [29/May/2025:14:44:53 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.028
+127.0.0.1 - - [29/May/2025:14:44:53 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [29/May/2025:14:44:53 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.040
+172.23.0.1 - - [29/May/2025:14:44:53 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.016
+127.0.0.1 - - [29/May/2025:14:44:53 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.012
+172.23.0.1 - - [29/May/2025:14:44:53 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.021
+172.23.0.1 - - [29/May/2025:14:45:33 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.027
+127.0.0.1 - - [29/May/2025:14:45:33 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [29/May/2025:14:45:33 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.026
+172.23.0.1 - - [29/May/2025:14:45:33 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.021
+127.0.0.1 - - [29/May/2025:14:45:33 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [29/May/2025:14:45:33 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.022
+172.23.0.1 - - [29/May/2025:14:46:04 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.011
+127.0.0.1 - - [29/May/2025:14:46:04 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [29/May/2025:14:46:04 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.038

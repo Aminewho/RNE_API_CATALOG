@@ -1,0 +1,5 @@
+2025-05-30T10:43:23,440 [-] [https-jsse-nio-9443-exec-22]  WARN {org.wso2.carbon.identity.oidc.session.OIDCInboundSessionContextMgtListener} No session state found for the received Session ID : 03b00f17-b97e-44c1-837e-1b959dc97501
+2025-05-30T13:19:31,403 [-] [https-jsse-nio-9443-exec-19] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@4cd138eb
+2025-05-30T13:19:31,411 [-] [https-jsse-nio-9443-exec-30] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-05-30T13:19:31,411 [-] [https-jsse-nio-9443-exec-30] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-05-30T13:19:31,460 [-] [https-jsse-nio-9443-exec-27] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@4a20cbd4

@@ -1,17 +1,13 @@
 package com.RNE.RNE.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-
-import java.util.Set;
-import java.util.HashSet;
-
 
 @Entity
 @Table(name = "api")
@@ -27,8 +23,72 @@ public class Api {
     private boolean published;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore 
     @JoinColumn(name = "wso2_instance_id")
     private Wso2Instance instance;
 
+    // Getters and Setters
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getProvider() {
+        return provider;
+    }
+
+    public void setProvider(String provider) {
+        this.provider = provider;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getContext() {
+        return context;
+    }
+
+    public void setContext(String context) {
+        this.context = context;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
+    public Wso2Instance getInstance() {
+        return instance;
+    }
+
+    public void setInstance(Wso2Instance instance) {
+        this.instance = instance;
+    }
 }

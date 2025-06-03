@@ -8,6 +8,9 @@ import AdminPage from './pages/AdminPage';
 import ManageUsers from './pages/ManageUsers';
 import ManageAPIs from './pages/ManageAPIs';
 import ManageWso2Instances from './pages/ManageWso2Instances';
+import AuthHandler from './authentication/AuthHandler';  
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   const handleListApis = () => {
@@ -16,12 +19,12 @@ function App() {
 
   return (
     <Router>
-      <Navbar onListApis={handleListApis} />
+      <AuthHandler /> 
+      <Navbar/>
       <Routes>
         <Route path="/" element={<ApiListPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-
         {/* Admin Section with Sidebar Layout */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route path="dashboard" element={<AdminPage />} />

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import api from '../api'; 
 const ManageWso2Instances = () => {
   const [instances, setInstances] = useState([]);
   const [newInstance, setNewInstance] = useState({
@@ -15,7 +15,7 @@ const ManageWso2Instances = () => {
 
   const fetchInstances = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/admin/instances', { withCredentials: true });
+      const response = await api.get('/admin/instances');
       setInstances(response.data);
     } catch (error) {
       console.error('Error fetching instances:', error);
@@ -32,7 +32,7 @@ const ManageWso2Instances = () => {
   const handleAddInstance = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:8080/admin/instances', newInstance, { withCredentials: true });
+      await axios.post('admin/instances');
       setNewInstance({ baseUrl: '', clientId: '', clientSecret: '' });
       fetchInstances();
     } catch (error) {
@@ -42,7 +42,7 @@ const ManageWso2Instances = () => {
 
   const handleDeleteInstance = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/admin/instances/${id}`, { withCredentials: true });
+      await axios.delete(`/admin/instances/${id}`);
       fetchInstances();
     } catch (error) {
       console.error('Error deleting instance:', error);

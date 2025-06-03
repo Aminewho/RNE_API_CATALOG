@@ -1,31 +1,29 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
+import './ApiCard.css'; // Custom styles
 
-const ApiCard = ({ api }) => {
-  const navigate = useNavigate();
-  const handleClick = () => {
-    navigate(`/login/${api.id}`);
-  };
-
+export default function ApiCard({ api, selected, onToggle }) {
   return (
-    <div className="col-md-4 mb-4" onClick={handleClick} style={{ cursor: 'pointer' }}>
-  <div className="card text-white bg-primary h-100" style={{ minHeight: '50px' ,minWidth: '250px'}}>
-    <div className="card-header text-center" style={{ fontSize: '3rem' }}>
-      {api.name.substring(0, 2)}
+    <div className="col-md-4 mb-4 d-flex">
+      <div className={`card api-card text-white w-100 ${selected ? 'bg-success' : 'bg-primary'}`}>
+        <div className="card-body d-flex flex-column">
+          <h5 className="card-title text-truncate" title={api.name}>{api.name}</h5>
+          <p className="card-text api-description">
+            {api.description || 'No description available.'}
+          </p>
+          <p className="card-text small mt-auto">
+            <div>Version: {api.version}</div>
+            <div>Context: {api.context}</div>
+          </p>
+          <Button
+            variant={selected ? 'light' : 'dark'}
+            onClick={() => onToggle(api)}
+            className="mt-2"
+          >
+            {selected ? '-' : '+'}
+          </Button>
+        </div>
+      </div>
     </div>
-    <div className="card-body">
-      <h5 className="card-title" style={{ fontSize: '1.5rem' }}>{api.name}</h5>
-      <p className="card-text">By: {api.provider}</p>
-      <p className="card-text">Version: {api.version}</p>
-      <p className="card-text">Context: {api.context}</p>
-      <p className="card-text">createdTime: {api.createdTime}</p>
-
-    </div>
-  </div>
-</div>
-
   );
-};
-
-export default ApiCard;
+}

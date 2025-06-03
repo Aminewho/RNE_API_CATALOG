@@ -1,4 +1,4 @@
-package com.RNE.RNE.controller;
+/*package com.RNE.RNE.controller;
 
 import com.RNE.RNE.service.Wso2ApiService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -18,4 +18,4 @@ public class ApiController {
     public ResponseEntity<?> listApis() throws JsonProcessingException {
         return ResponseEntity.ok(wso2ApiService.getApiList());
     }
- }
+ }*/
