@@ -1,43 +1,54 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { Drawer, List, ListItem, ListItemText, ListItemButton, Toolbar, Box } from '@mui/material';
+
+const drawerWidth = 240;
 
 export default function AdminSidebar() {
+  const navItems = [
+    { label: 'Dashboard', path: '/admin/dashboard' },
+    { label: 'Signup Requests', path: '/admin/signup-requests' },
+    { label: 'Manage Users', path: '/admin/users' },
+    { label: 'Manage APIs', path: '/admin/apis' },
+    { label: 'Manage WSO2 Instances', path: '/admin/wso2' },
+    { label: 'Logout', path: '/logout', danger: true }
+  ];
+
   return (
-    <div className="d-flex flex-column p-3 bg-dark text-white" style={{ height: '100vh', width: '250px' }}>
-      <h4 className="mb-4">Admin Panel</h4>
-      <ul className="nav nav-pills flex-column">
-        <li className="nav-item">
-          <NavLink to="/admin/dashboard" className="nav-link text-white" activeclassname="active">
-            Dashboard
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink to="/admin/signup-requests" className="nav-link text-white" activeclassname="active">
-            Signup Requests
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink to="/admin/users" className="nav-link text-white" activeclassname="active">
-            Manage Users
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink to="/admin/apis" className="nav-link text-white" activeclassname="active">
-            Manage APIs
-          </NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink to="/admin/wso2" className="nav-link text-white" activeclassname="active">
-            Manage wso2 instances
-          </NavLink>
-        </li>
-        <li className="nav-item mt-3">
-          <NavLink to="/logout" className="nav-link text-danger">
-            Logout
-          </NavLink>
-        </li>
-      </ul>
-    </div>
+    <Drawer
+      variant="permanent"
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        [`& .MuiDrawer-paper`]: {
+          width: drawerWidth,
+          boxSizing: 'border-box',
+          backgroundColor: '#212121',
+          color: '#fff',
+        },
+      }}
+    >
+      <Toolbar />
+      <Box sx={{ overflow: 'auto' }}>
+        <List>
+          {navItems.map(({ label, path, danger }) => (
+            <ListItem key={label} disablePadding>
+              <ListItemButton
+                component={NavLink}
+                to={path}
+                sx={{
+                  color: danger ? '#f44336' : '#fff',
+                  '&.active': {
+                    backgroundColor: '#424242',
+                  },
+                }}
+              >
+                <ListItemText primary={label} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    </Drawer>
   );
 }

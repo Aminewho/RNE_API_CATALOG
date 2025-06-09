@@ -1,16 +1,27 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
+import { Box, Toolbar } from '@mui/material';
 import AdminSidebar from './AdminSidebar';
+import Navbar from './Navbar';
+
+const drawerWidth = 240;
 
 export default function AdminLayout() {
   return (
-    <div style={{ display: 'flex', height: '100vh' }}>
-      <div style={{ width: '250px', overflowY: 'auto', backgroundColor: '#f8f9fa', borderRight: '1px solid #dee2e6' }}>
-        <AdminSidebar />
-      </div>
-      <div style={{ flex: 1, overflowY: 'auto', padding: '20px' }}>
+    <Box sx={{ display: 'flex' }}>
+ 
+      <Toolbar />
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          marginLeft: `${drawerWidth}px`,
+        }}
+      >
+        <Toolbar />
         <Outlet />
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }

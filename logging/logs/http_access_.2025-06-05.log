@@ -1,0 +1,244 @@
+172.23.0.1 - - [05/Jun/2025:07:48:46 +0000] - 400 - - - 0.000
+172.23.0.1 - - [05/Jun/2025:07:49:37 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.059
+127.0.0.1 - - [05/Jun/2025:07:49:37 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [05/Jun/2025:07:49:37 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.080
+172.23.0.1 - - [05/Jun/2025:07:49:37 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.009
+127.0.0.1 - - [05/Jun/2025:07:49:37 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:07:49:37 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.011
+172.23.0.1 - - [05/Jun/2025:07:49:38 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.016
+127.0.0.1 - - [05/Jun/2025:07:49:38 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:07:49:38 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.012
+172.23.0.1 - - [05/Jun/2025:07:49:38 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.021
+127.0.0.1 - - [05/Jun/2025:07:49:38 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:07:49:38 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.011
+172.23.0.1 - - [05/Jun/2025:07:52:39 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.035
+127.0.0.1 - - [05/Jun/2025:07:52:39 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:07:52:39 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.040
+172.23.0.1 - - [05/Jun/2025:07:52:39 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:07:52:39 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:07:52:39 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.012
+172.23.0.1 - - [05/Jun/2025:07:52:43 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.018
+127.0.0.1 - - [05/Jun/2025:07:52:43 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:07:52:43 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.012
+172.23.0.1 - - [05/Jun/2025:07:52:43 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.011
+127.0.0.1 - - [05/Jun/2025:07:52:43 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:07:52:43 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.010
+172.23.0.1 - - [05/Jun/2025:07:52:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.017
+127.0.0.1 - - [05/Jun/2025:07:52:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:07:52:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.015
+172.23.0.1 - - [05/Jun/2025:07:52:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.021
+127.0.0.1 - - [05/Jun/2025:07:52:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [05/Jun/2025:07:52:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.013
+172.23.0.1 - - [05/Jun/2025:08:30:23 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.055
+127.0.0.1 - - [05/Jun/2025:08:30:23 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [05/Jun/2025:08:30:23 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.086
+172.23.0.1 - - [05/Jun/2025:08:30:23 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.020
+127.0.0.1 - - [05/Jun/2025:08:30:23 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:08:30:23 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.013
+172.23.0.1 - - [05/Jun/2025:08:30:26 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:08:30:26 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.005
+172.23.0.1 - - [05/Jun/2025:08:30:26 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.013
+172.23.0.1 - - [05/Jun/2025:08:30:26 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:08:30:26 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:08:30:26 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.012
+172.23.0.1 - - [05/Jun/2025:08:30:58 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.021
+127.0.0.1 - - [05/Jun/2025:08:30:58 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.006
+172.23.0.1 - - [05/Jun/2025:08:30:58 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.013
+172.23.0.1 - - [05/Jun/2025:08:30:58 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:08:30:58 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.005
+172.23.0.1 - - [05/Jun/2025:08:30:58 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.009
+172.23.0.1 - - [05/Jun/2025:09:21:40 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.245
+127.0.0.1 - - [05/Jun/2025:09:21:40 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.031
+172.23.0.1 - - [05/Jun/2025:09:21:40 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.179
+172.23.0.1 - - [05/Jun/2025:09:21:40 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.015
+127.0.0.1 - - [05/Jun/2025:09:21:40 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.012
+172.23.0.1 - - [05/Jun/2025:09:21:40 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.025
+172.23.0.1 - - [05/Jun/2025:09:23:50 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.023
+127.0.0.1 - - [05/Jun/2025:09:23:50 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [05/Jun/2025:09:23:50 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.057
+172.23.0.1 - - [05/Jun/2025:09:23:50 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:09:23:50 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:09:23:50 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.017
+172.23.0.1 - - [05/Jun/2025:09:28:21 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.063
+127.0.0.1 - - [05/Jun/2025:09:28:21 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.029
+172.23.0.1 - - [05/Jun/2025:09:28:21 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.058
+172.23.0.1 - - [05/Jun/2025:09:30:42 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.035
+127.0.0.1 - - [05/Jun/2025:09:30:42 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.012
+172.23.0.1 - - [05/Jun/2025:09:30:42 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.030
+172.23.0.1 - - [05/Jun/2025:09:30:42 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.011
+127.0.0.1 - - [05/Jun/2025:09:30:42 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:09:30:42 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.018
+172.23.0.1 - - [05/Jun/2025:09:35:29 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.032
+127.0.0.1 - - [05/Jun/2025:09:35:29 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [05/Jun/2025:09:35:29 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.046
+172.23.0.1 - - [05/Jun/2025:09:35:29 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.015
+127.0.0.1 - - [05/Jun/2025:09:35:29 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:09:35:29 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.016
+172.23.0.1 - - [05/Jun/2025:10:01:44 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.086
+127.0.0.1 - - [05/Jun/2025:10:01:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [05/Jun/2025:10:01:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.122
+172.23.0.1 - - [05/Jun/2025:10:01:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.024
+127.0.0.1 - - [05/Jun/2025:10:01:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.017
+172.23.0.1 - - [05/Jun/2025:10:01:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.029
+172.23.0.1 - - [05/Jun/2025:10:52:58 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.275
+127.0.0.1 - - [05/Jun/2025:10:52:58 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.038
+172.23.0.1 - - [05/Jun/2025:10:52:58 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.240
+172.23.0.1 - - [05/Jun/2025:10:52:59 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.023
+127.0.0.1 - - [05/Jun/2025:10:52:59 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:10:52:59 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.016
+172.23.0.1 - - [05/Jun/2025:10:52:59 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:10:52:59 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:10:52:59 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.013
+172.23.0.1 - - [05/Jun/2025:10:52:59 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.020
+127.0.0.1 - - [05/Jun/2025:10:52:59 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.012
+172.23.0.1 - - [05/Jun/2025:10:52:59 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.014
+172.23.0.1 - - [05/Jun/2025:10:53:29 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.027
+127.0.0.1 - - [05/Jun/2025:10:53:29 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [05/Jun/2025:10:53:29 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.015
+172.23.0.1 - - [05/Jun/2025:10:53:29 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.018
+127.0.0.1 - - [05/Jun/2025:10:53:29 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:10:53:29 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.018
+172.23.0.1 - - [05/Jun/2025:10:54:22 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.018
+127.0.0.1 - - [05/Jun/2025:10:54:22 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:10:54:22 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.032
+172.23.0.1 - - [05/Jun/2025:10:54:22 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.026
+172.23.0.1 - - [05/Jun/2025:10:54:22 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:10:54:22 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.014
+172.23.0.1 - - [05/Jun/2025:10:56:40 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.086
+127.0.0.1 - - [05/Jun/2025:10:56:40 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.012
+172.23.0.1 - - [05/Jun/2025:10:56:40 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.035
+172.23.0.1 - - [05/Jun/2025:10:56:40 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.017
+127.0.0.1 - - [05/Jun/2025:10:56:40 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.022
+172.23.0.1 - - [05/Jun/2025:10:56:40 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.026
+172.23.0.1 - - [05/Jun/2025:11:25:03 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.054
+127.0.0.1 - - [05/Jun/2025:11:25:03 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [05/Jun/2025:11:25:03 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.081
+172.23.0.1 - - [05/Jun/2025:11:25:04 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:11:25:04 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:11:25:04 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.016
+172.23.0.1 - - [05/Jun/2025:11:25:30 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:11:25:31 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.019
+172.23.0.1 - - [05/Jun/2025:11:25:31 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.027
+172.23.0.1 - - [05/Jun/2025:11:25:31 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.008
+172.23.0.1 - - [05/Jun/2025:11:25:31 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:11:25:31 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:11:25:31 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:11:25:31 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.016
+172.23.0.1 - - [05/Jun/2025:11:25:31 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.024
+172.23.0.1 - - [05/Jun/2025:11:25:32 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:11:25:32 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:11:25:32 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.011
+172.23.0.1 - - [05/Jun/2025:11:25:47 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.016
+127.0.0.1 - - [05/Jun/2025:11:25:47 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:11:25:48 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.019
+172.23.0.1 - - [05/Jun/2025:11:25:48 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:11:25:48 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [05/Jun/2025:11:25:48 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.010
+172.23.0.1 - - [05/Jun/2025:11:25:49 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.022
+127.0.0.1 - - [05/Jun/2025:11:25:49 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.005
+172.23.0.1 - - [05/Jun/2025:11:25:49 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.009
+172.23.0.1 - - [05/Jun/2025:11:25:49 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.009
+127.0.0.1 - - [05/Jun/2025:11:25:49 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.006
+172.23.0.1 - - [05/Jun/2025:11:25:49 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.010
+172.23.0.1 - - [05/Jun/2025:11:26:21 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.014
+127.0.0.1 - - [05/Jun/2025:11:26:21 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [05/Jun/2025:11:26:21 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.045
+172.23.0.1 - - [05/Jun/2025:11:26:21 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.017
+127.0.0.1 - - [05/Jun/2025:11:26:21 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.012
+172.23.0.1 - - [05/Jun/2025:11:26:21 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.019
+172.23.0.1 - - [05/Jun/2025:11:26:44 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.026
+127.0.0.1 - - [05/Jun/2025:11:26:44 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [05/Jun/2025:11:26:44 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.034
+172.23.0.1 - - [05/Jun/2025:11:26:44 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.025
+127.0.0.1 - - [05/Jun/2025:11:26:44 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.021
+172.23.0.1 - - [05/Jun/2025:11:26:44 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.036
+172.23.0.1 - - [05/Jun/2025:11:26:48 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.024
+127.0.0.1 - - [05/Jun/2025:11:26:48 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.016
+172.23.0.1 - - [05/Jun/2025:11:26:48 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.022
+172.23.0.1 - - [05/Jun/2025:11:26:48 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.022
+127.0.0.1 - - [05/Jun/2025:11:26:48 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:11:26:48 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.014
+172.23.0.1 - - [05/Jun/2025:11:27:10 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.015
+127.0.0.1 - - [05/Jun/2025:11:27:10 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:11:27:10 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.019
+172.23.0.1 - - [05/Jun/2025:11:27:11 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.013
+127.0.0.1 - - [05/Jun/2025:11:27:11 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:11:27:11 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.014
+172.23.0.1 - - [05/Jun/2025:11:36:00 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.031
+127.0.0.1 - - [05/Jun/2025:11:36:00 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:11:36:00 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.039
+172.23.0.1 - - [05/Jun/2025:11:36:00 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:11:36:00 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:11:36:00 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.010
+172.23.0.1 - - [05/Jun/2025:11:45:53 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.020
+127.0.0.1 - - [05/Jun/2025:11:45:53 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:11:45:53 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.029
+172.23.0.1 - - [05/Jun/2025:11:45:53 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.014
+172.23.0.1 - - [05/Jun/2025:11:45:53 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:11:45:53 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [05/Jun/2025:12:00:29 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.129
+127.0.0.1 - - [05/Jun/2025:12:00:29 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.019
+172.23.0.1 - - [05/Jun/2025:12:00:30 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.088
+172.23.0.1 - - [05/Jun/2025:12:00:30 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:12:00:30 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:12:00:30 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.014
+172.23.0.1 - - [05/Jun/2025:12:00:31 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.014
+127.0.0.1 - - [05/Jun/2025:12:00:31 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [05/Jun/2025:12:00:31 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.017
+172.23.0.1 - - [05/Jun/2025:12:00:31 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.015
+127.0.0.1 - - [05/Jun/2025:12:00:31 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:12:00:31 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.017
+172.23.0.1 - - [05/Jun/2025:12:03:01 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.037
+127.0.0.1 - - [05/Jun/2025:12:03:01 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [05/Jun/2025:12:03:01 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.061
+172.23.0.1 - - [05/Jun/2025:12:03:01 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.022
+127.0.0.1 - - [05/Jun/2025:12:03:01 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.014
+172.23.0.1 - - [05/Jun/2025:12:03:01 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.016
+172.23.0.1 - - [05/Jun/2025:12:03:02 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:12:03:02 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.006
+172.23.0.1 - - [05/Jun/2025:12:03:02 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.011
+172.23.0.1 - - [05/Jun/2025:12:03:02 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.013
+127.0.0.1 - - [05/Jun/2025:12:03:02 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:12:03:02 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.025
+172.23.0.1 - - [05/Jun/2025:12:03:04 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.022
+127.0.0.1 - - [05/Jun/2025:12:03:04 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:12:03:04 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.017
+172.23.0.1 - - [05/Jun/2025:12:03:04 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+172.23.0.1 - - [05/Jun/2025:12:03:04 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.009
+127.0.0.1 - - [05/Jun/2025:12:03:04 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:12:03:43 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:12:03:43 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.012
+172.23.0.1 - - [05/Jun/2025:12:03:43 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.022
+172.23.0.1 - - [05/Jun/2025:12:03:43 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.013
+127.0.0.1 - - [05/Jun/2025:12:03:43 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.009
+172.23.0.1 - - [05/Jun/2025:12:03:43 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.016
+172.23.0.1 - - [05/Jun/2025:12:03:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.024
+172.23.0.1 - - [05/Jun/2025:12:03:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:12:03:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.011
+172.23.0.1 - - [05/Jun/2025:12:03:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+172.23.0.1 - - [05/Jun/2025:12:03:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:12:03:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [05/Jun/2025:12:03:48 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.015
+127.0.0.1 - - [05/Jun/2025:12:03:48 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.010
+172.23.0.1 - - [05/Jun/2025:12:03:48 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.017
+172.23.0.1 - - [05/Jun/2025:12:03:48 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.018
+127.0.0.1 - - [05/Jun/2025:12:03:48 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:12:03:48 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.014
+172.23.0.1 - - [05/Jun/2025:12:18:06 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.059
+127.0.0.1 - - [05/Jun/2025:12:18:06 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:12:18:07 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.060
+172.23.0.1 - - [05/Jun/2025:12:18:07 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:12:18:07 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.005
+172.23.0.1 - - [05/Jun/2025:12:18:07 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.009
+172.23.0.1 - - [05/Jun/2025:12:18:08 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.011
+127.0.0.1 - - [05/Jun/2025:12:18:08 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:12:18:08 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.010
+172.23.0.1 - - [05/Jun/2025:12:18:08 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.010
+127.0.0.1 - - [05/Jun/2025:12:18:08 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.006
+172.23.0.1 - - [05/Jun/2025:12:18:08 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.008
+172.23.0.1 - - [05/Jun/2025:12:20:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.037
+127.0.0.1 - - [05/Jun/2025:12:20:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.008
+172.23.0.1 - - [05/Jun/2025:12:20:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.037
+172.23.0.1 - - [05/Jun/2025:12:20:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.012
+127.0.0.1 - - [05/Jun/2025:12:20:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.007
+172.23.0.1 - - [05/Jun/2025:12:20:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.014

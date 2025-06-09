@@ -1,29 +1,50 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import './ApiCard.css'; // Custom styles
+import { Card, CardContent, Typography, Button, Box } from '@mui/material';
 
 export default function ApiCard({ api, selected, onToggle }) {
   return (
-    <div className="col-md-4 mb-4 d-flex">
-      <div className={`card api-card text-white w-100 ${selected ? 'bg-success' : 'bg-primary'}`}>
-        <div className="card-body d-flex flex-column">
-          <h5 className="card-title text-truncate" title={api.name}>{api.name}</h5>
-          <p className="card-text api-description">
+    <Box sx={{ width: '100%', maxWidth: 400, mb: 3, px: 1 }}>
+      <Card
+        sx={{
+          backgroundColor: selected ? 'success.main' : 'primary.main',
+          color: 'white',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
+        }}
+      >
+        <CardContent>
+          <Typography variant="h6" noWrap title={api.name}>
+            {api.name}
+          </Typography>
+
+          <Typography variant="body2" sx={{ mt: 1, mb: 2 }}>
             {api.description || 'No description available.'}
-          </p>
-          <p className="card-text small mt-auto">
+          </Typography>
+
+          <Typography variant="body2">
             <div>Version: {api.version}</div>
             <div>Context: {api.context}</div>
-          </p>
+          </Typography>
+
           <Button
-            variant={selected ? 'light' : 'dark'}
+            variant="contained"
+            size="small"
+            sx={{
+              mt: 2,
+              backgroundColor: selected ? 'white' : 'black',
+              color: selected ? 'black' : 'white',
+              '&:hover': {
+                backgroundColor: selected ? '#f0f0f0' : '#333',
+              },
+            }}
             onClick={() => onToggle(api)}
-            className="mt-2"
           >
             {selected ? '-' : '+'}
           </Button>
-        </div>
-      </div>
-    </div>
+        </CardContent>
+      </Card>
+    </Box>
   );
 }

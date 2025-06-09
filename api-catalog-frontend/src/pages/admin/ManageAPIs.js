@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import api from '../api'; // instance Axios globale avec gestion de session
-import ApiCard from '../components/ApiCard';
+import api from '../../api'; // instance Axios globale avec gestion de session
+import ApiCard from '../../components/ApiCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function ManageAPIs() {

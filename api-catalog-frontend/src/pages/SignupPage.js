@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+  Container,
+  Typography,
+  TextField,
+  Grid,
+  Button,
+  Box,
+  Divider,
+} from '@mui/material';
 
 export default function SignupPage() {
-
   const [formData, setFormData] = useState({
     matriculeFiscale: '',
     secteurActivite: '',
@@ -19,13 +26,13 @@ export default function SignupPage() {
     telResponsableTechnique: '',
     ip: '',
     tel: '',
-    email: ''
+    email: '',
   });
 
   const handleChange = (e) => {
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     }));
   };
 
@@ -40,86 +47,82 @@ export default function SignupPage() {
     }
   };
 
-  return (
-    <div className="container mt-5" style={{ maxWidth: '700px' }}>
-      <h3 className="mb-4 text-center">Signup</h3>
-     
+  const renderTextFields = (fields) =>
+    fields.map((field) => (
+      <Grid item xs={12} sm={6} key={field}>
+        <TextField
+          fullWidth
+          required
+          label={field}
+          name={field}
+          value={formData[field]}
+          onChange={handleChange}
+        />
+      </Grid>
+    ));
 
-      <form onSubmit={handleSubmit}>
+  return (
+    <Container maxWidth="md" sx={{ mt: 5 }}>
+      <Typography variant="h4" align="center" gutterBottom>
+        Signup
+      </Typography>
+
+      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 4 }}>
         {/* Company Info */}
-        <h5>Company Information</h5>
-        {['matriculeFiscale', 'secteurActivite', 'raisonSociale', 'adresse'].map(field => (
-          <div className="mb-3" key={field}>
-            <label className="form-label">{field}</label>
-            <input
-              type="text"
-              className="form-control"
-              name={field}
-              value={formData[field]}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        ))}
+        <Typography variant="h6" gutterBottom>Company Information</Typography>
+        <Grid container spacing={2}>
+          {renderTextFields([
+            'matriculeFiscale',
+            'secteurActivite',
+            'raisonSociale',
+            'adresse',
+          ])}
+        </Grid>
+
+        <Divider sx={{ my: 4 }} />
 
         {/* Premier Responsable */}
-        <h5>Premier Responsable</h5>
-        {[
-          'nomPremierResponsable', 'prenomPremierResponsable',
-          'emailPremierResponsable', 'telPremierResponsable'
-        ].map(field => (
-          <div className="mb-3" key={field}>
-            <label className="form-label">{field}</label>
-            <input
-              type="text"
-              className="form-control"
-              name={field}
-              value={formData[field]}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        ))}
+        <Typography variant="h6" gutterBottom>Premier Responsable</Typography>
+        <Grid container spacing={2}>
+          {renderTextFields([
+            'nomPremierResponsable',
+            'prenomPremierResponsable',
+            'emailPremierResponsable',
+            'telPremierResponsable',
+          ])}
+        </Grid>
+
+        <Divider sx={{ my: 4 }} />
 
         {/* Responsable Technique */}
-        <h5>Responsable Technique</h5>
-        {[
-          'nomResponsableTechnique', 'prenomResponsableTechnique',
-          'emailResponsableTechnique', 'telResponsableTechnique'
-        ].map(field => (
-          <div className="mb-3" key={field}>
-            <label className="form-label">{field}</label>
-            <input
-              type="text"
-              className="form-control"
-              name={field}
-              value={formData[field]}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        ))}
+        <Typography variant="h6" gutterBottom>Responsable Technique</Typography>
+        <Grid container spacing={2}>
+          {renderTextFields([
+            'nomResponsableTechnique',
+            'prenomResponsableTechnique',
+            'emailResponsableTechnique',
+            'telResponsableTechnique',
+          ])}
+        </Grid>
+
+        <Divider sx={{ my: 4 }} />
 
         {/* Contact Info */}
-        <h5>Contact Information</h5>
-        {['ip', 'tel', 'email'].map(field => (
-          <div className="mb-3" key={field}>
-            <label className="form-label">{field}</label>
-            <input
-              type={field === 'email' ? 'email' : 'text'}
-              className="form-control"
-              name={field}
-              value={formData[field]}
-              onChange={handleChange}
-              required
-            />
-          </div>
-        ))}
+        <Typography variant="h6" gutterBottom>Contact Information</Typography>
+        <Grid container spacing={2}>
+          {renderTextFields(['ip', 'tel', 'email'])}
+        </Grid>
 
-        <button type="submit" className="btn btn-success w-100">
+        <Button
+          type="submit"
+          variant="contained"
+          color="success"
+          fullWidth
+          sx={{ mt: 4 }}
+        >
           Submit Signup Request
-        </button>
-      </form>
-    </div>
+        </Button>
+      </Box>
+    </Container>
   );
 }

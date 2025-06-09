@@ -24,7 +24,7 @@ public class AdminUserInitializer {
             User admin = new User();
             admin.setUsername("admin");
             admin.setPassword(passwordEncoder.encode("admin123"));
-            admin.setRole("ADMIN");
+            admin.setRole("ROLE_ADMIN");
 
             userRepository.save(admin);
             System.out.println("Admin user created with username=admin and password=admin123");

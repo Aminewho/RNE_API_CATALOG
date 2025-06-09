@@ -1,49 +1,51 @@
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { AppBar, Toolbar, Typography, Button, IconButton, Avatar, Box } from '@mui/material';
+import { Login as LoginIcon } from '@mui/icons-material';
+import { Link as RouterLink } from 'react-router-dom';
 import { useAuth } from '../authentication/AuthContext';
 
 const Navbar = () => {
   const { user } = useAuth();
 
-  const renderUserCircle = (username) => {
+  const renderUserAvatar = (username) => {
     const initials = username.slice(0, 2).toUpperCase();
     return (
-      <div
-        style={{
-          backgroundColor: '#0d6efd',
-          borderRadius: '50%',
-          width: '40px',
-          height: '40px',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          color: 'white',
-          fontWeight: 'bold',
-          fontSize: '16px',
-        }}
-        title={username}
-      >
+      <Avatar sx={{ bgcolor: 'primary.main' }} title={username}>
         {initials}
-      </div>
+      </Avatar>
     );
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
-        <Link className="navbar-brand" to="/">RNE</Link>
-        <Link className="btn btn-outline-light" to="/">API Catalog</Link>
+    <AppBar position="fixed" color="primary">
+      <Toolbar sx={{ justifyContent: 'space-between' }}>
+        <Typography
+          variant="h6"
+          component={RouterLink}
+          to="/"
+          sx={{ textDecoration: 'none', color: 'inherit', fontWeight: 'bold' }}
+        >
+          RNE
+        </Typography>
 
-        <div className="ms-auto">
+        <Box>
           {user ? (
-            renderUserCircle(user.username)
+            renderUserAvatar(user.username)
           ) : (
-            <Link className="btn btn-outline-light" to="/login">
-              <i className="bi bi-box-arrow-in-right"></i> Login
-            </Link>
+            <Button
+              component={RouterLink}
+              to="/login"
+              color="inherit"
+              startIcon={<LoginIcon />}
+              variant="outlined"
+              sx={{ borderColor: 'white', color: 'white' }}
+            >
+              Login
+            </Button>
           )}
-        </div>
-      </div>
-    </nav>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 

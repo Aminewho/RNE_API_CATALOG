@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import ApiCard from '../components/ApiCard';
+import ApiCard from '../../components/ApiCard';
 
 export default function ApiListPage() {
   const [apis, setApis] = useState([]);

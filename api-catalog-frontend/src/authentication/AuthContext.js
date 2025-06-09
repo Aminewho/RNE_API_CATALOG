@@ -1,17 +1,26 @@
-import { createContext, useState, useEffect, useContext } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import api from '../api';
 
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // contains username, role etc.
+  const [loading, setLoading] = useState(true);
 
   const fetchUser = async () => {
     try {
-      const response = await api.get('/me');
-      setUser(response.data);
-    } catch {
+      const res = await api.get('/me');
+
+      const { username, authorities } = res.data;
+      const role = authorities.length > 0 ? authorities[0].authority : null;
+
+      setUser({ username, role });  // 👈 include the role
+      console.log('User fetched:', { username, role });
+    } catch (e) {
+      console.error('Error fetching user:', e);
       setUser(null);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -20,7 +29,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <AuthContext.Provider value={{ user, setUser, fetchUser }}>
+    <AuthContext.Provider value={{ user, fetchUser, loading }}>
       {children}
     </AuthContext.Provider>
   );

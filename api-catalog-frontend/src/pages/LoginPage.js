@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth } from '../authentication/AuthContext';
+
+import {
+  Box,
+  Button,
+  Container,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+  Link
+} from '@mui/material';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 export default function LoginPage() {
   const navigate = useNavigate();
@@ -25,7 +36,7 @@ export default function LoginPage() {
         },
       });
 
-      await fetchUser(); // Make sure AuthContext is updated before redirecting
+      await fetchUser(); // update context before redirect
 
       const role = response.data.role;
       if (role === 'ROLE_ADMIN') {
@@ -42,57 +53,76 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="container mt-5" style={{ maxWidth: '400px' }}>
-      <h3 className="mb-4 text-center">Login</h3>
-      <form onSubmit={handleLogin}>
-        <div className="mb-3">
-          <label className="form-label">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Enter your username"
+    <Container maxWidth="xs">
+      <Box
+        sx={{
+          mt: 8,
+          p: 4,
+          boxShadow: 3,
+          borderRadius: 2,
+          bgcolor: 'background.paper',
+        }}
+      >
+        <Typography variant="h5" align="center" gutterBottom>
+          Login
+        </Typography>
+
+        <form onSubmit={handleLogin}>
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Username"
+            variant="outlined"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        </div>
 
-        <div className="mb-3">
-          <label className="form-label">Password</label>
-          <div className="input-group">
-            <input
-              type={showPassword ? 'text' : 'password'}
-              className="form-control"
-              placeholder="Enter your password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button
-              type="button"
-              className="btn btn-outline-secondary"
-              onClick={() => setShowPassword(prev => !prev)}
-              tabIndex={-1}
-            >
-              {showPassword ? 'Hide' : 'Show'}
-            </button>
-          </div>
-        </div>
+          <TextField
+            fullWidth
+            margin="normal"
+            label="Password"
+            variant="outlined"
+            type={showPassword ? 'text' : 'password'}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    edge="end"
+                    tabIndex={-1}
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              )
+            }}
+          />
 
-        <button type="submit" className="btn btn-primary w-100 mb-3">Login</button>
+          <Button
+            type="submit"
+            variant="contained"
+            fullWidth
+            sx={{ mt: 2, mb: 1 }}
+          >
+            Login
+          </Button>
 
-        <div className="text-center">
-          <small>
+          <Typography variant="body2" align="center">
             Don’t have an account?{' '}
-            <span
-              style={{ color: '#0d6efd', cursor: 'pointer', textDecoration: 'underline' }}
+            <Link
+              component="button"
+              variant="body2"
               onClick={() => navigate('/signup')}
             >
               Signup Instead
-            </span>
-          </small>
-        </div>
-      </form>
-    </div>
+            </Link>
+          </Typography>
+        </form>
+      </Box>
+    </Container>
   );
 }
