@@ -5,7 +5,7 @@ export default function PublicRoute({ children }) {
   const { user, loading } = useAuth();
 
   if (loading) return null;
-console.log('PublicRoute user:', user);
+  console.log('PublicRoute user:', user);
   if (user?.role === 'ROLE_ADMIN') return <Navigate to="/admin" />;
   if (user?.role === 'ROLE_USER') return <Navigate to="/user" />;
 

@@ -13,6 +13,7 @@ import PublicRoute from './routes/PublicRoute';
 import { AuthProvider } from './authentication/AuthContext';
 import LayoutWithAppBar from './components/LayoutWithAppBar'; // adjust path if needed
 import SignupRequests from './pages/admin/SignupRequests';
+import ApiMarketplace from './pages/user/ApiMarketplace'; // adjust path if needed
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -20,42 +21,51 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-      
       <LayoutWithAppBar>
-     
         <AuthHandler />
         <Routes>
-          {/* Public Routes */}
-          <Route path="/" element={<ApiListPage />} />
-          <Route
-            path="/login"
-            element={
-              <PublicRoute>
-                <LoginPage />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/signup"
-            element={
-            <publicRoute>
-                <SignupPage />
-            </publicRoute>
-            }
-          />
+  {/* Public Routes */}
+  <Route path="/" element={<ApiListPage />} />
+  <Route
+    path="/login"
+    element={
+      <PublicRoute>
+        <LoginPage />
+      </PublicRoute>
+    }
+  />
+  <Route
+    path="/signup"
+    element={
+      <PublicRoute>
+        <SignupPage />
+      </PublicRoute>
+    }
+  />
 
-          <Route path="/admin" element={
-            <ProtectedRoute allowedRoles={['ROLE_ADMIN']}>
-              <AdminLayout />
-            </ProtectedRoute>
-          }>
-            <Route path="dashboard" element={<SignupRequests />} />
-            <Route path="signup-requests" element={<SignupRequests />} />
-            <Route path="users" element={<ManageUsers />} />
-            <Route path="apis" element={<ManageAPIs />} />
-            <Route path="wso2" element={<ManageWso2Instances />} />
-          </Route>
-        </Routes>
+  {/* Protected Routes */}
+  <Route
+    path="/apis"
+    element={
+      <ProtectedRoute allowedRoles={['ROLE_USER']} >
+        <ApiMarketplace  />
+      </ProtectedRoute>
+    }
+  />
+
+  {/* Admin Protected Routes */}
+  <Route path="/admin" element={
+    <ProtectedRoute allowedRoles={['ROLE_ADMIN']}>
+      <AdminLayout />
+    </ProtectedRoute>
+  }>
+    <Route path="dashboard" element={<SignupRequests />} />
+    <Route path="signup-requests" element={<SignupRequests />} />
+    <Route path="users" element={<ManageUsers />} />
+    <Route path="apis" element={<ManageAPIs />} />
+    <Route path="wso2" element={<ManageWso2Instances />} />
+  </Route>
+</Routes>
         </LayoutWithAppBar>
       </Router>
     </AuthProvider>

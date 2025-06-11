@@ -1,21 +1,27 @@
-/*package com.RNE.RNE.controller;
+package com.RNE.RNE.controller;
 
-import com.RNE.RNE.service.Wso2ApiService;
-import com.fasterxml.jackson.core.JsonProcessingException;
-
+import com.RNE.RNE.model.Api;
+import com.RNE.RNE.repository.ApiRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api/wso2")
+@RequestMapping("/apis") // Base path can be adjusted
 public class ApiController {
 
-    @Autowired
-    private Wso2ApiService wso2ApiService;
+    private final ApiRepository apiRepository;
 
-    @GetMapping("/list")
-    public ResponseEntity<?> listApis() throws JsonProcessingException {
-        return ResponseEntity.ok(wso2ApiService.getApiList());
+    @Autowired
+    public ApiController(ApiRepository apiRepository) {
+        this.apiRepository = apiRepository;
     }
- }*/
+
+    // Endpoint to list all APIs
+    @GetMapping
+    public List<Api> getAllApis() {
+        return apiRepository.findAll();
+    }
+
+}
