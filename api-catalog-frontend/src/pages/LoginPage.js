@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../authentication/AuthContext';
-
+import api from '../api'; // Ensure this points to your Axios instance with interceptors set up
 import {
   Box,
   Button,
@@ -25,20 +25,30 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const formData = new URLSearchParams();
-      formData.append('username', username);
-      formData.append('password', password);
-
-      const response = await axios.post('http://localhost:8080/login', formData, {
-        withCredentials: true,
+      const response = await axios.post('http://localhost:8080/auth/login', {
+        username,
+        password
+      }, {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
+          'Content-Type': 'application/json'
+        }
       });
-
-      await fetchUser(); // update context before redirect
-
-      const role = response.data.role;
+  
+      // Save the JWT token to localStorage
+      const token = response.data.token;
+      console.log('token:', token);
+      localStorage.setItem('token', token);
+  
+      // Set token in default Axios header for future requests
+      api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+  
+      // Now fetch user info using /me (with token automatically attached)
+      await fetchUser();
+  
+      // Extract role from the decoded token or fetchUser result
+      const role = response.data.roles;
+      console.log('Login successful, role:', role);
+  
       if (role === 'ROLE_ADMIN') {
         navigate('/admin');
       } else if (role === 'ROLE_USER') {
@@ -46,11 +56,12 @@ export default function LoginPage() {
       } else {
         alert('Unknown role, cannot navigate.');
       }
-
+  
     } catch (err) {
       alert('Login failed: ' + (err.response?.data?.message || err.message));
     }
   };
+  
 
   return (
     <Container maxWidth="xs">

@@ -53,7 +53,7 @@ public class AdminService {
     user.setTel(request.getTel());
     user.setEmail(request.getEmail());
     // Optional: set role if needed (default is ROLE_USER)
-    user.setRole("ROLE_USER");
+    user.setRole("USER");
     userRepository.save(user);
     request.setStatus(SignupRequest.Status.ACCEPTED);
     repository.save(request);

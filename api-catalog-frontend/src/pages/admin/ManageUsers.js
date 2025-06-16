@@ -45,6 +45,7 @@ export default function UserManagementPage() {
       setLoading(true);
       const response = await api.get('/admin/users');
       setUsers(response.data);
+  
     } catch (error) {
       console.error('Error fetching users:', error);
       // Handle error (e.g., show snackbar)
@@ -63,7 +64,7 @@ export default function UserManagementPage() {
   };
 
   const filteredUsers = users
-    .filter(user => user.role === 'ROLE_USER')
+    .filter(user => user.role === 'USER')
     .filter(user => 
       Object.values(user).some(
         value => value && value.toString().toLowerCase().includes(searchTerm.toLowerCase())

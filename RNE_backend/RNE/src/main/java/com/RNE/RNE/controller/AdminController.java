@@ -1,11 +1,16 @@
 package com.RNE.RNE.controller;
 
+import com.RNE.RNE.dto.SubscriptionDTO;
+import com.RNE.RNE.dto.SubscriptionMapper;
 import com.RNE.RNE.model.Api;
 import com.RNE.RNE.model.SignupRequest;
+import com.RNE.RNE.model.Subscription;
+import com.RNE.RNE.model.SubscriptionStatus;
 import com.RNE.RNE.model.SignupRequest;
 import com.RNE.RNE.model.User;
 import com.RNE.RNE.model.Wso2Instance;
 import com.RNE.RNE.service.SignupService;
+import com.RNE.RNE.service.SubscriptionService;
 import com.RNE.RNE.service.AdminService;
 import com.RNE.RNE.service.UserService;
 import com.RNE.RNE.service.Wso2InstanceService;
@@ -13,11 +18,15 @@ import com.RNE.RNE.service.Wso2ApiService;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.RNE.RNE.repository.Wso2InstanceRepository;
 import com.RNE.RNE.repository.ApiRepository;
+import com.RNE.RNE.repository.UserRepository;
 
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,6 +51,14 @@ public class AdminController {
     private Wso2InstanceRepository wso2InstanceRepository;
     @Autowired
     private ApiRepository apiRepository;
+
+      
+    @Autowired
+    private SubscriptionService subscriptionService;
+
+    @Autowired
+    private UserRepository userRepository;
+
 
     @GetMapping("/signups")
     public List<SignupRequest> getAllSignupRequests() {
@@ -118,24 +135,55 @@ public class AdminController {
 
         if (matchingApi.isEmpty()) {
             return ResponseEntity.badRequest().body("API not found in WSO2 instances");
+        }
+
+        // Find Wso2Instance by baseUrl
+        String baseUrl = matchingApi.get().get("baseUrl").asText();
+        Wso2Instance instance = wso2InstanceRepository.findByBaseUrl(baseUrl);
+        if (instance == null) {
+            return ResponseEntity.badRequest().body("WSO2 instance not found for base URL");
+        }
+
+        Api api = new Api();
+        api.setId(matchingApi.get().get("id").asText());
+        api.setName(matchingApi.get().get("name").asText());
+        api.setVersion(matchingApi.get().get("version").asText());
+        api.setContext(matchingApi.get().get("context").asText());
+        api.setProvider(matchingApi.get().get("provider").asText());
+        api.setInstance(instance); 
+
+        apiRepository.save(api);
+        return ResponseEntity.ok("API added to catalog");
+    }
+        
+    @GetMapping("/pending")
+    public ResponseEntity<List<SubscriptionDTO>> getPendingSubscriptions() {
+        List<Subscription> subscriptions  = subscriptionService.getSubscriptionsByStatus(SubscriptionStatus.PENDING);
+        List<SubscriptionDTO> dtoList = subscriptions.stream()
+            .map(SubscriptionMapper::toDto)
+            .collect(Collectors.toList());
+        return ResponseEntity.ok(dtoList);
     }
 
-    // Find Wso2Instance by baseUrl
-    String baseUrl = matchingApi.get().get("baseUrl").asText();
-    Wso2Instance instance = wso2InstanceRepository.findByBaseUrl(baseUrl);
-    if (instance == null) {
-        return ResponseEntity.badRequest().body("WSO2 instance not found for base URL");
+    @PutMapping("/subscriptions/{id}/approve")
+    public ResponseEntity<?> approveSubscription(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(subscriptionService.approveSubscription(id));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of("error", e.getMessage()));
+        }
     }
 
-    Api api = new Api();
-    api.setId(matchingApi.get().get("id").asText());
-    api.setName(matchingApi.get().get("name").asText());
-    api.setVersion(matchingApi.get().get("version").asText());
-    api.setContext(matchingApi.get().get("context").asText());
-    api.setProvider(matchingApi.get().get("provider").asText());
-    api.setInstance(instance); 
+    @PutMapping("/subscriptions/{id}/reject")
+    public ResponseEntity<?> rejectSubscription(@PathVariable Long id) {
+        try {
+            return ResponseEntity.ok(subscriptionService.rejectSubscription(id));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body(Map.of("error", e.getMessage()));
+        }
+    }
+  
 
-    apiRepository.save(api);
-    return ResponseEntity.ok("API added to catalog");
-}
 }

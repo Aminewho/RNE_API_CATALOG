@@ -1,0 +1,18 @@
+127.0.0.1 - - [13/Jun/2025:08:42:03 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.206
+172.23.0.1 - - [13/Jun/2025:08:42:03 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 1.266
+172.23.0.1 - - [13/Jun/2025:08:42:05 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 2.029
+172.23.0.1 - - [13/Jun/2025:08:43:04 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.026
+127.0.0.1 - - [13/Jun/2025:08:43:04 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.015
+172.23.0.1 - - [13/Jun/2025:08:43:04 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.032
+172.23.0.1 - - [13/Jun/2025:11:50:50 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.512
+127.0.0.1 - - [13/Jun/2025:11:50:50 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.078
+172.23.0.1 - - [13/Jun/2025:11:50:51 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.468
+172.23.0.1 - - [13/Jun/2025:11:51:20 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.052
+127.0.0.1 - - [13/Jun/2025:11:51:20 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.023
+172.23.0.1 - - [13/Jun/2025:11:51:20 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.042
+172.23.0.1 - - [13/Jun/2025:11:57:06 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.045
+127.0.0.1 - - [13/Jun/2025:11:57:06 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.020
+172.23.0.1 - - [13/Jun/2025:11:57:06 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.041
+172.23.0.1 - - [13/Jun/2025:12:49:44 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.145
+127.0.0.1 - - [13/Jun/2025:12:49:44 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.045
+172.23.0.1 - - [13/Jun/2025:12:49:44 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.222

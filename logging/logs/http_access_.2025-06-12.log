@@ -1,0 +1,28 @@
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /oauth2/token/.well-known/openid-configuration HTTP/1.1 200 2404 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.972
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/webhooks-subscriptions HTTP/1.1 200 29 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.370
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/keyTemplates HTTP/1.1 200 2 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.768
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/api-logging-configs HTTP/1.1 200 11 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.385
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/revokedjwt HTTP/1.1 200 169 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.777
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/subscriptions HTTP/1.1 200 463 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.388
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/keymanagers HTTP/1.1 200 975 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.391
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/endpoint-certificates HTTP/1.1 200 2 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.395
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/llm-providers HTTP/1.1 200 495 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.407
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/gateway-policy-artifacts?gatewayLabel=RGVmYXVsdA&type=Synapse HTTP/1.1 200 39 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.413
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/api-policies HTTP/1.1 200 328 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.418
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/correlation-configs HTTP/1.1 200 408 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.421
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/application-key-mappings HTTP/1.1 200 397 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.414
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/ga-config HTTP/1.1 200 396 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.034
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/block HTTP/1.1 200 75 - Apache-HttpClient/4.5.13 (Java/21.0.5) 1.842
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/subscription-policies HTTP/1.1 200 621 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.438
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/subscription-policies HTTP/1.1 200 621 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.439
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/application-policies HTTP/1.1 200 290 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.473
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/apis?gatewayLabel=Default HTTP/1.1 200 550 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.475
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/applications HTTP/1.1 200 423 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.476
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/apis?gatewayLabel=Default HTTP/1.1 200 550 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.483
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/application-policies HTTP/1.1 200 290 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.028
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/api-policies HTTP/1.1 200 328 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.021
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/scopes HTTP/1.1 200 39 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.144
+127.0.0.1 - - [12/Jun/2025:08:01:10 +0000] GET /internal/data/v1/global-policies HTTP/1.1 200 39 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.071
+127.0.0.1 - - [12/Jun/2025:08:01:11 +0000] GET /internal/data/v1/runtime-artifacts?gatewayLabel=RGVmYXVsdA&type=Synapse HTTP/1.1 200 5955 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.300
+172.23.0.1 - - [12/Jun/2025:15:08:00 +0000] - 400 - - - 0.000
+172.23.0.1 - - [12/Jun/2025:15:08:00 +0000] - 400 - - - 0.000

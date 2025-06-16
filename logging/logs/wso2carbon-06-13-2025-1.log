@@ -1,0 +1,1 @@
+TID: [-1234] [internal/data/v1] [2025-06-13 08:42:03,301]  INFO {org.wso2.carbon.event.output.adapter.jms.internal.util.JMSConnectionFactory} - JMS ConnectionFactory : tokenRevocationJMSPublisher initialized

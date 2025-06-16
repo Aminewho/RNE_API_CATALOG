@@ -23,12 +23,11 @@ public class Subscription {
     private LocalDateTime approvalDate;
 
     // Who?
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 
-    // To what?
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "api_id")
     private Api api;
 

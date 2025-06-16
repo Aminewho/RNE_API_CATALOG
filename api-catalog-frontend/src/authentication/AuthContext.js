@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUser = async () => {
     try {
-      const res = await api.get('/me');
+      const res = await api.get('/auth/me');
 
       const { username, authorities } = res.data;
       const role = authorities.length > 0 ? authorities[0].authority : null;
