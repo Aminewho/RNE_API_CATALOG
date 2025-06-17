@@ -13,6 +13,7 @@ import PublicRoute from './routes/PublicRoute';
 import { AuthProvider } from './authentication/AuthContext';
 import LayoutWithAppBar from './components/LayoutWithAppBar'; // adjust path if needed
 import SignupRequests from './pages/admin/SignupRequests';
+import SubscriptionRequests from './pages/admin/SubscriptionRequests';
 import ApiMarketplace from './pages/user/ApiMarketplace'; // adjust path if needed
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -58,11 +59,14 @@ function App() {
       <AdminLayout />
     </ProtectedRoute>
   }>
-    <Route path="dashboard" element={<SignupRequests />} />
+    <Route path="dashboard" element={<ApiListPage />} />
     <Route path="signup-requests" element={<SignupRequests />} />
     <Route path="users" element={<ManageUsers />} />
     <Route path="apis" element={<ManageAPIs />} />
     <Route path="wso2" element={<ManageWso2Instances />} />
+    <Route path="subscriptions" element={<SubscriptionRequests />} />
+
+
   </Route>
 </Routes>
         </LayoutWithAppBar>

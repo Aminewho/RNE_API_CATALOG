@@ -57,6 +57,9 @@ public class SubscriptionService {
     public List<Subscription> getSubscriptionsByStatus(SubscriptionStatus status) {
         return subscriptionRepository.findByStatus(status);
     }
+    public List<Subscription> getSubscriptions() {
+        return subscriptionRepository.findAll();
+    }
 
     // Approve a subscription
     @Transactional

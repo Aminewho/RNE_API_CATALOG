@@ -19,7 +19,6 @@ const AuthHandler = () => {
           alert('Access denied: insufficient permissions');
           navigate('/login'); // or navigate('/access-denied') if you have such a page
         }
-
         return Promise.reject(error);
       }
     );

@@ -12,8 +12,12 @@ import {
   InputAdornment,
   CircularProgress,
   Paper,
-  Divider,
-  Avatar
+  Avatar,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Alert
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -23,13 +27,20 @@ import {
   Visibility as ViewIcon,
   CloudDownload as SubscribeIcon
 } from '@mui/icons-material';
-import api from '../../api'; // Your configured axios instance
+import api from '../../api';
 
 export default function ApiMarketplace() {
   const [apis, setApis] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredApis, setFilteredApis] = useState([]);
+  const [subscriptionDialog, setSubscriptionDialog] = useState({
+    open: false,
+    api: null,
+    allowedRequests: '',
+    error: '',
+    isSubmitting: false
+  });
 
   useEffect(() => {
     const fetchApis = async () => {
@@ -48,9 +59,9 @@ export default function ApiMarketplace() {
   }, []);
 
   useEffect(() => {
-    const results = apis.filter(api =>
-      api.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (api.description && api.description.toLowerCase().includes(searchTerm.toLowerCase()))
+    const results = apis.filter(apiItem =>
+      apiItem.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (apiItem.description && apiItem.description.toLowerCase().includes(searchTerm.toLowerCase()))
     );
     setFilteredApis(results);
   }, [searchTerm, apis]);
@@ -58,6 +69,68 @@ export default function ApiMarketplace() {
   const getApiColor = (apiName) => {
     const colors = ['#3f51b5', '#009688', '#ff5722', '#673ab7', '#e91e63', '#00bcd4'];
     return colors[Math.abs(apiName.split('').reduce((a, b) => a + b.charCodeAt(0), 0)) % colors.length];
+  };
+
+  const handleSubscribeClick = (apiItem) => {
+    setSubscriptionDialog({
+      open: true,
+      api: apiItem,
+      allowedRequests: '',
+      error: '',
+      isSubmitting: false
+    });
+  };
+
+  const handleSubscriptionClose = () => {
+    setSubscriptionDialog(prev => ({
+      ...prev,
+      open: false
+    }));
+  };
+
+  const handleAllowedRequestsChange = (e) => {
+    setSubscriptionDialog(prev => ({
+      ...prev,
+      allowedRequests: e.target.value,
+      error: ''
+    }));
+  };
+
+  const handleSubscriptionSubmit = async () => {
+    const { api: selectedApi, allowedRequests } = subscriptionDialog;
+
+    if (!allowedRequests || isNaN(allowedRequests) || parseInt(allowedRequests) <= 0) {
+      setSubscriptionDialog(prev => ({
+        ...prev,
+        error: 'Please enter a valid number of allowed requests (must be greater than 0)'
+      }));
+      return;
+    }
+
+    setSubscriptionDialog(prev => ({
+      ...prev,
+      isSubmitting: true,
+      error: ''
+    }));
+
+    try {
+      const response = await api.post('/api/subscriptions', {
+        apiId: selectedApi.id,
+        allowedRequests: parseInt(allowedRequests)
+      });
+      
+      setSubscriptionDialog(prev => ({
+        ...prev,
+        open: false
+      }));
+      alert(`Successfully subscribed to ${selectedApi.name}!`);
+    } catch (err) {
+      setSubscriptionDialog(prev => ({
+        ...prev,
+        error: err.response?.data?.error || err.message || 'Failed to create subscription',
+        isSubmitting: false
+      }));
+    }
   };
 
   return (
@@ -102,20 +175,20 @@ export default function ApiMarketplace() {
             </Paper>
           ) : (
             <Grid container spacing={3}>
-              {filteredApis.map((api) => (
-                <Grid item xs={12} sm={6} md={4} key={api.id}>
+              {filteredApis.map((apiItem) => (
+                <Grid item xs={12} sm={6} md={4} key={apiItem.id}>
                   <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                     <CardContent sx={{ flexGrow: 1 }}>
                       <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                        <Avatar sx={{ bgcolor: getApiColor(api.name), mr: 2 }}>
+                        <Avatar sx={{ bgcolor: getApiColor(apiItem.name), mr: 2 }}>
                           <ApiIcon />
                         </Avatar>
                         <Box>
                           <Typography variant="h5" component="div">
-                            {api.name}
+                            {apiItem.name}
                           </Typography>
                           <Typography variant="body2" color="text.secondary">
-                            {api.provider} • v{api.version}
+                            {apiItem.provider} • v{apiItem.version}
                           </Typography>
                         </Box>
                       </Box>
@@ -123,28 +196,28 @@ export default function ApiMarketplace() {
                       <Box sx={{ mb: 2 }}>
                         <Chip
                           icon={<PublicIcon fontSize="small" />}
-                          label={`Context: ${api.context}`}
+                          label={`Context: ${apiItem.context}`}
                           size="small"
                           sx={{ mr: 1, mb: 1 }}
                         />
                         <Chip
                           icon={<CodeIcon fontSize="small" />}
-                          label={api.published ? 'Published' : 'Draft'}
-                          color={api.published ? 'success' : 'default'}
+                          label={apiItem.published ? 'Published' : 'Draft'}
+                          color={apiItem.published ? 'success' : 'default'}
                           size="small"
                           sx={{ mb: 1 }}
                         />
                       </Box>
 
                       <Typography variant="body2" paragraph sx={{ minHeight: 60 }}>
-                        {api.description || 'No description available'}
+                        {apiItem.description || 'No description available'}
                       </Typography>
                     </CardContent>
                     <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
                       <Button
                         size="small"
                         startIcon={<ViewIcon />}
-                        onClick={() => console.log(`View details for ${api.name}`)}
+                        onClick={() => console.log(`View details for ${apiItem.name}`)}
                       >
                         Details
                       </Button>
@@ -152,8 +225,14 @@ export default function ApiMarketplace() {
                         size="small"
                         variant="contained"
                         startIcon={<SubscribeIcon />}
-                        disabled={!api.published}
-                        onClick={() => console.log(`Subscribe to ${api.name}`)}
+                        onClick={() => handleSubscribeClick(apiItem)}
+                        sx={{
+                          backgroundColor: 'primary.main',
+                          color: 'white',
+                          '&:hover': {
+                            backgroundColor: 'primary.dark',
+                          }
+                        }}
                       >
                         Subscribe
                       </Button>
@@ -165,6 +244,49 @@ export default function ApiMarketplace() {
           )}
         </>
       )}
+
+      <Dialog open={subscriptionDialog.open} onClose={handleSubscriptionClose}>
+        <DialogTitle>
+          Subscribe to {subscriptionDialog.api?.name || 'API'}
+        </DialogTitle>
+        <DialogContent>
+          {subscriptionDialog.error && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {subscriptionDialog.error}
+            </Alert>
+          )}
+          
+          <TextField
+            autoFocus
+            margin="dense"
+            label="Allowed Requests"
+            type="number"
+            fullWidth
+            variant="outlined"
+            value={subscriptionDialog.allowedRequests}
+            onChange={handleAllowedRequestsChange}
+            inputProps={{ min: 1 }}
+            error={!!subscriptionDialog.error}
+            disabled={subscriptionDialog.isSubmitting}
+            sx={{ mt: 2 }}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button 
+            onClick={handleSubscriptionClose}
+            disabled={subscriptionDialog.isSubmitting}
+          >
+            Cancel
+          </Button>
+          <Button 
+            onClick={handleSubscriptionSubmit}
+            color="primary"
+            disabled={subscriptionDialog.isSubmitting}
+          >
+            {subscriptionDialog.isSubmitting ? 'Subscribing...' : 'Subscribe'}
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
   );
 }

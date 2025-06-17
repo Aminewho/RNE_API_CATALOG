@@ -221,11 +221,12 @@ export default function SignupRequests() {
                         <Chip
                           label={request.status}
                           color={
-                            request.status === 'APPROVED' ? 'success' : 
+                            request.status === 'ACCEPTED' ? 'success' : 
                             request.status === 'REJECTED' ? 'error' : 'warning'
                           }
                           size="small"
                           variant="outlined"
+                          onClick={()=>{}}
                         />
                       </TableCell>
                       <TableCell align="center">

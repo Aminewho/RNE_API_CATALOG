@@ -155,8 +155,15 @@ public class AdminController {
         apiRepository.save(api);
         return ResponseEntity.ok("API added to catalog");
     }
-        
-    @GetMapping("/pending")
+    @GetMapping("/subscriptions")
+    public ResponseEntity<List<SubscriptionDTO>> getSubscriptions() {
+        List<Subscription> subscriptions  = subscriptionService.getSubscriptions();
+        List<SubscriptionDTO> dtoList = subscriptions.stream()
+            .map(SubscriptionMapper::toDto)
+            .collect(Collectors.toList());
+        return ResponseEntity.ok(dtoList);
+    }
+    @GetMapping("/subscriptions/pending")
     public ResponseEntity<List<SubscriptionDTO>> getPendingSubscriptions() {
         List<Subscription> subscriptions  = subscriptionService.getSubscriptionsByStatus(SubscriptionStatus.PENDING);
         List<SubscriptionDTO> dtoList = subscriptions.stream()
@@ -178,7 +185,9 @@ public class AdminController {
     @PutMapping("/subscriptions/{id}/reject")
     public ResponseEntity<?> rejectSubscription(@PathVariable Long id) {
         try {
-            return ResponseEntity.ok(subscriptionService.rejectSubscription(id));
+            Subscription subscription=subscriptionService.rejectSubscription(id);
+            SubscriptionDTO dto = SubscriptionMapper.toDto(subscription);
+            return ResponseEntity.ok(dto);
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(Map.of("error", e.getMessage()));

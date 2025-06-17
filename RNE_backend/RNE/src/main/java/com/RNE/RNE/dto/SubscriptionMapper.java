@@ -9,6 +9,8 @@ public class SubscriptionMapper {
         dto.setAllowedRequests(subscription.getAllowedRequests());
         dto.setUsedRequests(subscription.getUsedRequests());
         dto.setStatus(subscription.getStatus().name());
+        dto.setRequestDate(subscription.getRequestDate());
+        dto.setApprovalDate(subscription.getApprovalDate());
         if (subscription.getApi() != null) {
             dto.setApi(subscription.getApi().getName());
         }

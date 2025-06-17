@@ -1,4 +1,8 @@
 import * as React from 'react';
+import { useAuth } from '../authentication/AuthContext';
+import NotificationsMenu from './NotificationsMenu'; // Adjust the import path as needed
+
+
 import { styled, alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -128,14 +132,37 @@ export default function CombinedApp() {
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-  const navItems = [
-    { label: 'Dashboard', path: '/admin/dashboard', icon: <DashboardIcon /> },
-    { label: 'Signup Requests', path: '/admin/signup-requests', icon: <GroupAddIcon /> },
-    { label: 'Manage Users', path: '/admin/users', icon: <PeopleIcon /> },
-    { label: 'Manage APIs', path: '/admin/apis', icon: <ApiIcon /> },
-    { label: 'Manage WSO2 Instances', path: '/admin/wso2', icon: <StorageIcon /> },
-    { label: 'Logout', path: '/logout', icon: <LogoutIcon />, danger: true }
-  ];
+  const { user, loading } = useAuth();
+
+  // Define nav items based on role
+  const navItems = React.useMemo(() => {
+    if (!user) return [];
+
+    if (user.role === 'ROLE_ADMIN') {
+      return [
+        { label: 'Dashboard', path: '/admin/dashboard', icon: <DashboardIcon /> },
+        { label: 'Signup Requests', path: '/admin/signup-requests', icon: <GroupAddIcon /> },
+        { label: 'Manage Users', path: '/admin/users', icon: <PeopleIcon /> },
+        { label: 'Manage APIs', path: '/admin/apis', icon: <ApiIcon /> },
+        { label: 'Manage WSO2 Instances', path: '/admin/wso2', icon: <StorageIcon /> },
+        { label: 'Logout', path: '/logout', icon: <LogoutIcon />, danger: true }
+      ];
+    }
+
+    if (user.role === 'ROLE_USER') {
+      return [
+        { label: 'APIs', path: '/apis', icon: <ApiIcon /> },
+        { label: 'My Profile', path: '/user/profile', icon: <AccountCircle /> },
+        { label: 'Logout', path: '/logout', icon: <LogoutIcon />, danger: true }
+      ];
+    }
+
+    return [];
+  }, [user]);
+
+  // Don't render anything until auth is loaded
+  if (loading) return null;
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -202,7 +229,7 @@ export default function CombinedApp() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
+          <Badge badgeContent={0} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
@@ -211,11 +238,10 @@ export default function CombinedApp() {
       <MenuItem>
         <IconButton
           size="large"
-          aria-label="show 17 new notifications"
           color="inherit"
         >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
+          <Badge  color="error">
+            <NotificationsMenu />
           </Badge>
         </IconButton>
         <p>Notifications</p>
@@ -269,7 +295,7 @@ export default function CombinedApp() {
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={4} color="error">
+              <Badge badgeContent={0} color="error">
                 <MailIcon />
               </Badge>
             </IconButton>
@@ -278,8 +304,8 @@ export default function CombinedApp() {
               aria-label="show 17 new notifications"
               color="inherit"
             >
-              <Badge badgeContent={17} color="error">
-                <NotificationsIcon />
+              <Badge  color="error">
+              <NotificationsMenu />
               </Badge>
             </IconButton>
             <IconButton
@@ -350,18 +376,6 @@ export default function CombinedApp() {
           ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding>
-              <ListItemButton>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
