@@ -1,0 +1,102 @@
+172.23.0.1 - - [18/Jun/2025:09:14:24 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.348
+127.0.0.1 - - [18/Jun/2025:09:14:24 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.041
+172.23.0.1 - - [18/Jun/2025:09:14:24 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.227
+172.23.0.1 - - [18/Jun/2025:09:14:24 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.021
+127.0.0.1 - - [18/Jun/2025:09:14:24 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [18/Jun/2025:09:14:24 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.025
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] - 400 - - - 0.000
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] GET /devportal/ HTTP/1.1 200 1691 - Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.258
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] - 400 - - - 0.000
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] GET /devportal/site/public/css/main.css HTTP/1.1 200 2309 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.026
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] GET /devportal/site/public/css/overrides.css HTTP/1.1 200 - https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.003
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] - 400 - - - 0.000
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] - 400 - - - 0.000
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] - 400 - - - 0.000
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] GET /devportal/site/public/fonts/iconfont/material-icons.css HTTP/1.1 200 970 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.013
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] - 400 - - - 0.000
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] - 400 - - - 0.000
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] GET /devportal/services/settings/settings.js HTTP/1.1 200 1670 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.016
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] GET /devportal/site/public/fonts/iconfont/MaterialIcons.js HTTP/1.1 200 6703 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.006
+172.23.0.1 - - [18/Jun/2025:11:49:48 +0000] GET /devportal/site/public/theme/userTheme.js HTTP/1.1 200 95 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.021
+172.23.0.1 - - [18/Jun/2025:11:49:49 +0000] GET /devportal/site/public/dist/index.9a2ce8733ef18848cae3.bundle.js HTTP/1.1 200 330449 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.645
+172.23.0.1 - - [18/Jun/2025:11:49:49 +0000] GET /devportal/site/public/images/_favicon.ico HTTP/1.1 200 1150 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.017
+172.23.0.1 - - [18/Jun/2025:11:49:49 +0000] GET /devportal/site/public/locales/en.json HTTP/1.1 200 68799 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.034
+172.23.0.1 - - [18/Jun/2025:11:49:49 +0000] GET /devportal/site/public/images/favicon.ico HTTP/1.1 200 162098 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.040
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /oauth2/token/.well-known/openid-configuration HTTP/1.1 200 2404 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.676
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/keyTemplates HTTP/1.1 200 2 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.316
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/subscriptions HTTP/1.1 200 463 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.071
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/subscription-policies HTTP/1.1 200 621 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.072
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/llm-providers HTTP/1.1 200 495 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.074
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/revokedjwt HTTP/1.1 200 169 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.291
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/applications HTTP/1.1 200 423 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.077
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/block HTTP/1.1 200 75 - Apache-HttpClient/4.5.13 (Java/21.0.5) 2.289
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/apis?gatewayLabel=Default HTTP/1.1 200 550 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.080
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/subscription-policies HTTP/1.1 200 621 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.070
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/apis?gatewayLabel=Default HTTP/1.1 200 550 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.081
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/api-logging-configs HTTP/1.1 200 11 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.083
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/correlation-configs HTTP/1.1 200 408 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.085
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/gateway-policy-artifacts?gatewayLabel=RGVmYXVsdA&type=Synapse HTTP/1.1 200 39 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.084
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/application-policies HTTP/1.1 200 290 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.081
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/webhooks-subscriptions HTTP/1.1 200 29 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.085
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/endpoint-certificates HTTP/1.1 200 2 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.088
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/api-policies HTTP/1.1 200 328 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.088
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/application-key-mappings HTTP/1.1 200 397 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.091
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/ga-config HTTP/1.1 200 396 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.036
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/application-policies HTTP/1.1 200 290 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.040
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/api-policies HTTP/1.1 200 328 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.046
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/keymanagers HTTP/1.1 200 975 - Apache-HttpClient/4.5.13 (Java/21.0.5) 3.351
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/global-policies HTTP/1.1 200 39 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.134
+127.0.0.1 - - [18/Jun/2025:11:49:50 +0000] GET /internal/data/v1/scopes HTTP/1.1 200 39 - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.256
+172.23.0.1 - - [18/Jun/2025:11:49:51 +0000] GET /api/am/devportal/v3/swagger.yaml HTTP/1.1 200 30152 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 2.253
+127.0.0.1 - - [18/Jun/2025:11:49:52 +0000] GET /internal/data/v1/runtime-artifacts?gatewayLabel=RGVmYXVsdA&type=Synapse HTTP/1.1 200 5955 - Apache-HttpClient/4.5.13 (Java/21.0.5) 5.052
+172.23.0.1 - - [18/Jun/2025:11:49:52 +0000] GET /api/am/devportal/v3/settings HTTP/1.1 200 775 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.822
+172.23.0.1 - - [18/Jun/2025:11:49:52 +0000] GET /devportal/site/public/dist/ProtectedApp.e0e280a9fd8a17ed8a2e.bundle.js HTTP/1.1 200 77990 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.021
+172.23.0.1 - - [18/Jun/2025:11:49:52 +0000] GET /devportal/site/public/dist/8762.376c6814a333f1d5caff.bundle.js HTTP/1.1 200 98796 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.033
+172.23.0.1 - - [18/Jun/2025:11:49:52 +0000] GET /devportal/site/public/theme/temporary_features_config.json HTTP/1.1 200 - https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.002
+172.23.0.1 - - [18/Jun/2025:11:49:52 +0000] GET /devportal/site/public/theme/temporary_environments_config.json HTTP/1.1 200 - https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.002
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /api/am/devportal/v3/tenants?state=active HTTP/1.1 200 96 https://localhost:9443/devportal/ Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.058
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/dist/806.c622143ba17b98916c5a.bundle.js HTTP/1.1 200 5551 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.012
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/dist/2740.a747aabc32dc5c64cb70.bundle.js HTTP/1.1 200 5517 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.012
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/dist/573.cf801127f162fe2820f1.bundle.js HTTP/1.1 200 8788 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.012
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/dist/7629.e48f6bba7d4b6777fd4c.bundle.js HTTP/1.1 200 5687 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.013
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/dist/538.fa642f3b646b875eb607.bundle.js HTTP/1.1 200 27240 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.016
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/images/_favicon.ico HTTP/1.1 200 1150 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.003
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal HTTP/1.1 302 - https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.000
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/images/appbarBack.png HTTP/1.1 200 1964 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.003
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/images/logo.svg HTTP/1.1 200 74991 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.007
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/dist/Apis.95678e86a2a3de116f2e.bundle.js HTTP/1.1 200 31428 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.011
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/dist/4609.b012e181419e98189c2d.bundle.js HTTP/1.1 200 110016 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.037
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/ HTTP/1.1 200 1691 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.004
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/fonts/Open_Sans/mem8YaGs126MiZpBA-UFVZ0bf8pkAg.woff2 HTTP/1.1 200 8892 https://localhost:9443/devportal/site/public/css/main.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.004
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/fonts/Open_Sans/mem5YaGs126MiZpBA-UN7rgOUuhpKKSTjw.woff2 HTTP/1.1 200 8800 https://localhost:9443/devportal/site/public/css/main.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.004
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/fonts/iconfont/MaterialIcons-Regular.woff2 HTTP/1.1 200 60840 https://localhost:9443/devportal/site/public/fonts/iconfont/material-icons.css Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.006
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /devportal/site/public/images/favicon.ico HTTP/1.1 200 162098 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.008
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /api/am/devportal/v3/api-categories HTTP/1.1 200 21 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.007
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /api/am/devportal/v3/tags?limit=-1 HTTP/1.1 200 143 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.282
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /api/am/devportal/v3/apis?limit=10&offset=0 HTTP/1.1 200 661 https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.352
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /api/am/devportal/v3/apis/3e9c8bfa-e0d3-4922-984e-cd99bd95a7c8/thumbnail HTTP/1.1 204 - https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.068
+172.23.0.1 - - [18/Jun/2025:11:49:53 +0000] GET /api/am/devportal/v3/apis/3d25892b-b9a4-4295-bdc9-6528d8d6b900/thumbnail HTTP/1.1 204 - https://localhost:9443/devportal/apis Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36 0.068
+127.0.0.1 - - [18/Jun/2025:11:49:57 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.021
+172.23.0.1 - - [18/Jun/2025:11:49:57 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.378
+172.23.0.1 - - [18/Jun/2025:11:49:58 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 1.144
+172.23.0.1 - - [18/Jun/2025:11:49:58 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.094
+127.0.0.1 - - [18/Jun/2025:11:49:59 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.058
+172.23.0.1 - - [18/Jun/2025:11:49:59 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.062
+172.23.0.1 - - [18/Jun/2025:11:50:13 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.051
+127.0.0.1 - - [18/Jun/2025:11:50:13 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.013
+172.23.0.1 - - [18/Jun/2025:11:50:13 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.026
+172.23.0.1 - - [18/Jun/2025:11:50:13 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.026
+127.0.0.1 - - [18/Jun/2025:11:50:13 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.022
+172.23.0.1 - - [18/Jun/2025:11:50:13 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.031
+172.23.0.1 - - [18/Jun/2025:12:13:20 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.291
+127.0.0.1 - - [18/Jun/2025:12:13:20 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.057
+172.23.0.1 - - [18/Jun/2025:12:13:20 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.283
+172.23.0.1 - - [18/Jun/2025:12:13:21 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.108
+127.0.0.1 - - [18/Jun/2025:12:13:21 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.018
+172.23.0.1 - - [18/Jun/2025:12:13:21 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.033
+172.23.0.1 - - [18/Jun/2025:12:18:44 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.047
+127.0.0.1 - - [18/Jun/2025:12:18:44 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.020
+172.23.0.1 - - [18/Jun/2025:12:18:44 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.034
+172.23.0.1 - - [18/Jun/2025:12:18:45 +0000] POST /oauth2/token HTTP/1.1 200 1236 - Java/17.0.10 0.027
+127.0.0.1 - - [18/Jun/2025:12:18:45 +0000] POST /internal/data/v1/notify HTTP/1.1 200 - - Apache-HttpClient/4.5.13 (Java/21.0.5) 0.016
+172.23.0.1 - - [18/Jun/2025:12:18:45 +0000] GET /api/am/publisher/v4/apis HTTP/1.1 200 1540 - Java/17.0.10 0.031

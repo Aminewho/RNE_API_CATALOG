@@ -11,6 +11,7 @@ public class SubscriptionMapper {
         dto.setStatus(subscription.getStatus().name());
         dto.setRequestDate(subscription.getRequestDate());
         dto.setApprovalDate(subscription.getApprovalDate());
+        dto.setId(subscription.getId());
         if (subscription.getApi() != null) {
             dto.setApi(subscription.getApi().getName());
         }

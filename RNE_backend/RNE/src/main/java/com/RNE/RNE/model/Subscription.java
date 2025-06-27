@@ -22,6 +22,8 @@ public class Subscription {
     private LocalDateTime requestDate = LocalDateTime.now();
     private LocalDateTime approvalDate;
 
+    //
+
     // Who?
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")

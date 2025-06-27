@@ -28,12 +28,14 @@ import {
   CloudDownload as SubscribeIcon
 } from '@mui/icons-material';
 import api from '../../api';
+import ReactJson from 'react-json-view';
 
 export default function ApiMarketplace() {
   const [apis, setApis] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [filteredApis, setFilteredApis] = useState([]);
+  const [selectedApi, setSelectedApi] = useState(null);
   const [subscriptionDialog, setSubscriptionDialog] = useState({
     open: false,
     api: null,
@@ -79,6 +81,8 @@ export default function ApiMarketplace() {
       error: '',
       isSubmitting: false
     });
+    console.log('Subscribing to:', apiItem);
+
   };
 
   const handleSubscriptionClose = () => {
@@ -114,15 +118,11 @@ export default function ApiMarketplace() {
     }));
 
     try {
-      const response = await api.post('/api/subscriptions', {
+      await api.post('/api/subscriptions', {
         apiId: selectedApi.id,
         allowedRequests: parseInt(allowedRequests)
       });
-      
-      setSubscriptionDialog(prev => ({
-        ...prev,
-        open: false
-      }));
+      setSubscriptionDialog(prev => ({ ...prev, open: false }));
       alert(`Successfully subscribed to ${selectedApi.name}!`);
     } catch (err) {
       setSubscriptionDialog(prev => ({
@@ -131,6 +131,15 @@ export default function ApiMarketplace() {
         isSubmitting: false
       }));
     }
+  };
+
+  const handleViewDetails = (apiItem) => {
+    setSelectedApi(apiItem);
+    console.log('Subscribing to:', apiItem);
+  };
+
+  const handleCloseDetails = () => {
+    setSelectedApi(null);
   };
 
   return (
@@ -177,65 +186,36 @@ export default function ApiMarketplace() {
             <Grid container spacing={3}>
               {filteredApis.map((apiItem) => (
                 <Grid item xs={12} sm={6} md={4} key={apiItem.id}>
-                  <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <CardContent sx={{ flexGrow: 1 }}>
-                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                        <Avatar sx={{ bgcolor: getApiColor(apiItem.name), mr: 2 }}>
-                          <ApiIcon />
-                        </Avatar>
-                        <Box>
-                          <Typography variant="h5" component="div">
-                            {apiItem.name}
-                          </Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {apiItem.provider} • v{apiItem.version}
-                          </Typography>
-                        </Box>
-                      </Box>
+                  <Card   sx={{
+                                backgroundColor: '#222f72 ', 
+                                color: '#fff',
+                                border: '1px solid #333',
+                                borderRadius: 2,
+                                p: 3,
+                                height: '100%',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                              }}>
+  <Box>
+    <Typography variant="h5" fontWeight="bold" gutterBottom>
+      {apiItem.name}
+    </Typography>
 
-                      <Box sx={{ mb: 2 }}>
-                        <Chip
-                          icon={<PublicIcon fontSize="small" />}
-                          label={`Context: ${apiItem.context}`}
-                          size="small"
-                          sx={{ mr: 1, mb: 1 }}
-                        />
-                        <Chip
-                          icon={<CodeIcon fontSize="small" />}
-                          label={apiItem.published ? 'Published' : 'Draft'}
-                          color={apiItem.published ? 'success' : 'default'}
-                          size="small"
-                          sx={{ mb: 1 }}
-                        />
-                      </Box>
+    <Typography variant="subtitle2" color="gray" gutterBottom>
+      {apiItem.description || 'No description available'}
+    </Typography>
 
-                      <Typography variant="body2" paragraph sx={{ minHeight: 60 }}>
-                        {apiItem.description || 'No description available'}
-                      </Typography>
-                    </CardContent>
+    <Box sx={{ mt: 2 }}>
+      <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+        ✅ <b style={{ marginLeft: 4 }}>{apiItem.request_cost} TND per request</b>
+      </Typography>
+     
+    </Box>
+  </Box>
                     <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
-                      <Button
-                        size="small"
-                        startIcon={<ViewIcon />}
-                        onClick={() => console.log(`View details for ${apiItem.name}`)}
-                      >
-                        Details
-                      </Button>
-                      <Button
-                        size="small"
-                        variant="contained"
-                        startIcon={<SubscribeIcon />}
-                        onClick={() => handleSubscribeClick(apiItem)}
-                        sx={{
-                          backgroundColor: 'primary.main',
-                          color: 'white',
-                          '&:hover': {
-                            backgroundColor: 'primary.dark',
-                          }
-                        }}
-                      >
-                        Subscribe
-                      </Button>
+                      <Button size="small" startIcon={<ViewIcon />} onClick={() => handleViewDetails(apiItem)}>Learn More</Button>
+                      <Button size="small" variant="contained" startIcon={<SubscribeIcon />} onClick={() => handleSubscribeClick(apiItem)} sx={{ backgroundColor: 'primary.main', color: 'white', '&:hover': { backgroundColor: 'primary.dark' } }}>Subscribe</Button>
                     </CardActions>
                   </Card>
                 </Grid>
@@ -245,17 +225,13 @@ export default function ApiMarketplace() {
         </>
       )}
 
+      {/* Subscribe Dialog */}
       <Dialog open={subscriptionDialog.open} onClose={handleSubscriptionClose}>
-        <DialogTitle>
-          Subscribe to {subscriptionDialog.api?.name || 'API'}
-        </DialogTitle>
+        <DialogTitle>Subscribe to {subscriptionDialog.api?.name || 'API'}</DialogTitle>
         <DialogContent>
           {subscriptionDialog.error && (
-            <Alert severity="error" sx={{ mb: 2 }}>
-              {subscriptionDialog.error}
-            </Alert>
+            <Alert severity="error" sx={{ mb: 2 }}>{subscriptionDialog.error}</Alert>
           )}
-          
           <TextField
             autoFocus
             margin="dense"
@@ -272,19 +248,58 @@ export default function ApiMarketplace() {
           />
         </DialogContent>
         <DialogActions>
-          <Button 
-            onClick={handleSubscriptionClose}
-            disabled={subscriptionDialog.isSubmitting}
-          >
-            Cancel
-          </Button>
-          <Button 
-            onClick={handleSubscriptionSubmit}
-            color="primary"
-            disabled={subscriptionDialog.isSubmitting}
-          >
+          <Button onClick={handleSubscriptionClose} disabled={subscriptionDialog.isSubmitting}>Cancel</Button>
+          <Button onClick={handleSubscriptionSubmit} color="primary" disabled={subscriptionDialog.isSubmitting}>
             {subscriptionDialog.isSubmitting ? 'Subscribing...' : 'Subscribe'}
           </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Details Dialog */}
+      <Dialog open={!!selectedApi} onClose={handleCloseDetails} maxWidth="md" fullWidth>
+        <DialogTitle>API Details</DialogTitle>
+        <DialogContent dividers>
+          <Typography variant="h6" gutterBottom>Request Sample</Typography>
+          <Paper
+              sx={{
+                bgcolor: '#1e1e1e',
+                p: 2,
+                mb: 3,
+                color: '#b5f774',
+                fontFamily: 'monospace',
+                whiteSpace: 'pre-wrap', // preserve newlines & wrapping
+                overflowX: 'auto',       // scroll horizontally if too wide
+                maxHeight: 300,          // optional: limit vertical space
+              }}
+          >
+  {selectedApi?.input || 'No input provided'}
+</Paper>
+
+
+          <Typography variant="h6" gutterBottom>Response Sample</Typography>
+         
+          <Paper sx={{ p: 2, bgcolor: '#f5f5f5' }}>
+  <ReactJson
+    src={
+      (() => {
+        try {
+          return JSON.parse(selectedApi?.output);
+        } catch (e) {
+          return { error: 'Invalid JSON format' };
+        }
+      })()
+    }
+    name={false}
+    collapsed={false}
+    displayDataTypes={false}
+    enableClipboard={true}
+    theme="rjv-default"
+  />
+</Paper>
+
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDetails}>Close</Button>
         </DialogActions>
       </Dialog>
     </Box>

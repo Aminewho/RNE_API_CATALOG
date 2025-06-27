@@ -1,201 +1,175 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Box,
-  Typography,
-  Grid,
-  Card,
-  CardContent,
-  CardActions,
-  Button,
-  Chip,
-  TextField,
-  InputAdornment,
-  CircularProgress,
-  Paper,
-  Avatar
+  Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead,
+  TableRow, Paper, Button, Collapse, TextField
 } from '@mui/material';
-import {
-  Search as SearchIcon,
-  Api as ApiIcon,
-  Public as PublicIcon,
-  Code as CodeIcon,
-  Visibility as ViewIcon,
-  Settings as ConfigureIcon
-} from '@mui/icons-material';
+import AddIcon from '@mui/icons-material/Add';
+import DeleteIcon from '@mui/icons-material/Delete';
 import api from '../../api';
 
 export default function ManageAPIs() {
-  const [allApis, setAllApis] = useState([]);
+  const [wso2Apis, setWso2Apis] = useState([]);
   const [catalogApis, setCatalogApis] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filteredApis, setFilteredApis] = useState([]);
+  const [expandedRow, setExpandedRow] = useState(null);
+  const [formValues, setFormValues] = useState({});
 
   useEffect(() => {
-    const fetchAll = async () => { 
-      try {
-        const [adminRes, catalogRes] = await Promise.all([
-          api.get('/admin/apis'),
-          api.get('/admin/catalog/apis')
-        ]);
-        setAllApis(adminRes.data);
-        setCatalogApis(catalogRes.data.map(api => api.id));
-        setFilteredApis(adminRes.data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching APIs:', error);
-      }
-    };
-    fetchAll();
+    fetchApis();
+    fetchCatalogApis();
   }, []);
 
-  useEffect(() => {
-    const results = allApis.filter(apiItem =>
-      apiItem.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      (apiItem.description && apiItem.description.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
-    setFilteredApis(results);
-  }, [searchTerm, allApis]);
-
-  const toggleApi = async (apiItem) => {
-    const isSelected = catalogApis.includes(apiItem.id);
+  const fetchApis = async () => {
     try {
-      if (isSelected) {
-        await api.delete(`/admin/catalog/apis/${apiItem.id}`);
-        setCatalogApis(prev => prev.filter(id => id !== apiItem.id));
-      } else {
-        await api.post(`/admin/catalog/add`, apiItem);
-        setCatalogApis(prev => [...prev, apiItem.id]);
-      }
-    } catch (error) {
-      console.error('Error toggling API:', error);
+      const res = await api.get('/admin/apis');
+      setWso2Apis(res.data || []);
+    } catch (err) {
+      console.error('Failed to fetch WSO2 APIs', err);
     }
   };
 
-  const getApiColor = (apiName) => {
-    const colors = ['#3f51b5', '#009688', '#ff5722', '#673ab7', '#e91e63', '#00bcd4'];
-    return colors[Math.abs(apiName.split('').reduce((a, b) => a + b.charCodeAt(0), 0)) % colors.length];
+  const fetchCatalogApis = async () => {
+    try {
+      const res = await api.get('/admin/catalog/apis'); // Change if needed
+      setCatalogApis(res.data || []);
+    } catch (err) {
+      console.error('Failed to fetch catalog APIs', err);
+    }
+  };
+
+  const isInCatalog = (id) => {
+    return catalogApis.some(api => api.id === id);
+  };
+
+  const handleExpand = (id) => {
+    setExpandedRow(prev => (prev === id ? null : id));
+    setFormValues({});
+  };
+
+  const handleChange = (e) => {
+    setFormValues(prev => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleAddToCatalog = async (apiObj) => {
+    const body = {
+      incomingApi: {
+        id: apiObj.id,
+        name: apiObj.name,
+        description: apiObj.description || '',
+        endpoint: formValues.endpoint || '',
+        input: formValues.input || '',
+        output: formValues.output || '',
+        request_cost: Number(formValues.request_cost || 0),
+        published: true
+      },
+      baseUrl: apiObj.baseUrl
+    };
+
+    try {
+      await api.post('/admin/catalog/add', body);
+      alert('API added to catalog!');
+      setExpandedRow(null);
+      fetchCatalogApis();
+    } catch (err) {
+      console.error('Failed to add API', err);
+      alert('Error adding API: ' + (err.response?.data || err.message));
+    }
+  };
+
+  const handleDeleteFromCatalog = async (id) => {
+    try {
+      await api.delete(`/admin/catalog/apis/${id}`);
+      alert('API removed from catalog!');
+      fetchCatalogApis();
+    } catch (err) {
+      console.error('Failed to delete API', err);
+      alert('Error deleting API: ' + (err.response?.data || err.message));
+    }
   };
 
   return (
     <Box sx={{ p: 3 }}>
-      <Box sx={{ mb: 4 }}>
-        <Typography variant="h3" component="h1" gutterBottom>
-          API Management
-        </Typography>
-        <Typography variant="subtitle1" color="text.secondary">
-          Manage which APIs appear in the catalog
-        </Typography>
-      </Box>
-
-      <Paper sx={{ p: 2, mb: 3 }}>
-        <TextField
-          fullWidth
-          variant="outlined"
-          placeholder="Search APIs by name or description..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
-          }}
-        />
-      </Paper>
-
-      {loading ? (
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-          <CircularProgress />
-        </Box>
-      ) : (
-        <>
-          {filteredApis.length === 0 ? (
-            <Paper sx={{ p: 4, textAlign: 'center' }}>
-              <Typography variant="h6" color="text.secondary">
-                No APIs found matching your search
-              </Typography>
-            </Paper>
-          ) : (
-            <Grid container spacing={3}>
-              {filteredApis.map((apiItem) => {
-                const isInCatalog = catalogApis.includes(apiItem.id);
-                return (
-                  <Grid item xs={12} sm={6} md={4} key={apiItem.id}>
-                    <Card sx={{ 
-                      height: '100%', 
-                      display: 'flex', 
-                      flexDirection: 'column',
-                      border: isInCatalog ? '2px solid #4caf50' : 'none'
-                    }}>
-                      <CardContent sx={{ flexGrow: 1 }}>
-                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                          <Avatar sx={{ bgcolor: getApiColor(apiItem.name), mr: 2 }}>
-                            <ApiIcon />
-                          </Avatar>
-                          <Box>
-                            <Typography variant="h5" component="div">
-                              {apiItem.name}
-                            </Typography>
-                            <Typography variant="body2" color="text.secondary">
-                              {apiItem.provider} • v{apiItem.version}
-                            </Typography>
-                          </Box>
-                        </Box>
-
-                        <Box sx={{ mb: 2 }}>
-                          <Chip
-                            icon={<PublicIcon fontSize="small" />}
-                            label={`Context: ${apiItem.context}`}
-                            size="small"
-                            sx={{ mr: 1, mb: 1 }}
-                          />
-                          <Chip
-                            icon={<CodeIcon fontSize="small" />}
-                            label={isInCatalog ? 'In Catalog' : 'Not in Catalog'}
-                            color={isInCatalog ? 'success' : 'default'}
-                            size="small"
-                            sx={{ mb: 1 }}
-                          />
-                        </Box>
-
-                        <Typography variant="body2" paragraph sx={{ minHeight: 60 }}>
-                          {apiItem.description || 'No description available'}
-                        </Typography>
-                      </CardContent>
-                      <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
+      <Typography variant="h4" gutterBottom>WSO2 Available APIs</Typography>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>API Name</TableCell>
+              <TableCell>API ID</TableCell>
+              <TableCell>WSO2 Instance</TableCell>
+              <TableCell align="right">Actions</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {wso2Apis.map((apiObj) => {
+              const inCatalog = isInCatalog(apiObj.id);
+              return (
+                <React.Fragment key={apiObj.id}>
+                  <TableRow>
+                    <TableCell>{apiObj.name}</TableCell>
+                    <TableCell>{apiObj.id}</TableCell>
+                    <TableCell>{apiObj.baseUrl}</TableCell>
+                    <TableCell align="right">
+                      {inCatalog ? (
                         <Button
-                          size="small"
-                          startIcon={<ViewIcon />}
-                          onClick={() => console.log(`View details for ${apiItem.name}`)}
+                          variant="outlined"
+                          color="error"
+                          startIcon={<DeleteIcon />}
+                          onClick={() => handleDeleteFromCatalog(apiObj.id)}
                         >
-                          Details
+                          Delete
                         </Button>
+                      ) : (
                         <Button
-                          size="small"
                           variant="contained"
-                          startIcon={<ConfigureIcon />}
-                          onClick={() => toggleApi(apiItem)}
-                          sx={{
-                            backgroundColor: isInCatalog ? 'error.main' : 'primary.main',
-                            color: 'white',
-                            '&:hover': {
-                              backgroundColor: isInCatalog ? '#d32f2f' : '#1565c0',
-                            }
-                          }}
+                          startIcon={<AddIcon />}
+                          onClick={() => handleExpand(apiObj.id)}
                         >
-                          {isInCatalog ? 'Remove' : 'Add to Catalog'}
+                          {expandedRow === apiObj.id ? 'Cancel' : 'Add'}
                         </Button>
-                      </CardActions>
-                    </Card>
-                  </Grid>
-                );
-              })}
-            </Grid>
-          )}
-        </>
-      )}
+                      )}
+                    </TableCell>
+                  </TableRow>
+
+                  {!inCatalog && (
+                    <TableRow>
+                      <TableCell colSpan={4} sx={{ p: 0 }}>
+                        <Collapse in={expandedRow === apiObj.id} timeout="auto" unmountOnExit>
+                          <Box sx={{ p: 2, backgroundColor: '#f5f5f5' }}>
+                            <Typography variant="subtitle1" gutterBottom>Additional Info</Typography>
+
+                            <TextField
+                              fullWidth margin="dense" label="Endpoint"
+                              name="endpoint" onChange={handleChange}
+                            />
+                            <TextField
+                              fullWidth margin="dense" label="Input Format"
+                              name="input" onChange={handleChange}
+                            />
+                            <TextField
+                              fullWidth margin="dense" label="Output Format"
+                              name="output" onChange={handleChange}
+                            />
+                            <TextField
+                              fullWidth margin="dense" label="Request Cost"
+                              name="request_cost" type="number" onChange={handleChange}
+                            />
+
+                            <Box sx={{ mt: 2 }}>
+                              <Button variant="contained" onClick={() => handleAddToCatalog(apiObj)}>
+                                Confirm Add
+                              </Button>
+                            </Box>
+                          </Box>
+                        </Collapse>
+                      </TableCell>
+                    </TableRow>
+                  )}
+                </React.Fragment>
+              );
+            })}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </Box>
   );
 }

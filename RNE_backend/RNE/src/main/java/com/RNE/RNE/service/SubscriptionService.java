@@ -5,9 +5,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.RNE.RNE.model.*;
 import com.RNE.RNE.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class SubscriptionService {
@@ -18,35 +18,43 @@ public class SubscriptionService {
     private UserRepository userRepository;
     @Autowired
     private ApiRepository apiRepository;
-
+    @Autowired
+    private WalletService walletService;
     // Create a new subscription with default values
     @Transactional
-    public Subscription createSubscription(Long userId, String apiId, Integer customRequestLimit) {
+    public Subscription createSubscription(Long userId, String apiId, Integer allowedRequests) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         Api api = apiRepository.findById(apiId)
                 .orElseThrow(() -> new RuntimeException("API not found"));
-
-        // Check for existing pending subscription
-        boolean existingPending = subscriptionRepository.existsByUserAndApiAndStatus(
-                user, api, SubscriptionStatus.PENDING);
+    
+        // Check for existing subscription
+        boolean existingPending = subscriptionRepository.existsByUserAndApiAndStatus(user, api, SubscriptionStatus.PENDING);
+        boolean existingApproved = subscriptionRepository.existsByUserAndApiAndStatus(user, api, SubscriptionStatus.APPROVED);
         if (existingPending) {
             throw new RuntimeException("Pending subscription already exists");
+        } else if (existingApproved) {
+            throw new RuntimeException("Approved subscription already exists");
         }
-
+    
+        long costPerRequest = api.getRequest_cost();
+        Wallet wallet = walletService.getWalletByUser(user); 
+        BigDecimal totalCost = BigDecimal.valueOf(costPerRequest).multiply(BigDecimal.valueOf(allowedRequests));
+        if (wallet.getBalance().compareTo(totalCost) < 0) {
+            throw new RuntimeException("Insufficient balance to subscribe to this API.");
+        }
+    
+        // All good — create the subscription
         Subscription subscription = new Subscription();
         subscription.setUser(user);
         subscription.setApi(api);
         subscription.setStatus(SubscriptionStatus.PENDING);
         subscription.setRequestDate(LocalDateTime.now());
-        
-        // Set custom request limit if provided, otherwise use default
-        if (customRequestLimit != null && customRequestLimit > 0) {
-            subscription.setAllowedRequests(customRequestLimit);
-        }
-
+        subscription.setAllowedRequests(allowedRequests);
+    
         return subscriptionRepository.save(subscription);
     }
+    
 
     // Get all subscriptions for a user
     public List<Subscription> getUserSubscriptions(Long userId) {
@@ -61,17 +69,33 @@ public class SubscriptionService {
         return subscriptionRepository.findAll();
     }
 
-    // Approve a subscription
     @Transactional
     public Subscription approveSubscription(Long id) {
         Subscription subscription = subscriptionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Subscription not found"));
-        
+    
+        if (subscription.getStatus() == SubscriptionStatus.APPROVED) {
+            throw new RuntimeException("Subscription is already approved.");
+        }
+    
+        User user = subscription.getUser();
+        Api api = subscription.getApi();
+    
+        // Determine the cost: request_cost * allowed_requests
+        long costPerRequest = api.getRequest_cost();
+        int allowedRequests = subscription.getAllowedRequests();
+        BigDecimal totalCost = BigDecimal.valueOf(costPerRequest).multiply(BigDecimal.valueOf(allowedRequests));
+        // Deduct funds from the user's wallet
+        walletService.deductFunds(user, totalCost, "Subscription to API: " + api.getName());
+    
+        // Update subscription status
         subscription.setStatus(SubscriptionStatus.APPROVED);
         subscription.setApprovalDate(LocalDateTime.now());
-        
+    
         return subscriptionRepository.save(subscription);
     }
+    
+    
 
     // Reject a subscription
     @Transactional

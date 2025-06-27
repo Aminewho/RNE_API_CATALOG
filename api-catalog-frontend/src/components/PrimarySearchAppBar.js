@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useAuth } from '../authentication/AuthContext';
 import NotificationsMenu from './NotificationsMenu'; // Adjust the import path as needed
-
+// Adjust the path to your logo image
 
 import { styled, alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -36,6 +36,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import ApiIcon from '@mui/icons-material/Api';
 import StorageIcon from '@mui/icons-material/Storage';
 import LogoutIcon from '@mui/icons-material/Logout';
+
 
 
 
@@ -264,7 +265,7 @@ export default function CombinedApp() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
+      <AppBar position="fixed" open={open} sx={{ backgroundColor:'#222f72'  }}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -275,23 +276,14 @@ export default function CombinedApp() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            RNE
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+          <logo/>
+          <Box
+            component="img"
+            src="/tt.png" // Assuming the image is placed in the public folder
+            alt="RNE "
+            sx={{ height: 50, width :400 , display: { xs: 'none', sm: 'block' }, objectFit: "contain "  }}
+          />
+         
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">

@@ -1,18 +1,24 @@
 package com.RNE.RNE.service;
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.RNE.RNE.model.SignupRequest;
 import com.RNE.RNE.model.User;
+import com.RNE.RNE.model.Wallet;
 import com.RNE.RNE.repository.SignupRequestRepository;
 import com.RNE.RNE.repository.UserRepository;
+import com.RNE.RNE.repository.WalletRepository;
 @Service
 public class AdminService {
     @Autowired
     private SignupRequestRepository repository;
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private WalletRepository walletRepository;
 
   @Transactional
   public void approveSignupRequest(Long requestId, String username, String rawPassword) {
@@ -25,6 +31,7 @@ public class AdminService {
     if (userRepository.findByUsername(username).isPresent()) {
         throw new RuntimeException("Username already taken");
     }
+
     // Create and fill user entity
     User user = new User();
     user.setUsername(username);
@@ -54,6 +61,10 @@ public class AdminService {
     user.setEmail(request.getEmail());
     // Optional: set role if needed (default is ROLE_USER)
     user.setRole("USER");
+    Wallet wallet = new Wallet();
+    wallet.setUser(user);
+    wallet.setBalance(BigDecimal.ZERO);
+    walletRepository.save(wallet);
     userRepository.save(user);
     request.setStatus(SignupRequest.Status.ACCEPTED);
     repository.save(request);

@@ -9,10 +9,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -24,14 +26,21 @@ public class Api {
     private String id; // use WSO2 API UUID (globally unique)
 
     private String name;
-    private String provider;
-    private String version;
-    private String context;
-    private String description;
-    private boolean published;
+    private String endpoint;
+    
+    @Column(columnDefinition = "TEXT")
+    private String input;
+    
+    
+    @Column(columnDefinition = "TEXT")
+    private String output;
+        private String description;
+    private boolean published; // default to false
+
+    private Long request_cost;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore 
+    @JsonIgnore
     @JoinColumn(name = "wso2_instance_id")
     private Wso2Instance instance;
 
@@ -55,31 +64,6 @@ public class Api {
     public void setName(String name) {
         this.name = name;
     }
-
-    public String getProvider() {
-        return provider;
-    }
-
-    public void setProvider(String provider) {
-        this.provider = provider;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getContext() {
-        return context;
-    }
-
-    public void setContext(String context) {
-        this.context = context;
-    }
-
     public String getDescription() {
         return description;
     }
@@ -95,7 +79,9 @@ public class Api {
     public void setPublished(boolean published) {
         this.published = published;
     }
-
+    public boolean getPublished() {
+        return published;
+    }
     public Wso2Instance getInstance() {
         return instance;
     }
@@ -103,4 +89,34 @@ public class Api {
     public void setInstance(Wso2Instance instance) {
         this.instance = instance;
     }
+    public String getEndpoint() {
+        return endpoint;
+    }
+
+    public void setEndpoint(String endpoint) {
+        this.endpoint = endpoint;
+    }
+
+    public String getInput() {
+        return input;
+    }
+
+    public void setInput(String input) {
+        this.input = input;
+    }
+
+    public String getOutput() {
+        return output;
+    }
+
+    public void setOutput(String output) {
+        this.output = output;
+    }
+    public Long getRequest_cost() {
+        return request_cost;
+    }
+
+    public void setRequest_cost(Long request_cost) {
+        this.request_cost = request_cost;
+    }   
 }

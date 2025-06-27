@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 
 public class SubscriptionDTO {
+    private Long id ;
     private int allowedRequests ;
     private int usedRequests ;   
     private String status ; // Assuming SubscriptionStatus is a String for simplicity
@@ -13,6 +14,12 @@ public class SubscriptionDTO {
     private String api;
     private String username; // Assuming user is represented as a String for simplicity
     // Getters and Setters
+    public Long getId() {
+        return id;
+    }
+    public void setId(Long id) {
+        this.id = id;
+    }
     public int getAllowedRequests() {
         return allowedRequests;
     }

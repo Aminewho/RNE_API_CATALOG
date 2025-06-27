@@ -3,11 +3,13 @@ package com.RNE.RNE.controller;
 import com.RNE.RNE.dto.SubscriptionDTO;
 import com.RNE.RNE.dto.SubscriptionMapper;
 import com.RNE.RNE.model.Api;
+import com.RNE.RNE.dto.ApiRequest;
+import com.RNE.RNE.dto.AddFundsRequest;
 import com.RNE.RNE.model.SignupRequest;
 import com.RNE.RNE.model.Subscription;
 import com.RNE.RNE.model.SubscriptionStatus;
-import com.RNE.RNE.model.SignupRequest;
 import com.RNE.RNE.model.User;
+import com.RNE.RNE.service.ApiService;
 import com.RNE.RNE.model.Wso2Instance;
 import com.RNE.RNE.service.SignupService;
 import com.RNE.RNE.service.SubscriptionService;
@@ -15,22 +17,19 @@ import com.RNE.RNE.service.AdminService;
 import com.RNE.RNE.service.UserService;
 import com.RNE.RNE.service.Wso2InstanceService;
 import com.RNE.RNE.service.Wso2ApiService;
+import com.RNE.RNE.service.WalletService;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.RNE.RNE.repository.Wso2InstanceRepository;
 import com.RNE.RNE.repository.ApiRepository;
 import com.RNE.RNE.repository.UserRepository;
-
 import java.util.Optional;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 @RestController
 @RequestMapping("/admin")
@@ -48,9 +47,11 @@ public class AdminController {
     @Autowired
     private Wso2ApiService wso2ApiService;
     @Autowired
-    private Wso2InstanceRepository wso2InstanceRepository;
+    WalletService walletService;
     @Autowired
     private ApiRepository apiRepository;
+    @Autowired
+    private ApiService apiService;
 
       
     @Autowired
@@ -110,10 +111,7 @@ public class AdminController {
     @GetMapping("/catalog/apis")
     public ResponseEntity<List<Api>> getCatalogApis() {
         List<Api> apis = apiRepository.findAll();
-        if (apis.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
-        }
-        return ResponseEntity.ok(apis);
+        return ResponseEntity.ok(apis); // always return 200 with the list, even if empty
     }
     @DeleteMapping("/catalog/apis/{id}")
     public ResponseEntity<String> deleteApiFromCatalog(@PathVariable String id) {
@@ -126,49 +124,60 @@ public class AdminController {
         }
     }
     @PostMapping("/catalog/add")
-    public ResponseEntity<?> addApi(@RequestBody Api incomingApi) {
-        List<JsonNode> availableApis = wso2ApiService.getAllApisFromAllInstances();
-
-        Optional<JsonNode> matchingApi = availableApis.stream()
-            .filter(node -> node.get("id").asText().equals(incomingApi.getId()))
-            .findFirst();
-
-        if (matchingApi.isEmpty()) {
-            return ResponseEntity.badRequest().body("API not found in WSO2 instances");
+    public ResponseEntity<?> addApi(@RequestBody ApiRequest request) {
+        try {
+            apiService.addApiToCatalog(request.getIncomingApi(), request.getBaseUrl());
+            return ResponseEntity.ok(" API added to catalog successfully");
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to add API to catalog");
         }
-
-        // Find Wso2Instance by baseUrl
-        String baseUrl = matchingApi.get().get("baseUrl").asText();
-        Wso2Instance instance = wso2InstanceRepository.findByBaseUrl(baseUrl);
-        if (instance == null) {
-            return ResponseEntity.badRequest().body("WSO2 instance not found for base URL");
-        }
-
-        Api api = new Api();
-        api.setId(matchingApi.get().get("id").asText());
-        api.setName(matchingApi.get().get("name").asText());
-        api.setVersion(matchingApi.get().get("version").asText());
-        api.setContext(matchingApi.get().get("context").asText());
-        api.setProvider(matchingApi.get().get("provider").asText());
-        api.setInstance(instance); 
-
-        apiRepository.save(api);
-        return ResponseEntity.ok("API added to catalog");
     }
     @GetMapping("/subscriptions")
     public ResponseEntity<List<SubscriptionDTO>> getSubscriptions() {
-        List<Subscription> subscriptions  = subscriptionService.getSubscriptions();
-        List<SubscriptionDTO> dtoList = subscriptions.stream()
-            .map(SubscriptionMapper::toDto)
-            .collect(Collectors.toList());
-        return ResponseEntity.ok(dtoList);
+        try {
+            List<Subscription> subscriptions = subscriptionService.getSubscriptions();
+            
+            if (subscriptions == null || subscriptions.isEmpty()) {
+                return ResponseEntity.noContent().build();
+            }
+            
+            List<SubscriptionDTO> dtoList = subscriptions.stream()
+                .map(SubscriptionMapper::toDto)
+                .filter(Objects::nonNull)  // Filter out any null DTOs
+                .collect(Collectors.toList());
+                
+            return ResponseEntity.ok(dtoList);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
+
     @GetMapping("/subscriptions/pending")
     public ResponseEntity<List<SubscriptionDTO>> getPendingSubscriptions() {
         List<Subscription> subscriptions  = subscriptionService.getSubscriptionsByStatus(SubscriptionStatus.PENDING);
         List<SubscriptionDTO> dtoList = subscriptions.stream()
             .map(SubscriptionMapper::toDto)
             .collect(Collectors.toList());
+        return ResponseEntity.ok(dtoList);
+    }
+    @GetMapping("/subscriptions/{id}")
+    public ResponseEntity<SubscriptionDTO> getSubscriptionById(@PathVariable Long  id) {
+        Subscription subscriptions  = subscriptionService.getSubscriptionById(id);
+        SubscriptionDTO dtoList = subscriptions == null ? null : SubscriptionMapper.toDto(subscriptions);
+        return ResponseEntity.ok(dtoList);
+    }
+
+    @GetMapping("/subscriptions/user/{id}")
+    public ResponseEntity<List<SubscriptionDTO>> getSubscriptionsByUser(@PathVariable Long id) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("User not found with id: " + id));
+        
+        List<Subscription> subscriptions = subscriptionService.getUserSubscriptions(user.getId());
+        List<SubscriptionDTO> dtoList = subscriptions.stream()
+                .map(SubscriptionMapper::toDto)
+                .collect(Collectors.toList());      
         return ResponseEntity.ok(dtoList);
     }
 
@@ -193,6 +202,21 @@ public class AdminController {
                 .body(Map.of("error", e.getMessage()));
         }
     }
+
+    @PutMapping("/add-funds/{userId}")
+    public ResponseEntity<String> addFunds(@RequestBody AddFundsRequest request,@PathVariable Long userId) {
+       
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        try {
+            walletService.addFunds(user, request.getAmount());
+            return ResponseEntity.ok("Funds added successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Failed to add funds: " + e.getMessage());
+        }
+    }
+
   
 
 }

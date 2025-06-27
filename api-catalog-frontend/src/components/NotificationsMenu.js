@@ -2,11 +2,12 @@ import { Badge, IconButton, Popover, List, ListItem, ListItemText } from '@mui/m
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import React, { useState, useEffect } from 'react';
 import api from '../api'; // Axios instance with auth headers
+import { useAuth } from '../authentication/AuthContext'; 
 
 export default function NotificationsMenu() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [requests, setRequests] = useState([]);
-
+  const { user, loading } = useAuth();
   // Fetch pending requests
   const fetchRequests = async () => {
     try {
@@ -16,10 +17,13 @@ export default function NotificationsMenu() {
       console.error('Error fetching signup requests', err);
     }
   };
-
   useEffect(() => {
-    fetchRequests();
-  }, []);
+    if (!loading && user?.role === 'ADMIN') {
+      fetchRequests();
+    } else {
+      setRequests(null);
+    }
+  }, [loading, user]);
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -36,8 +40,7 @@ export default function NotificationsMenu() {
   return (
     <>
       <IconButton color="inherit" onClick={handleClick}>
-        <Badge badgeContent={requests.length} color="error">
-          <NotificationsIcon />
+      <Badge badgeContent={requests?.length || 0} color="error">          <NotificationsIcon />
         </Badge>
       </IconButton>
 
@@ -50,7 +53,7 @@ export default function NotificationsMenu() {
         transformOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
         <List sx={{ minWidth: 300 }}>
-          {requests.length === 0 ? (
+          {!requests || requests.length === 0 ? (
             <ListItem>
               <ListItemText primary="No pending requests" />
             </ListItem>

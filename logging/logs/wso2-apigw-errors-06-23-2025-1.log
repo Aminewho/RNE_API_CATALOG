@@ -1,0 +1,3 @@
+2025-06-23T15:10:17,691 [-] [https-jsse-nio-9443-exec-22] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-06-23T15:10:17,691 [-] [https-jsse-nio-9443-exec-50] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-06-23T15:10:17,832 [-] [https-jsse-nio-9443-exec-34] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing

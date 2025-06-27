@@ -1,0 +1,18 @@
+2025-06-18T11:48:54,650 [-] [Start Level: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.apache.tomcat.util.digester.Digester} Match [Server/Service/Engine/Host/Valve] failed to set property [maxDays] to []
+2025-06-18T11:49:14,358 [-] [Framework Event Dispatcher: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [addRemoteServerConfig]
+2025-06-18T11:49:14,359 [-] [Framework Event Dispatcher: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [resetRemoteServerConfig]
+2025-06-18T11:49:15,103 [-] [Framework Event Dispatcher: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [searchByAttribute]
+2025-06-18T11:49:18,988 [-] [Framework Event Dispatcher: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.wso2.carbon.identity.application.mgt.internal.ApplicationManagementServiceComponent} Templates directory not found at /home/wso2carbon/wso2am-4.5.0/repository/resources/identity/authntemplates
+2025-06-18T11:49:19,589 [-] [Framework Event Dispatcher: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.wso2.carbon.identity.auth.valve.internal.AuthenticationValveServiceComponent} File invalid_tenant_domain_response.html not found. The default content will be used as the error page content.
+2025-06-18T11:49:19,651 [-] [Framework Event Dispatcher: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.wso2.carbon.identity.auth.service.internal.AuthenticationServiceComponent} 
+
+##################################  ALERT  ##################################
+[WARNING]: Internal authentication is utilizing default credentials,
+which may expose the environment to potential security risks.
+If this is a production environment, change the credentials immediately.
+Please refer to the WSO2 security advisory: https://security.docs.wso2.com/en/latest/security-announcements/security-advisories/2023/WSO2-2023-2617/
+#############################################################################
+
+2025-06-18T11:49:22,465 [-] [Framework Event Dispatcher: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.wso2.carbon.identity.event.internal.IdentityEventServiceComponent} Properties for OrganizationCreationHandler is not configured. This event handler will not be activated
+2025-06-18T11:49:22,492 [-] [Framework Event Dispatcher: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.wso2.carbon.identity.application.authentication.framework.internal.FrameworkServiceComponent} Adaptive authentication is disabled.
+2025-06-18T11:49:46,276 [-] [Framework Event Dispatcher: Equinox Container: 52075996-41ff-45a7-827f-0203a0a89fc5]  WARN {org.apache.tomcat.util.net.SSLUtilBase} The trusted certificate with alias [cn_baltimore_cybertrust_root,ou_cybertrust,o_baltimore,c_ie [jdk]] and DN [CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE] is not valid due to [NotAfter: Mon May 12 23:59:00 UTC 2025]. Certificates signed by this trusted certificate WILL be accepted

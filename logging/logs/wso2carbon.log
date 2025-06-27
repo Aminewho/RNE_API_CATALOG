@@ -1,5 +1,0 @@
-TID: [] [] [2025-06-17 10:03:56,174]  INFO {org.wso2.carbon.identity.application.authentication.framework.store.SessionCleanUpService} - Session Data cleanup task is running successfully for removing expired Data
-TID: [-1234] [] [2025-06-17 10:10:19,666]  WARN {org.wso2.carbon.identity.oidc.session.OIDCInboundSessionContextMgtListener} - No session state found for the received Session ID : ad238a63-78f5-4132-91a2-25f3de21c051
-TID: [-1234] [devportal] [2025-06-17 15:38:53,388] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@4ea57a38
-TID: [-1234] [api/am/devportal] [2025-06-17 15:38:53,429] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
-TID: [-1234] [api/am/devportal] [2025-06-17 15:38:53,429] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
