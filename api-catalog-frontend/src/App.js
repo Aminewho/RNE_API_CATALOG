@@ -17,7 +17,9 @@ import Subscriptions from './pages/admin/Subscriptions';
 import SubscriptionDetails from './pages/admin/SubscriptionDetails';
 import ApiMarketplace from './pages/user/ApiMarketplace'; // adjust path if needed
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import UserSubscriptionsPage from './pages/user/UserSubscriptionsPage';
+import TransactionsPage from './pages/user/TransactionsPage'; // adjust path if needed
+import UserDetailPage from './pages/admin/UserDetailPage'; // adjust path if needed
 function App() {
   return (
     <AuthProvider>
@@ -46,13 +48,18 @@ function App() {
 
   {/* Protected Routes */}
   <Route
-    path="/apis"
+    path="/"
     element={
       <ProtectedRoute allowedRoles={['ROLE_USER']} >
-        <ApiMarketplace  />
+        <AdminLayout />
       </ProtectedRoute>
-    }
-  />
+    }>
+          <Route path="subscriptions" element={<UserSubscriptionsPage/>} />
+          <Route path="apis" element={  <ApiMarketplace  />} />
+          <Route path="transactions" element={<TransactionsPage />} />
+
+
+  </Route>
 
   {/* Admin Protected Routes */}
   <Route path="/admin" element={
@@ -67,8 +74,7 @@ function App() {
     <Route path="wso2" element={<ManageWso2Instances />} />
     <Route path="subscriptions" element={<Subscriptions />} />
     <Route path="subscriptions/:id" element={<SubscriptionDetails />} />
-
-
+    <Route path="users/:userId" element={<UserDetailPage />} />
   </Route>
 </Routes>
         </LayoutWithAppBar>

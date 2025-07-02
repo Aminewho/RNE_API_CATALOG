@@ -4,29 +4,32 @@ import api from '../../api';
 import {
   Box,
   Typography,
+  Grid,
+  Avatar,
   Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TablePagination,
-  TextField,
+  IconButton,
   InputAdornment,
   CircularProgress,
-  IconButton,
+  TableContainer,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+  TableCell,
+  TablePagination,
+  TextField,
   Tooltip,
   Chip,
-  Avatar
+  Stack
 } from '@mui/material';
 import {
-  Search as SearchIcon,
   Refresh as RefreshIcon,
-  Edit as EditIcon,
+  Search as SearchIcon,
   Visibility as VisibilityIcon,
+  Edit as EditIcon,
   Delete as DeleteIcon
 } from '@mui/icons-material';
+
 
 export default function UserManagementPage() {
   const [users, setUsers] = useState([]);
@@ -95,26 +98,23 @@ export default function UserManagementPage() {
     }
   };
 
+
   return (
     <Box sx={{ p: 3 }}>
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-        <Typography variant="h4" component="h1">
-          User Management
-        </Typography>
-        <Box>
-          <Tooltip title="Refresh">
-            <IconButton onClick={fetchUsers} color="primary">
-              <RefreshIcon />
-            </IconButton>
-          </Tooltip>
-        </Box>
+        <Typography variant="h4" fontWeight="bold">User Management</Typography>
+        <Tooltip title="Refresh">
+          <IconButton onClick={fetchUsers} color="primary">
+            <RefreshIcon />
+          </IconButton>
+        </Tooltip>
       </Box>
 
-      <Paper sx={{ mb: 2, p: 2 }}>
+      <Paper sx={{ mb: 3, p: 2 }}>
         <TextField
           fullWidth
           variant="outlined"
-          placeholder="Search users..."
+          placeholder="Search users by name, email or company..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           InputProps={{
@@ -122,7 +122,7 @@ export default function UserManagementPage() {
               <InputAdornment position="start">
                 <SearchIcon />
               </InputAdornment>
-            ),
+            )
           }}
         />
       </Paper>
@@ -134,12 +134,12 @@ export default function UserManagementPage() {
       ) : (
         <>
           <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="user table">
-              <TableHead>
+            <Table>
+              <TableHead sx={{ backgroundColor: '#f5f5f5' }}>
                 <TableRow>
                   <TableCell>User</TableCell>
                   <TableCell>Company</TableCell>
-                  <TableCell>Contact</TableCell>
+                  <TableCell>Primary Contact</TableCell>
                   <TableCell>Technical Contact</TableCell>
                   <TableCell>Status</TableCell>
                   <TableCell align="center">Actions</TableCell>
@@ -150,80 +150,76 @@ export default function UserManagementPage() {
                   paginatedUsers.map((user) => (
                     <TableRow key={user.id} hover>
                       <TableCell>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                          <Avatar sx={{ mr: 2, bgcolor: 'primary.main' }}>
+                        <Stack direction="row" spacing={2} alignItems="center">
+                          <Avatar sx={{ bgcolor: 'primary.main' }}>
                             {user.username.charAt(0).toUpperCase()}
                           </Avatar>
                           <Box>
-                            <Typography variant="body1">{user.username}</Typography>
-                            <Typography variant="body2" color="textSecondary">
+                            <Typography variant="subtitle1" fontWeight="bold">
+                              {user.username}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
                               {user.email}
                             </Typography>
                           </Box>
-                        </Box>
+                        </Stack>
                       </TableCell>
+
                       <TableCell>
-                        <Typography variant="body1">{user.raisonSociale}</Typography>
-                        <Typography variant="body2" color="textSecondary">
-                          {user.matriculeFiscale}
-                        </Typography>
+                        <Typography variant="subtitle2">{user.raisonSociale}</Typography>
+                        <Typography variant="body2" color="text.secondary">{user.matriculeFiscale}</Typography>
                         <Typography variant="body2">{user.secteurActivite}</Typography>
                       </TableCell>
+
                       <TableCell>
-                        <Typography variant="body1">
+                        <Typography variant="subtitle2">
                           {user.nomPremierResponsable} {user.prenomPremierResponsable}
                         </Typography>
-                        <Typography variant="body2" color="textSecondary">
+                        <Typography variant="body2" color="text.secondary">
                           {user.emailPremierResponsable}
                         </Typography>
                         <Typography variant="body2">{user.telPremierResponsable}</Typography>
                       </TableCell>
+
                       <TableCell>
-                        {user.nomResponsableTechnique && (
-                          <>
-                            <Typography variant="body1">
-                              {user.nomResponsableTechnique} {user.prenomResponsableTechnique}
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary">
-                              {user.emailResponsableTechnique}
-                            </Typography>
-                            <Typography variant="body2">{user.telResponsableTechnique}</Typography>
-                          </>
-                        )}
+                        <Typography variant="subtitle2">
+                          {user.nomResponsableTechnique} {user.prenomResponsableTechnique}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {user.emailResponsableTechnique}
+                        </Typography>
+                        <Typography variant="body2">{user.telResponsableTechnique}</Typography>
                       </TableCell>
+
                       <TableCell>
-                        <Chip
-                          label="Active"
-                          color="success"
-                          size="small"
-                          variant="outlined"
-                        />
+                        <Chip label="Active" color="success" size="small" variant="outlined" />
                       </TableCell>
+
                       <TableCell align="center">
-                        <Tooltip title="View">
-                          <IconButton onClick={() => handleViewUser(user.id)}>
-                            <VisibilityIcon color="info" />
-                          </IconButton>
-                        </Tooltip>
-                        <Tooltip title="Edit">
-                          <IconButton onClick={() => handleEditUser(user.id)}>
-                            <EditIcon color="primary" />
-                          </IconButton>
-                        </Tooltip>
-                        <Tooltip title="Delete">
-                          <IconButton onClick={() => handleDeleteUser(user.id)}>
-                            <DeleteIcon color="error" />
-                          </IconButton>
-                        </Tooltip>
+                        <Stack direction="row" spacing={1} justifyContent="center">
+                          <Tooltip title="View">
+                            <IconButton onClick={() => handleViewUser(user.id)}>
+                              <VisibilityIcon color="info" />
+                            </IconButton>
+                          </Tooltip>
+                          <Tooltip title="Edit">
+                            <IconButton onClick={() => handleEditUser(user.id)}>
+                              <EditIcon color="primary" />
+                            </IconButton>
+                          </Tooltip>
+                          <Tooltip title="Delete">
+                            <IconButton onClick={() => handleDeleteUser(user.id)}>
+                              <DeleteIcon color="error" />
+                            </IconButton>
+                          </Tooltip>
+                        </Stack>
                       </TableCell>
                     </TableRow>
                   ))
                 ) : (
                   <TableRow>
                     <TableCell colSpan={6} align="center">
-                      <Typography variant="body1" color="textSecondary">
-                        No users found
-                      </Typography>
+                      <Typography variant="body1" color="text.secondary">No users found</Typography>
                     </TableCell>
                   </TableRow>
                 )}

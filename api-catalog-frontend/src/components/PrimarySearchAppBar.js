@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { useAuth } from '../authentication/AuthContext';
-import NotificationsMenu from './NotificationsMenu'; // Adjust the import path as needed
-// Adjust the path to your logo image
-
+import NotificationsMenu from './NotificationsMenu'; 
+import AccountBalance from './AccountBalance';
 import { styled, alpha, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -36,50 +35,13 @@ import PeopleIcon from '@mui/icons-material/People';
 import ApiIcon from '@mui/icons-material/Api';
 import StorageIcon from '@mui/icons-material/Storage';
 import LogoutIcon from '@mui/icons-material/Logout';
-
-
+import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
+import { Wallet } from '@mui/icons-material';
+import WalletIcon from './WalletIcon';
 
 
 const drawerWidth = 240;
 
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: '20ch',
-    },
-  },
-}));
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -142,6 +104,7 @@ export default function CombinedApp() {
     if (user.role === 'ROLE_ADMIN') {
       return [
         { label: 'Dashboard', path: '/admin/dashboard', icon: <DashboardIcon /> },
+        { label: 'Manage Subscriptions', path: '/admin/subscriptions', icon: <InboxIcon /> },
         { label: 'Signup Requests', path: '/admin/signup-requests', icon: <GroupAddIcon /> },
         { label: 'Manage Users', path: '/admin/users', icon: <PeopleIcon /> },
         { label: 'Manage APIs', path: '/admin/apis', icon: <ApiIcon /> },
@@ -153,7 +116,8 @@ export default function CombinedApp() {
     if (user.role === 'ROLE_USER') {
       return [
         { label: 'APIs', path: '/apis', icon: <ApiIcon /> },
-        { label: 'My Profile', path: '/user/profile', icon: <AccountCircle /> },
+        { label: 'Subscriptions', path: '/subscriptions', icon: <InboxIcon/> },
+        { label: 'Transactions', path: '/transactions', icon: <AccountBalanceWalletIcon /> },
         { label: 'Logout', path: '/logout', icon: <LogoutIcon />, danger: true }
       ];
     }
@@ -230,9 +194,7 @@ export default function CombinedApp() {
     >
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={0} color="error">
-            <MailIcon />
-          </Badge>
+
         </IconButton>
         <p>Messages</p>
       </MenuItem>
@@ -286,11 +248,7 @@ export default function CombinedApp() {
          
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Badge badgeContent={0} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton>
+           <WalletIcon/>
             <IconButton
               size="large"
               aria-label="show 17 new notifications"

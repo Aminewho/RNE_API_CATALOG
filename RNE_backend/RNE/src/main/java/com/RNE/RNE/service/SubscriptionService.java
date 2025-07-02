@@ -37,12 +37,17 @@ public class SubscriptionService {
             throw new RuntimeException("Approved subscription already exists");
         }
     
-        long costPerRequest = api.getRequest_cost();
+        BigDecimal costPerRequest = api.getRequest_cost();
         Wallet wallet = walletService.getWalletByUser(user); 
-        BigDecimal totalCost = BigDecimal.valueOf(costPerRequest).multiply(BigDecimal.valueOf(allowedRequests));
+        BigDecimal totalCost = costPerRequest.multiply(BigDecimal.valueOf(allowedRequests));
+        BigDecimal costPendingRequests=this.getCostOfPendingSubscriptionsByUser(userId);
         if (wallet.getBalance().compareTo(totalCost) < 0) {
             throw new RuntimeException("Insufficient balance to subscribe to this API.");
         }
+        else if(costPendingRequests.add(totalCost).compareTo(wallet.getBalance()) > 0) {
+            throw new RuntimeException("Insufficient balance to subscribe to this API. Pending requests cost: " + costPendingRequests);
+        }
+      
     
         // All good — create the subscription
         Subscription subscription = new Subscription();
@@ -65,6 +70,20 @@ public class SubscriptionService {
     public List<Subscription> getSubscriptionsByStatus(SubscriptionStatus status) {
         return subscriptionRepository.findByStatus(status);
     }
+
+    public BigDecimal getCostOfPendingSubscriptionsByUser(Long userId) {
+        List<Subscription> pendingSubscriptions = subscriptionRepository.findByUserIdAndStatus(userId, SubscriptionStatus.PENDING);
+        BigDecimal totalCost = BigDecimal.ZERO;
+        
+        for (Subscription subscription : pendingSubscriptions) {
+           
+            BigDecimal costPerRequest = subscription.getApi().getRequest_cost();
+            int allowedRequests = subscription.getAllowedRequests();
+            totalCost = totalCost.add((costPerRequest).multiply(BigDecimal.valueOf(allowedRequests)));
+        }
+        
+        return totalCost;
+    }
     public List<Subscription> getSubscriptions() {
         return subscriptionRepository.findAll();
     }
@@ -82,9 +101,9 @@ public class SubscriptionService {
         Api api = subscription.getApi();
     
         // Determine the cost: request_cost * allowed_requests
-        long costPerRequest = api.getRequest_cost();
+        BigDecimal costPerRequest = api.getRequest_cost();
         int allowedRequests = subscription.getAllowedRequests();
-        BigDecimal totalCost = BigDecimal.valueOf(costPerRequest).multiply(BigDecimal.valueOf(allowedRequests));
+        BigDecimal totalCost =costPerRequest.multiply(BigDecimal.valueOf(allowedRequests));
         // Deduct funds from the user's wallet
         walletService.deductFunds(user, totalCost, "Subscription to API: " + api.getName());
     

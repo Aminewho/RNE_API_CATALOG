@@ -2,12 +2,15 @@ package com.RNE.RNE.controller;
 
 import com.RNE.RNE.dto.SubscriptionDTO;
 import com.RNE.RNE.dto.SubscriptionMapper;
+import com.RNE.RNE.dto.UserDto;
+import com.RNE.RNE.dto.UserMapper;
 import com.RNE.RNE.model.Api;
 import com.RNE.RNE.dto.ApiRequest;
 import com.RNE.RNE.dto.AddFundsRequest;
 import com.RNE.RNE.model.SignupRequest;
 import com.RNE.RNE.model.Subscription;
 import com.RNE.RNE.model.SubscriptionStatus;
+import com.RNE.RNE.model.Transaction;
 import com.RNE.RNE.model.User;
 import com.RNE.RNE.service.ApiService;
 import com.RNE.RNE.model.Wso2Instance;
@@ -26,6 +29,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
@@ -69,6 +73,14 @@ public class AdminController {
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
+    @GetMapping("/users/{id}")
+        public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
+        User user = userRepository.findById(id)
+            .orElseThrow(() -> new RuntimeException("User not found"));
+        UserDto dto = UserMapper.toDTO(user);
+        return ResponseEntity.ok(dto);
+    }
+
     @PutMapping("/signups/{id}/approve")
     public ResponseEntity<?> approveRequest(@PathVariable Long id, @RequestBody Map<String, String> credentials) {
         try {
@@ -162,6 +174,7 @@ public class AdminController {
             .collect(Collectors.toList());
         return ResponseEntity.ok(dtoList);
     }
+    
     @GetMapping("/subscriptions/{id}")
     public ResponseEntity<SubscriptionDTO> getSubscriptionById(@PathVariable Long  id) {
         Subscription subscriptions  = subscriptionService.getSubscriptionById(id);
@@ -215,6 +228,18 @@ public class AdminController {
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Failed to add funds: " + e.getMessage());
         }
+    }
+     @GetMapping("/transactions/{userId}")
+     public ResponseEntity<?> getTransactions(@PathVariable Long userId) {
+        User user = userRepository.findById(userId).orElse(null);
+        if (user == null) {
+            return ResponseEntity.status(404).body("User not found");
+        }
+        List<Transaction> transactions = walletService.getTransactions(user);
+        if (transactions.isEmpty()) {
+            return ResponseEntity.status(404).body("No transactions found for user");
+        }
+        return ResponseEntity.ok(transactions);
     }
 
   

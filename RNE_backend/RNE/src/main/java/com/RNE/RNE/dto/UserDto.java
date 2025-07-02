@@ -1,86 +1,35 @@
-package com.RNE.RNE.model;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+package com.RNE.RNE.dto;
 
-import java.util.ArrayList;
-import java.util.List; 
 
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-@Entity
-@Table(name="users")
-public class User {
-    @Id
-    @GeneratedValue
-    private Long id;
+import java.math.BigDecimal;
 
+public class UserDto {
     private String username;
-    private String password;
-    private String role = "ROLE_USER";
-
-    // Business Info
+    private String role;
     private String matriculeFiscale;
     private String secteurActivite;
     private String raisonSociale;
     private String adresse;
-
-    // Premier PremierResponsable
     private String nomPremierResponsable;
     private String prenomPremierResponsable;
     private String emailPremierResponsable;
     private String telPremierResponsable;
-
-    // PremierResponsable ResponsableTechnique
     private String nomResponsableTechnique;
     private String prenomResponsableTechnique;
     private String emailResponsableTechnique;
     private String telResponsableTechnique;
-
-    private String ip;
     private String tel;
     private String email;
+    private BigDecimal balance;
+    private String ipAutorisee;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Subscription> subscriptions = new ArrayList<>();
-
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    @JsonManagedReference
-    private Wallet wallet;
- 
-    public Wallet getWallet() {
-        return wallet;
-    }   
-    public void setWallet(Wallet wallet) {
-        this.wallet = wallet;
-    }
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    // Getters and Setters
     public String getUsername() {
         return username;
     }
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password){
-        this.password = password;
     }
 
     public String getRole() {
@@ -187,14 +136,6 @@ public class User {
         this.telResponsableTechnique = telResponsableTechnique;
     }
 
-    public String getIpAutorisee() {
-        return ip;
-    }
-
-    public void setIpAutorisee(String ipAutorisee) {
-        this.ip = ipAutorisee;
-    }
-
     public String getTel() {
         return tel;
     }
@@ -202,10 +143,28 @@ public class User {
     public void setTel(String tel) {
         this.tel = tel;
     }
+
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public String getIpAutorisee() {
+        return ipAutorisee;
+    }
+
+    public void setIpAutorisee(String ipAutorisee) {
+        this.ipAutorisee = ipAutorisee;
     }
 }

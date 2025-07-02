@@ -3,6 +3,8 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Wallet {
 
@@ -12,10 +14,11 @@ public class Wallet {
 
     private BigDecimal balance = BigDecimal.ZERO;
 
-    @OneToOne
-    @JoinColumn(name = "user_id", unique = true)
-    private User user;
 
+    @OneToOne
+    @JoinColumn(name = "user_id",unique=true)
+    @JsonBackReference
+    private User user;
     @OneToMany(mappedBy = "wallet", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Transaction> transactions;
 

@@ -1,0 +1,14 @@
+2025-07-02T08:21:52,628 [-] [https-jsse-nio-9443-exec-29] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-02T08:21:52,628 [-] [https-jsse-nio-9443-exec-6] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-02T08:21:52,879 [-] [https-jsse-nio-9443-exec-38] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-02T08:23:51,479 [-] [https-jsse-nio-9443-exec-4] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-02T08:23:51,490 [-] [https-jsse-nio-9443-exec-31] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-02T08:23:51,628 [-] [https-jsse-nio-9443-exec-47] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-02T08:23:57,276 [-] [HTTPS-Listener I/O dispatcher-16]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-02T08:23:57,562 [-] [PassThroughMessageProcessor-21]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+2025-07-02T09:00:46,993 [-] [https-jsse-nio-9443-exec-11] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-02T09:00:46,993 [-] [https-jsse-nio-9443-exec-32] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-02T09:00:47,120 [-] [https-jsse-nio-9443-exec-40] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-02T09:01:07,865 [-] [HTTPS-Listener I/O dispatcher-18]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-02T09:01:07,937 [-] [PassThroughMessageProcessor-23]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+2025-07-02T09:16:40,950 [-] [HTTPS-Listener I/O dispatcher-20]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown

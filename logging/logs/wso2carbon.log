@@ -1,0 +1,16 @@
+TID: [-1234] [api/am/devportal] [2025-07-02 08:21:52,628] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-02 08:21:52,628] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-02 08:21:52,879] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-02 08:23:51,479] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-02 08:23:51,490] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-02 08:23:51,628] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [] [] [2025-07-02 08:23:57,276]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-02 08:23:57,534]  INFO {org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler} - org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler Initialised
+TID: [] [] [2025-07-02 08:23:57,562]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+TID: [-1234] [api/am/devportal] [2025-07-02 09:00:46,993] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-02 09:00:46,993] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-02 09:00:47,120] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [] [] [2025-07-02 09:01:07,865]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-02 09:01:07,937]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+TID: [] [] [2025-07-02 09:02:04,527]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-07-02 09:16:40,950]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown

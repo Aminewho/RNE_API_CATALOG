@@ -1,0 +1,96 @@
+2025-06-30T08:31:40,917 [-] [Start Level: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.apache.tomcat.util.digester.Digester} Match [Server/Service/Engine/Host/Valve] failed to set property [maxDays] to []
+2025-06-30T08:31:52,533 [-] [Framework Event Dispatcher: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [addRemoteServerConfig]
+2025-06-30T08:31:52,533 [-] [Framework Event Dispatcher: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [resetRemoteServerConfig]
+2025-06-30T08:31:52,933 [-] [Framework Event Dispatcher: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.apache.axis2.description.java2wsdl.DefaultSchemaGenerator} We don't support method overloading. Ignoring [searchByAttribute]
+2025-06-30T08:31:54,559 [-] [Framework Event Dispatcher: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.wso2.carbon.identity.application.mgt.internal.ApplicationManagementServiceComponent} Templates directory not found at /home/wso2carbon/wso2am-4.5.0/repository/resources/identity/authntemplates
+2025-06-30T08:31:54,797 [-] [Framework Event Dispatcher: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.wso2.carbon.identity.auth.valve.internal.AuthenticationValveServiceComponent} File invalid_tenant_domain_response.html not found. The default content will be used as the error page content.
+2025-06-30T08:31:54,822 [-] [Framework Event Dispatcher: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.wso2.carbon.identity.auth.service.internal.AuthenticationServiceComponent} 
+
+##################################  ALERT  ##################################
+[WARNING]: Internal authentication is utilizing default credentials,
+which may expose the environment to potential security risks.
+If this is a production environment, change the credentials immediately.
+Please refer to the WSO2 security advisory: https://security.docs.wso2.com/en/latest/security-announcements/security-advisories/2023/WSO2-2023-2617/
+#############################################################################
+
+2025-06-30T08:32:00,356 [-] [Framework Event Dispatcher: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.wso2.carbon.identity.event.internal.IdentityEventServiceComponent} Properties for OrganizationCreationHandler is not configured. This event handler will not be activated
+2025-06-30T08:32:00,446 [-] [Framework Event Dispatcher: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.wso2.carbon.identity.application.authentication.framework.internal.FrameworkServiceComponent} Adaptive authentication is disabled.
+2025-06-30T08:32:34,957 [-] [Framework Event Dispatcher: Equinox Container: 34d353eb-38f3-4b3d-b6b2-db2342564e72]  WARN {org.apache.tomcat.util.net.SSLUtilBase} The trusted certificate with alias [cn_baltimore_cybertrust_root,ou_cybertrust,o_baltimore,c_ie [jdk]] and DN [CN=Baltimore CyberTrust Root, OU=CyberTrust, O=Baltimore, C=IE] is not valid due to [NotAfter: Mon May 12 23:59:00 UTC 2025]. Certificates signed by this trusted certificate WILL be accepted
+2025-06-30T15:11:36,218 [-] [https-jsse-nio-9443-exec-26] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-06-30T15:11:36,217 [-] [https-jsse-nio-9443-exec-48] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-06-30T15:11:36,407 [-] [https-jsse-nio-9443-exec-2] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-06-30T15:15:33,680 [-] [https-jsse-nio-9443-exec-48] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-06-30T15:15:33,689 [-] [https-jsse-nio-9443-exec-4] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-06-30T15:15:33,817 [-] [https-jsse-nio-9443-exec-49] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-06-30T15:15:53,964 [-] [https-jsse-nio-9443-exec-28] ERROR {org.wso2.carbon.apimgt.rest.api.publisher.v1.impl.ApisApiServiceImpl} Requested API with Id 'f818fb14-194b-4a2d-a195-d9acd72a92df' not found
+org.wso2.carbon.apimgt.api.APIManagementException: Failed to get API
+	at org.wso2.carbon.apimgt.impl.APIProviderImpl.getAPIbyUUID_aroundBody426(APIProviderImpl.java:5574) ~[org.wso2.carbon.apimgt.impl_9.31.86.jar:?]
+	at org.wso2.carbon.apimgt.impl.APIProviderImpl.getAPIbyUUID(APIProviderImpl.java:1) ~[org.wso2.carbon.apimgt.impl_9.31.86.jar:?]
+	at org.wso2.carbon.apimgt.impl.UserAwareAPIProvider.getAPIbyUUID(UserAwareAPIProvider.java:1) ~[org.wso2.carbon.apimgt.impl_9.31.86.jar:?]
+	at org.wso2.carbon.apimgt.rest.api.publisher.v1.impl.ApisApiServiceImpl.getAPIByID(ApisApiServiceImpl.java:4064) ~[?:?]
+	at org.wso2.carbon.apimgt.rest.api.publisher.v1.impl.ApisApiServiceImpl.getAPI(ApisApiServiceImpl.java:263) ~[?:?]
+	at org.wso2.carbon.apimgt.rest.api.publisher.v1.ApisApi.getAPI(ApisApi.java:783) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.apache.cxf.service.invoker.AbstractInvoker.performInvocation(AbstractInvoker.java:179) ~[?:?]
+	at org.apache.cxf.service.invoker.AbstractInvoker.invoke(AbstractInvoker.java:96) ~[?:?]
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:201) ~[?:?]
+	at org.apache.cxf.jaxrs.JAXRSInvoker.invoke(JAXRSInvoker.java:104) ~[?:?]
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor$1.run(ServiceInvokerInterceptor.java:59) ~[?:?]
+	at org.apache.cxf.interceptor.ServiceInvokerInterceptor.handleMessage(ServiceInvokerInterceptor.java:96) ~[?:?]
+	at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:307) ~[?:?]
+	at org.apache.cxf.transport.ChainInitiationObserver.onMessage(ChainInitiationObserver.java:121) ~[?:?]
+	at org.apache.cxf.transport.http.AbstractHTTPDestination.invoke(AbstractHTTPDestination.java:265) ~[?:?]
+	at org.apache.cxf.transport.servlet.ServletController.invokeDestination(ServletController.java:234) ~[?:?]
+	at org.apache.cxf.transport.servlet.ServletController.invoke(ServletController.java:208) ~[?:?]
+	at org.apache.cxf.transport.servlet.ServletController.invoke(ServletController.java:160) ~[?:?]
+	at org.apache.cxf.transport.servlet.CXFNonSpringServlet.invoke(CXFNonSpringServlet.java:225) ~[?:?]
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.handleRequest(AbstractHTTPServlet.java:304) ~[?:?]
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.doGet(AbstractHTTPServlet.java:222) ~[?:?]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529) ~[tomcat-servlet-api_9.0.94.wso2v1.jar:?]
+	at org.apache.cxf.transport.servlet.AbstractHTTPServlet.service(AbstractHTTPServlet.java:279) ~[?:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:199) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:168) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:144) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.wso2.carbon.identity.context.rewrite.valve.TenantContextRewriteValve.invoke(TenantContextRewriteValve.java:119) ~[org.wso2.carbon.identity.context.rewrite.valve_1.8.41.jar:?]
+	at org.wso2.carbon.identity.context.rewrite.valve.OrganizationContextRewriteValve.invoke(OrganizationContextRewriteValve.java:115) ~[org.wso2.carbon.identity.context.rewrite.valve_1.8.41.jar:?]
+	at org.wso2.carbon.tomcat.ext.valves.SameSiteCookieValve.invoke(SameSiteCookieValve.java:38) ~[org.wso2.carbon.tomcat.ext_4.9.28.jar:?]
+	at org.wso2.carbon.identity.authz.valve.AuthorizationValve.invoke(AuthorizationValve.java:167) ~[org.wso2.carbon.identity.authz.valve_1.8.41.jar:?]
+	at org.wso2.carbon.identity.auth.valve.AuthenticationValve.invoke(AuthenticationValve.java:118) ~[org.wso2.carbon.identity.auth.valve_1.8.41.jar:?]
+	at org.wso2.carbon.tomcat.ext.valves.CompositeValve.continueInvocation(CompositeValve.java:106) ~[org.wso2.carbon.tomcat.ext_4.9.28.jar:?]
+	at org.wso2.carbon.tomcat.ext.valves.TomcatValveContainer.invokeValves(TomcatValveContainer.java:49) ~[org.wso2.carbon.tomcat.ext_4.9.28.jar:?]
+	at org.wso2.carbon.tomcat.ext.valves.CompositeValve.invoke(CompositeValve.java:69) ~[org.wso2.carbon.tomcat.ext_4.9.28.jar:?]
+	at org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve.invoke(CarbonStuckThreadDetectionValve.java:152) ~[org.wso2.carbon.tomcat.ext_4.9.28.jar:?]
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:660) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.wso2.carbon.tomcat.ext.valves.CarbonContextCreatorValve.invoke(CarbonContextCreatorValve.java:63) ~[org.wso2.carbon.tomcat.ext_4.9.28.jar:?]
+	at org.wso2.carbon.tomcat.ext.valves.RequestCorrelationIdValve.invoke(RequestCorrelationIdValve.java:137) ~[org.wso2.carbon.tomcat.ext_4.9.28.jar:?]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:383) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:936) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat_9.0.94.wso2v1.jar:?]
+	at java.lang.Thread.run(Thread.java:1583) ~[?:?]
+Caused by: org.wso2.carbon.apimgt.persistence.exceptions.APIPersistenceException: Failed to get API
+	at org.wso2.carbon.apimgt.persistence.RegistryPersistenceImpl.getPublisherAPI(RegistryPersistenceImpl.java:853) ~[org.wso2.carbon.apimgt.persistence_9.31.86.jar:?]
+	at org.wso2.carbon.apimgt.impl.APIProviderImpl.getAPIbyUUID_aroundBody426(APIProviderImpl.java:5540) ~[org.wso2.carbon.apimgt.impl_9.31.86.jar:?]
+	... 57 more
+Caused by: org.wso2.carbon.apimgt.api.APIMgtResourceNotFoundException: Failed to get API. API artifact corresponding to artifactId f818fb14-194b-4a2d-a195-d9acd72a92df does not exist
+	at org.wso2.carbon.apimgt.persistence.RegistryPersistenceImpl.getPublisherAPI(RegistryPersistenceImpl.java:846) ~[org.wso2.carbon.apimgt.persistence_9.31.86.jar:?]
+	at org.wso2.carbon.apimgt.impl.APIProviderImpl.getAPIbyUUID_aroundBody426(APIProviderImpl.java:5540) ~[org.wso2.carbon.apimgt.impl_9.31.86.jar:?]
+	... 57 more
+2025-06-30T15:36:02,498 [-] [HTTPS-Listener I/O dispatcher-13]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-06-30T15:36:02,569 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.transport.http.access.AccessConfiguration} Error loading properties from file: access-log.properties
+2025-06-30T15:36:02,577 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} Error loading properties from a file at from the System defined location: access-log.properties
+2025-06-30T15:36:02,580 [-] [HTTPS-Listener I/O dispatcher-15]  WARN {org.apache.synapse.commons.util.MiscellaneousUtil} Error loading properties from a file at from the System defined location: access-log.properties

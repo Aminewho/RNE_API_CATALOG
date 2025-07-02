@@ -1,5 +1,6 @@
 package com.RNE.RNE.model;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -37,7 +38,7 @@ public class Api {
         private String description;
     private boolean published; // default to false
 
-    private Long request_cost;
+    private BigDecimal request_cost;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
@@ -112,11 +113,11 @@ public class Api {
     public void setOutput(String output) {
         this.output = output;
     }
-    public Long getRequest_cost() {
+    public BigDecimal getRequest_cost() {
         return request_cost;
     }
 
-    public void setRequest_cost(Long request_cost) {
+    public void setRequest_cost(BigDecimal request_cost) {
         this.request_cost = request_cost;
     }   
 }
