@@ -8,34 +8,26 @@ import {
   CircularProgress,
   Grid,
   Chip,
-  Stack,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
-  TableRow
+  TableRow,
+  Stack
 } from '@mui/material';
 import api from '../../api';
 
 export default function UserDetailPage() {
   const { userId } = useParams();
-  const [user, setUser] = useState(null);
-  const [subscriptions, setSubscriptions] = useState([]);
-  const [transactions, setTransactions] = useState([]);
+  const [userDetails, setUserDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchDetails = async () => {
       try {
-        const userRes = await api.get(`/admin/users/${userId}`);
-        setUser(userRes.data);
-
-        const subsRes = await api.get(`/admin/subscriptions/user/${userId}`);
-        setSubscriptions(subsRes.data);
-
-        const txRes = await api.get(`/admin/transactions/${userId}`);
-        setTransactions(txRes.data);
+        const res = await api.get(`/admin/user-details/${userId}`);
+        setUserDetails(res.data);
       } catch (err) {
         console.error('Failed to fetch user details:', err);
       } finally {
@@ -67,9 +59,11 @@ export default function UserDetailPage() {
     );
   }
 
-  if (!user) {
+  if (!userDetails) {
     return <Typography variant="h6">User not found</Typography>;
   }
+
+  const { user, subscriptions, transactions } = userDetails;
 
   return (
     <Box sx={{ p: 3 }}>
@@ -78,7 +72,7 @@ export default function UserDetailPage() {
       </Typography>
 
       {/* General Info */}
-      <Paper sx={{ p: 3, mb: 4, backgroundColor: '#f9f9f9' }}>
+      <Paper sx={{ p: 3, mb: 4, backgroundColor: '#f0f4f8' }}>
         <Typography variant="h6">General Info</Typography>
         <Divider sx={{ my: 1 }} />
         <Grid container spacing={2}>
@@ -88,6 +82,7 @@ export default function UserDetailPage() {
             <Typography><strong>Company:</strong> {user.raisonSociale}</Typography>
             <Typography><strong>Matricule Fiscale:</strong> {user.matriculeFiscale}</Typography>
             <Typography><strong>Secteur Activité:</strong> {user.secteurActivite}</Typography>
+            <Typography><strong>Tel:</strong> {user.tel}</Typography>
           </Grid>
           <Grid item xs={12} sm={6}>
             <Typography><strong>Adresse:</strong> {user.adresse}</Typography>

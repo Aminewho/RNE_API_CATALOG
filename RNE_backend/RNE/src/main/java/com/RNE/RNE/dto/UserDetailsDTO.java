@@ -6,16 +6,12 @@ import com.RNE.RNE.model.Transaction;
 
 public class UserDetailsDTO {
     private UserDto user;
-    private BigDecimal balance;
     private List<SubscriptionDTO> subscriptions;
     private List<Transaction> transactions;
 
-    // Constructors
-    public UserDetailsDTO() {}
-
-    public UserDetailsDTO(UserDto user, BigDecimal balance, List<SubscriptionDTO> subscriptions, List<Transaction> transactions) {
+    public UserDetailsDTO(UserDto user, List<SubscriptionDTO> subscriptions, List<Transaction> transactions) {
         this.user = user;
-        this.balance = balance;
+   
         this.subscriptions = subscriptions;
         this.transactions = transactions;
     }
@@ -29,13 +25,6 @@ public class UserDetailsDTO {
         this.user = user;
     }
 
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
 
     public List<SubscriptionDTO> getSubscriptions() {
         return subscriptions;

@@ -165,4 +165,6 @@ public class SubscriptionService {
         return subscriptionRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Subscription not found"));
     }
+
+    
 }

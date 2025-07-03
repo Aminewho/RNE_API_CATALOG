@@ -2,6 +2,7 @@ package com.RNE.RNE.controller;
 
 import com.RNE.RNE.dto.SubscriptionDTO;
 import com.RNE.RNE.dto.SubscriptionMapper;
+import com.RNE.RNE.dto.UserDetailsDTO;
 import com.RNE.RNE.dto.UserDto;
 import com.RNE.RNE.dto.UserMapper;
 import com.RNE.RNE.model.Api;
@@ -31,6 +32,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
+
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -80,6 +83,19 @@ public class AdminController {
         UserDto dto = UserMapper.toDTO(user);
         return ResponseEntity.ok(dto);
     }
+    @GetMapping("/user-details/{userId}")
+    public ResponseEntity<UserDetailsDTO> getUserDetails(@PathVariable Long userId) {
+        User user = userRepository.findById(userId)
+        .orElseThrow(() -> new RuntimeException("User not found"));
+        List<Subscription> subscriptions = subscriptionService.getUserSubscriptions(userId);
+        List<Transaction> transactions = walletService.getTransactions(user);
+        List<SubscriptionDTO> subscriptionsDto = subscriptions.stream()
+        .map(SubscriptionMapper::toDto)
+        .collect(Collectors.toList());  
+        UserDto userDto = UserMapper.toDTO(user);
+      
+        return ResponseEntity.ok(new UserDetailsDTO(userDto, subscriptionsDto, transactions));
+}
 
     @PutMapping("/signups/{id}/approve")
     public ResponseEntity<?> approveRequest(@PathVariable Long id, @RequestBody Map<String, String> credentials) {
