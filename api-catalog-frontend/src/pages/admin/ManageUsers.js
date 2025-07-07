@@ -20,16 +20,22 @@ import {
   TextField,
   Tooltip,
   Chip,
-  Stack
+  Stack,
+  Dialog, 
+  DialogTitle,
+  DialogContent, 
+  DialogActions, 
+  Button, 
+  TexField,
 } from '@mui/material';
 import {
   Refresh as RefreshIcon,
   Search as SearchIcon,
   Visibility as VisibilityIcon,
   Edit as EditIcon,
-  Delete as DeleteIcon
+  Delete as DeleteIcon,
 } from '@mui/icons-material';
-
+import AddCardIcon from '@mui/icons-material/AddCard';
 
 export default function UserManagementPage() {
   const [users, setUsers] = useState([]);
@@ -38,7 +44,38 @@ export default function UserManagementPage() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const [fundsDialog, setFundsDialog] = useState({
+    open: false,
+    userId: null,
+    username: '',
+    amount: ''
+  });
+  
+  // ─── open dialog when clicking the icon ─────────────────────────────────────
+  const handleOpenFundsDialog = (u) => {
+    setFundsDialog({ open: true, userId: u.id, username: u.username, amount: '' });
+  };
+  
+  const handleCloseFundsDialog = () => setFundsDialog(prev => ({ ...prev, open: false }));
+  
+  const handleAmountChange = (e) =>
+    setFundsDialog(prev => ({ ...prev, amount: e.target.value }));
+  
+  // ─── call backend ───────────────────────────────────────────────────────────
+  const handleSubmitFunds = async () => {
+    const amt = Number(fundsDialog.amount);
+    if (isNaN(amt) || amt <= 0) return alert('Enter a valid amount');
+    console.log('Funds added :', amt,fundsDialog.userId);
 
+    try {
+      await api.put(`/admin/add-funds/${fundsDialog.userId}`, { amount: amt });
+      alert('Funds added!');
+      handleCloseFundsDialog();
+      fetchUsers();          // refresh list / balances if you display them
+    } catch (err) {
+      alert(err.response?.data || 'Failed to add funds');
+    }
+  };
   useEffect(() => {
     fetchUsers();
   }, []);
@@ -83,10 +120,7 @@ export default function UserManagementPage() {
     navigate(`/admin/users/${userId}`);
   };
 
-  const handleEditUser = (userId) => {
-    navigate(`/admin/users/${userId}/edit`);
-  };
-
+  
   const handleDeleteUser = async (userId) => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
@@ -202,9 +236,9 @@ export default function UserManagementPage() {
                               <VisibilityIcon color="info" />
                             </IconButton>
                           </Tooltip>
-                          <Tooltip title="Edit">
-                            <IconButton onClick={() => handleEditUser(user.id)}>
-                              <EditIcon color="primary" />
+                          <Tooltip title="Add funds">
+                          <IconButton onClick={() => handleOpenFundsDialog(user)}>
+                          <AddCardIcon color="primary" />
                             </IconButton>
                           </Tooltip>
                           <Tooltip title="Delete">
@@ -238,6 +272,31 @@ export default function UserManagementPage() {
           />
         </>
       )}
+      <Dialog open={fundsDialog.open} onClose={handleCloseFundsDialog}>
+  <DialogTitle>Add Funds to {fundsDialog.username}</DialogTitle>
+
+  <DialogContent>
+    <TextField
+      autoFocus
+      fullWidth
+      label="Amount (TND)"
+      type="number"
+      variant="outlined"
+      value={fundsDialog.amount}
+      onChange={handleAmountChange}
+      inputProps={{ min: 1 }}
+      sx={{ mt: 1 }}
+    />
+  </DialogContent>
+
+  <DialogActions>
+    <Button onClick={handleCloseFundsDialog}>Cancel</Button>
+    <Button variant="contained" onClick={handleSubmitFunds}>Add</Button>
+  </DialogActions>
+</Dialog>
+
     </Box>
-  );
+    
+  )
+  ;
 }

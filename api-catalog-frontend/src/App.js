@@ -20,6 +20,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UserSubscriptionsPage from './pages/user/UserSubscriptionsPage';
 import TransactionsPage from './pages/user/TransactionsPage'; // adjust path if needed
 import UserDetailPage from './pages/admin/UserDetailPage'; // adjust path if needed
+import UserUsageDashboard from './components/UserUsageDashboard'; // adjust path if needed
 function App() {
   return (
     <AuthProvider>
@@ -54,6 +55,7 @@ function App() {
         <AdminLayout />
       </ProtectedRoute>
     }>
+          <Route path="dashboard" element={<UserUsageDashboard />} />
           <Route path="subscriptions" element={<UserSubscriptionsPage/>} />
           <Route path="apis" element={  <ApiMarketplace  />} />
           <Route path="transactions" element={<TransactionsPage />} />
@@ -67,7 +69,7 @@ function App() {
       <AdminLayout />
     </ProtectedRoute>
   }>
-    <Route path="dashboard" element={<ApiListPage />} />
+    <Route path="dashboard" element={<UserUsageDashboard/>} />
     <Route path="signup-requests" element={<SignupRequests />} />
     <Route path="users" element={<ManageUsers />} />
     <Route path="apis" element={<ManageAPIs />} />

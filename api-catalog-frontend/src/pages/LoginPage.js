@@ -47,11 +47,11 @@ export default function LoginPage() {
   
       // Extract role from the decoded token or fetchUser result
       const role = response.data.roles;
-      console.log('Login successful, role:', role);
+      console.log('Login successful, role:', role[0]);
   
-      if (role === 'ROLE_ADMIN') {
+      if (role[0] === 'ROLE_ADMIN') {
         navigate('/admin');
-      } else if (role === 'ROLE_USER') {
+      } else if (role[0] === 'ROLE_USER') {
         navigate('/user');
       } else {
         alert('Unknown role, cannot navigate.');

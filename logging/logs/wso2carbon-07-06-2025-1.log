@@ -1,0 +1,12 @@
+TID: [] [] [2025-07-06 11:46:53,091]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+TID: [] [] [2025-07-06 11:47:37,004]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+TID: [-1234] [api/am/devportal] [2025-07-06 11:47:42,330] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-06 11:47:42,330] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-06 11:47:42,505] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [] [] [2025-07-06 11:51:48,732]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-06 11:51:48,892]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-07-06 11:52:30,274]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+TID: [] [] [2025-07-06 11:52:53,876]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+TID: [] [] [2025-07-06 11:54:25,329]  INFO {org.apache.synapse.mediators.builtin.LogMediator} - {api:PizzaShackAPI:v1.0.0} STATUS = Executing default 'fault' sequence, ERROR_CODE = 404, ERROR_MESSAGE = No matching resource found for given API Request
+TID: [] [] [2025-07-06 11:55:16,915]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-06 11:57:43,509]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown

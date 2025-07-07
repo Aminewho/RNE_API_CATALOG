@@ -45,6 +45,7 @@ public class User {
     private String ip;
     private String tel;
     private String email;
+    private String wso2AppName;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Subscription> subscriptions = new ArrayList<>();
@@ -207,5 +208,11 @@ public class User {
     }
     public void setEmail(String email) {
         this.email = email;
+    }
+    public String getWso2AppName() {
+        return wso2AppName;
+    }   
+    public void setWso2ApppName(String wso2AppName) {
+        this.wso2AppName = wso2AppName;
     }
 }

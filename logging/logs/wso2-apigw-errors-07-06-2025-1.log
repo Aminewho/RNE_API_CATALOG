@@ -1,0 +1,10 @@
+2025-07-06T11:46:53,091 [-] [PassThroughMessageProcessor-39]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+2025-07-06T11:47:37,004 [-] [PassThroughMessageProcessor-40]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+2025-07-06T11:47:42,330 [-] [https-jsse-nio-9443-exec-27] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-06T11:47:42,330 [-] [https-jsse-nio-9443-exec-10] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-06T11:47:42,505 [-] [https-jsse-nio-9443-exec-26] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-06T11:51:48,732 [-] [HTTPS-Listener I/O dispatcher-16]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-06T11:52:30,274 [-] [PassThroughMessageProcessor-46]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+2025-07-06T11:52:53,876 [-] [PassThroughMessageProcessor-47]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+2025-07-06T11:55:16,915 [-] [HTTPS-Listener I/O dispatcher-20]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-06T11:57:43,509 [-] [HTTPS-Listener I/O dispatcher-22]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
