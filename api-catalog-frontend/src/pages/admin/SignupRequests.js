@@ -24,7 +24,15 @@ import {
   DialogContent,
   DialogActions,
   Alert,
-  Avatar
+  Avatar,
+  Card,
+  CardContent,
+  CardHeader,
+  Divider,
+  useTheme,
+  Stack,
+  Grid,
+  alpha
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -32,10 +40,16 @@ import {
   CheckCircle as ApproveIcon,
   Cancel as RejectIcon,
   Visibility as ViewIcon,
-  PersonAdd as CreateAccountIcon
+  PersonAdd as CreateAccountIcon,
+  Business as BusinessIcon,
+  Email as EmailIcon,
+  Phone as PhoneIcon,
+  LocationOn as LocationIcon,
+  Person as PersonIcon  
 } from '@mui/icons-material';
 
 export default function SignupRequests() {
+  const theme = useTheme();
   const [signupRequests, setSignupRequests] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
@@ -123,98 +137,230 @@ export default function SignupRequests() {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-        <Typography variant="h4" component="h1">
-          Signup Requests
-        </Typography>
-        <Box>
-          <Tooltip title="Refresh">
-            <IconButton onClick={fetchSignupRequests} color="primary">
-              <RefreshIcon />
-            </IconButton>
-          </Tooltip>
+    <Box sx={{ 
+          p: 2, 
+          maxWidth: 1400, 
+          margin: '0', // Added margin top/bottom
+          border: `1px solid ${theme.palette.divider}`, // Add border
+          borderRadius: 2, // Rounded corners
+          boxShadow: 3, // Add shadow
+          //backgroundColor: theme.palette.background.paper, // White background
+          position: 'relative', // Ensures proper positioning
+          top: 0,
+          left: 0,
+          minWidth: '950px',
+          backgroundColor: 'lightgray'
+    }}>
+
+      {/* Header */}
+      <Paper elevation={0} sx={{ 
+        p: 3, 
+        mb: 3,
+        borderRadius: 3,
+        background: 'linear-gradient(45deg, #6a11cb 0%, #2575fc 100%)',
+        color: 'white',
+        boxShadow: '0 4px 20px rgba(106, 17, 203, 0.3)'
+      }}>
+        <Box sx={{ 
+              display: 'flex', 
+              justifyContent: 'space-between', 
+              alignItems: 'center'
+            }}>
+          <Typography variant="h4" component="h1" fontWeight='bold' sx={{ textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+            Demandes d'Iscriptions
+          </Typography>
+          <Box>
+            <Tooltip title="Actualiser">
+              <IconButton 
+                onClick={fetchSignupRequests}
+                sx={{
+                  color: 'white',
+                  backgroundColor: 'rgba(255,255,255,0.2)',
+                  '&:hover': {
+                  backgroundColor: 'rgba(255,255,255,0.3)'
+                  }
+                }}  
+                >
+                <RefreshIcon fontSize='large' />
+              </IconButton>
+            </Tooltip>
+          </Box>
         </Box>
+      </Paper>  
+
+      {/* Alerts */}
+      <Box sx={{ mb: 3 }}>
+        {success && (
+          <Alert 
+            severity="success" 
+            icon={<ApproveIcon fontSize="inherit" />}
+            onClose={() => setSuccess(null)}
+            sx={{ 
+              borderRadius: 2,
+              boxShadow: theme.shadows[1]
+            }}
+          >
+            {success}
+          </Alert>
+        )}
+        {error && (
+          <Alert 
+            severity="error" 
+            icon={<RejectIcon fontSize="inherit" />}
+            onClose={() => setError(null)}
+            sx={{ 
+              borderRadius: 2,
+              boxShadow: theme.shadows[1]
+            }}
+          >
+            {error}
+          </Alert>
+        )}
       </Box>
 
-      {success && (
-        <Alert severity="success" sx={{ mb: 2 }}>
-          {success}
-        </Alert>
-      )}
-      {error && (
-        <Alert severity="error" sx={{ mb: 2 }}>
-          {error}
-        </Alert>
-      )}
-
-      <Paper sx={{ mb: 2, p: 2 }}>
+      {/* Search Bar */}
+      <Paper elevation={0} sx={{ 
+        p: 2, 
+        mb: 3,
+        borderRadius: 3,
+        background: 'white',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+      }}>
         <TextField
           fullWidth
           variant="outlined"
-          placeholder="Search requests..."
+          placeholder="🔍Recherche par entreprise, contact..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
+            sx: { 
+              borderRadius: 2,
+              backgroundColor: '#f8f9fa',
+              '&:hover': {
+                backgroundColor: '#e9ecef'
+              }
+            }
           }}
         />
       </Paper>
+      
+      {/* Signup Requests Table */}
 
+      <Card elevation={0} sx={{ 
+        borderRadius: 2,
+        border: `1px solid ${theme.palette.divider}`,
+        overflow: 'hidden',
+        background: theme.palette.background.paper,
+        boxShadow: theme.shadows[2]
+      }}>     
+            
       {loading ? (
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-          <CircularProgress />
+        <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center', 
+            minHeight: 300 
+        }}>
+          <CircularProgress size={60} />
         </Box>
       ) : (
         <>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="signup requests table">
-              <TableHead>
+          <TableContainer>
+            <Table>
+              <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)'}}>
                 <TableRow>
-                  <TableCell>Company</TableCell>
-                  <TableCell>Primary Contact</TableCell>
-                  <TableCell>Technical Contact</TableCell>
-                  <TableCell>Status</TableCell>
-                  <TableCell align="center">Actions</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Entreprise</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Contact principal</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Contact Technique</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Statut</TableCell>
+                  <TableCell sx={{ fontWeight: 700, width: 150,fontSize:'18px',color: 'white' }}>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {paginatedRequests.length > 0 ? (
                   paginatedRequests.map((request) => (
-                    <TableRow key={request.id} hover>
+                    <TableRow 
+                      key={request.id} 
+                      hover
+                      >
                       <TableCell>
-                        <Typography variant="body1" fontWeight="medium">
-                          {request.raisonSociale}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary">
-                          {request.matriculeFiscale}
-                        </Typography>
-                        <Typography variant="body2">{request.secteurActivite}</Typography>
-                        <Typography variant="body2">{request.adresse}</Typography>
+                        <Stack direction="row" spacing={2} alignItems="flex-start">
+                          <Avatar sx={{ 
+                            bgcolor: theme.palette.primary.light,
+                            color: theme.palette.primary.dark,
+                            mt: 1
+                          }}>
+                            <BusinessIcon />
+                          </Avatar>
+                          <Box>
+                            <Typography fontWeight={600}>
+                              {request.raisonSociale}
+                            </Typography>
+                            <Typography variant="body2" color="text.secondary">
+                              {request.matriculeFiscale}
+                            </Typography>
+                            <Chip 
+                              label={request.secteurActivite} 
+                              size="small" 
+                              variant="outlined"
+                              sx={{ 
+                                mt: 0.5,
+                                borderColor: theme.palette.divider
+                              }}
+                            />
+                            <Box sx={{ display: 'flex', alignItems: 'center', mt: 1 }}>
+                              <LocationIcon fontSize="small" color="action" sx={{ mr: 0.5 }} />
+                              <Typography variant="body2">
+                                {request.adresse}
+                              </Typography>
+                            </Box>
+                          </Box>
+                        </Stack>
                       </TableCell>
                       <TableCell>
-                        <Typography variant="body1">
-                          {request.nomPremierResponsable} {request.prenomPremierResponsable}
-                        </Typography>
-                        <Typography variant="body2" color="textSecondary">
-                          {request.emailPremierResponsable}
-                        </Typography>
-                        <Typography variant="body2">{request.tel}</Typography>
+                        <Grid item xs={12} sm={6}>
+                          <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
+                            <PersonIcon fontSize="small" color="action" sx={{ mr: 1 }} />
+                            <Typography>
+                              {request.nomPremierResponsable} {request.prenomPremierResponsable}
+                            </Typography>
+                          </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
+                            <EmailIcon fontSize="small" color="action" sx={{ mr: 1 }} />
+                            <Typography variant="body2">
+                              {request.emailPremierResponsable}
+                            </Typography>
+                          </Box>
+                          <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
+                            <PhoneIcon fontSize="small" color="action" sx={{ mr: 1 }} />
+                            <Typography variant="body2">
+                              {request.tel}
+                            </Typography>
+                          </Box>
+                        </Grid>
                       </TableCell>
                       <TableCell>
                         {request.nomResponsableTechnique && (
-                          <>
-                            <Typography variant="body1">
-                              {request.nomResponsableTechnique} {request.prenomResponsableTechnique}
-                            </Typography>
-                            <Typography variant="body2" color="textSecondary">
-                              {request.emailResponsableTechnique}
-                            </Typography>
-                          </>
+                          <Grid item xs={12} sm={6}>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
+                              <PersonIcon fontSize="small" color="action" sx={{ mr: 1 }} />
+                              <Typography>
+                                {request.nomResponsableTechnique} {request.prenomResponsableTechnique}
+                              </Typography>
+                            </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
+                              <EmailIcon fontSize="small" color="action" sx={{ mr: 1 }} />
+                              <Typography variant="body2">
+                                {request.emailResponsableTechnique}
+                              </Typography>
+                            </Box>
+                            <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
+                              <PhoneIcon fontSize="small" color="action" sx={{ mr: 1 }} />
+                              <Typography variant="body2">
+                                {request.telResponsableTechnique}
+                              </Typography>
+                            </Box>
+                          </Grid>
                         )}
                       </TableCell>
                       <TableCell>
@@ -225,7 +371,10 @@ export default function SignupRequests() {
                             request.status === 'REJECTED' ? 'error' : 'warning'
                           }
                           size="small"
-                          variant="outlined"
+                          sx={{ 
+                              fontWeight: 600,
+                              boxShadow: theme.shadows[1]
+                          }}
                           onClick={()=>{}}
                         />
                       </TableCell>
@@ -264,10 +413,18 @@ export default function SignupRequests() {
                   ))
                 ) : (
                   <TableRow>
-                    <TableCell colSpan={5} align="center">
-                      <Typography variant="body1" color="textSecondary">
-                        No signup requests found
-                      </Typography>
+                    <TableCell colSpan={5} align="center" sx={{ py: 4 }}>
+                      <Box sx={{ 
+                          display: 'flex', 
+                          flexDirection: 'column', 
+                          alignItems: 'center',
+                          color: theme.palette.text.disabled
+                      }}>
+                        <SearchIcon sx={{ fontSize: 48, mb: 1 }} /> 
+                        <Typography variant="body2" sx={{ mt: 1 }}>
+                          Pas de demande d'inscription trouvée
+                        </Typography>
+                      </Box>  
                     </TableCell>
                   </TableRow>
                 )}
@@ -276,16 +433,26 @@ export default function SignupRequests() {
           </TableContainer>
 
           <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
-            component="div"
-            count={filteredRequests.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
+              rowsPerPageOptions={[5, 10, 25]}
+              component="div"
+              count={filteredRequests.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              labelRowsPerPage="Lignes par page :"
+              labelDisplayedRows={({ from, to, count }) => `${from}-${to} of ${count}`}
+              sx={{ 
+                borderTop: `1px solid ${theme.palette.divider}`,
+                '& .MuiTablePagination-toolbar': {
+                  minHeight: 60
+                }
+              }}
+            />
         </>
       )}
+
+      </Card> 
 
       {/* Approve Dialog */}
       <Dialog open={openDialog} onClose={handleCloseDialog}>

@@ -15,7 +15,9 @@ export default function AdminLayout() {
         sx={{
           flexGrow: 1,
           p: 3,
-          marginLeft: `${drawerWidth}px`,
+          //marginLeft: `${drawerWidth}px`,
+          margin: '0px',
+          padding: '0px',
         }}
       >
         <Toolbar />

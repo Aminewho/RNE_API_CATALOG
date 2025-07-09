@@ -27,11 +27,11 @@ public class DashboardController {
         String username = authentication.getName(); // from JWT
         User user=userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found"));
-        String wso2AppName = user.getWso2AppName();
+        String  wso2AppName= user.getWso2AppName();
       //  Instant createdAt = user.getCreatedAt().atStartOfDay(ZoneId.of("Africa/Tunis")).toInstant();
-      String createdAt = "2025-05-01T23:00:00.000Z";
+      String createdAt = "2025-04-01T23:00:00.000Z";
         //Instant now = Instant.now();
-      String  now ="2025-07-08T10:25:58.317Z";
+      String  now ="2025-07-10T10:25:58.317Z";
         String queryJson = (apiName == null)
             ? KibanaQueryBuilder.buildUserUsageQuery(wso2AppName, createdAt, now)
             : KibanaQueryBuilder.buildUserUsageQueryWithApi(wso2AppName, createdAt, now, apiName);
@@ -40,7 +40,7 @@ public class DashboardController {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> request = new HttpEntity<>(queryJson, headers);
 
-        String elasticsearchUrl = "http://localhost:9200/apim_event_response/_search";
+        String elasticsearchUrl = "http://192.168.101.75:9200/apim_event_response/_search";
         ResponseEntity<String> esResponse = restTemplate.postForEntity(elasticsearchUrl, request, String.class);
         return ResponseEntity.ok(esResponse.getBody());
     }
