@@ -157,7 +157,7 @@ export default function SignupRequests() {
         p: 3, 
         mb: 3,
         borderRadius: 3,
-        background: 'linear-gradient(45deg, #6a11cb 0%, #2575fc 100%)',
+        background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)',
         color: 'white',
         boxShadow: '0 4px 20px rgba(106, 17, 203, 0.3)'
       }}>

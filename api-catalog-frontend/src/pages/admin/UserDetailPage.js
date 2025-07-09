@@ -111,7 +111,7 @@ export default function UserDetailPage() {
         p: 3,
         borderRadius: 2,
         border: `1px solid ${theme.palette.divider}`,
-        background: `linear-gradient(135deg, ${theme.palette.primary.light} 0%, ${theme.palette.primary.main} 100%)`,
+        background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)',
         color: 'white'
       }}>
         <Avatar sx={{ 
@@ -235,14 +235,14 @@ export default function UserDetailPage() {
       
       <TableContainer component={Paper} elevation={3} sx={{ mb: 4, borderRadius: 2 }}>
         <Table>
-          <TableHead sx={{ bgcolor: theme.palette.primary.light }}>
+          <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)' }}>
             <TableRow>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>API</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Statut</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Autorisé</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Utilisé</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Demandé</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Approuvé</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>API</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Statut</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Autorisé</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Utilisé</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Demandé</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Approuvé</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -292,11 +292,11 @@ export default function UserDetailPage() {
         }}>  
       <TableContainer component={Paper} elevation={3} sx={{ borderRadius: 2 }}>
         <Table>
-          <TableHead sx={{ bgcolor: theme.palette.primary.light }}>
+          <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)' }}>
             <TableRow>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Date</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Description</TableCell>
-              <TableCell sx={{ color: 'white', fontWeight: 'bold' }}>Montant (TND)</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Date</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Description</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Montant (TND)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
