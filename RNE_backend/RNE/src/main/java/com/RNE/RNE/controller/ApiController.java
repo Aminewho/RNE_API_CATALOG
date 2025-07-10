@@ -23,5 +23,8 @@ public class ApiController {
     public List<Api> getAllApis() {
         return apiRepository.findAll();
     }
-
+    @GetMapping("/published")
+public List<Api> getPublishedApis() {
+    return apiRepository.findByPublishedTrue();
+}
 }

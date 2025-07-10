@@ -139,16 +139,19 @@ public class AdminController {
     @GetMapping("/catalog/apis")
     public ResponseEntity<List<Api>> getCatalogApis() {
         List<Api> apis = apiRepository.findAll();
-        return ResponseEntity.ok(apis); // always return 200 with the list, even if empty
+        return ResponseEntity.ok(apis); 
     }
     @DeleteMapping("/catalog/apis/{id}")
     public ResponseEntity<String> deleteApiFromCatalog(@PathVariable String id) {
         Optional<Api> apiOptional = apiRepository.findById(id);
         if (apiOptional.isPresent()) {
-            apiRepository.delete(apiOptional.get());
-            return ResponseEntity.ok("API deleted from catalog");
+            Api api = apiOptional.get();
+            api.setPublished(false);  // Soft delete by unpublishing
+            apiRepository.save(api);  // Save the updated status
+            return ResponseEntity.ok("API unpublished from catalog");
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("API not found in catalog");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body("API not found in catalog");
         }
     }
     @PostMapping("/catalog/add")

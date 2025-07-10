@@ -4,6 +4,9 @@ import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 public class KibanaQueryBuilder {
 
     public static String buildUserUsageQuery(String applicationName, String createdAt, String now) {
@@ -63,4 +66,13 @@ public class KibanaQueryBuilder {
 
         return sb.toString();
     }
+    public static int extractTotalHitsFromResponse(String json) {
+    try {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(json);
+        return root.path("hits").path("total").path("value").asInt(0);
+    } catch (Exception e) {
+        throw new RuntimeException("Failed to parse Kibana response", e);
+    }
+}
 }

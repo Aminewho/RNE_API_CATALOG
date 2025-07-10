@@ -2,6 +2,7 @@ package com.RNE.RNE.controller;
 
 import org.springframework.security.core.Authentication;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
@@ -29,9 +30,9 @@ public class DashboardController {
                 .orElseThrow(() -> new RuntimeException("User not found"));
         String wso2AppName = user.getWso2AppName();
       //  Instant createdAt = user.getCreatedAt().atStartOfDay(ZoneId.of("Africa/Tunis")).toInstant();
-      String createdAt = "2025-05-01T23:00:00.000Z";
+        String createdAt = "2025-05-01T23:00:00.000Z";
         //Instant now = Instant.now();
-      String  now ="2025-07-08T10:25:58.317Z";
+        String now= Instant.now().toString();
         String queryJson = (apiName == null)
             ? KibanaQueryBuilder.buildUserUsageQuery(wso2AppName, createdAt, now)
             : KibanaQueryBuilder.buildUserUsageQueryWithApi(wso2AppName, createdAt, now, apiName);

@@ -37,9 +37,9 @@ export default function ManageAPIs() {
   };
 
   const isInCatalog = (id) => {
-    return catalogApis.some(api => api.id === id);
+    return catalogApis.some(api => api.id === id && api.published);
   };
-
+  
   const handleExpand = (id) => {
     setExpandedRow(prev => (prev === id ? null : id));
     setFormValues({});

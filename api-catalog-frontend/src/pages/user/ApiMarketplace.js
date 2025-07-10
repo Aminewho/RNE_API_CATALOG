@@ -47,7 +47,7 @@ export default function ApiMarketplace() {
   useEffect(() => {
     const fetchApis = async () => {
       try {
-        const response = await api.get('/apis');
+        const response = await api.get('/apis/published');
         setApis(response.data);
         setFilteredApis(response.data);
       } catch (error) {

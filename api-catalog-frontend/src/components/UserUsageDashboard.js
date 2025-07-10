@@ -3,13 +3,15 @@ import {
   Box,
   Typography,
   CircularProgress,
-  TextField,
   Button,
-  Paper,
   Card,
   CardContent,
-  Grid
-} from '@mui/material';
+  Grid,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem
+}from '@mui/material';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import api from '../api';
 
@@ -19,16 +21,32 @@ export default function UserUsageDashboard({ userId }) {
   const [apiFilter, setApiFilter] = useState('');
   const [error, setError] = useState('');
   const [totalRequests, setTotalRequests] = useState(0);
-
+  const [subscribedApis, setSubscribedApis] = useState([]);
+  const [selectedApi, setSelectedApi] = useState("");
+  useEffect(() => {
+    const fetchSubscriptions = async () => {
+      try {
+        const response = await api.get("/api/subscriptions/user");
+        const approved = response.data
+          .filter(sub => sub.status === "APPROVED")
+          .map(sub => sub.api);
+        setSubscribedApis(approved);
+      } catch (err) {
+        console.error("Failed to fetch subscriptions", err);
+      }
+    };
+  
+    fetchSubscriptions();
+  }, []);
   const fetchUsage = async () => {
     setLoading(true);
     setError('');
     try {
       const response = await api.get('/dashboard/user-usage', {
-      params: apiFilter ? { apiName: apiFilter } : {},
+      params: selectedApi ? { apiName: selectedApi } : {},
       headers: { 'Content-Type': 'application/json' },
       });
-      console.log('filter', apiFilter);  
+      console.log('filter', selectedApi);  
       const data = response.data;
       console.log("Fetched data:", data);
 
@@ -67,13 +85,21 @@ export default function UserUsageDashboard({ userId }) {
         <Typography variant="subtitle1" gutterBottom>
           Filter by API Name (optional)
         </Typography>
-        <TextField
-          label="API Name"
-          variant="outlined"
-          fullWidth
-          value={apiFilter}
-          onChange={(e) => setApiFilter(e.target.value)}
-        />
+        <FormControl fullWidth variant="outlined" sx={{ minWidth: 250, mr: 2 }}>
+  <InputLabel>Filter by API</InputLabel>
+  <Select
+    label="Filter by API"
+    value={selectedApi}
+    onChange={(e) => setSelectedApi(e.target.value)}
+  >
+    <MenuItem value="">All APIs</MenuItem>
+    {subscribedApis.map((apiName, index) => (
+      <MenuItem key={index} value={apiName}>
+        {apiName}
+      </MenuItem>
+    ))}
+  </Select>
+</FormControl>
         <Button
           variant="contained"
           color="primary"
