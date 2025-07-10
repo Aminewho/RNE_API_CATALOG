@@ -144,7 +144,6 @@ export default function SignupRequests() {
           border: `1px solid ${theme.palette.divider}`, // Add border
           borderRadius: 2, // Rounded corners
           boxShadow: 3, // Add shadow
-          //backgroundColor: theme.palette.background.paper, // White background
           position: 'relative', // Ensures proper positioning
           top: 0,
           left: 0,
@@ -282,7 +281,7 @@ export default function SignupRequests() {
                     <TableRow 
                       key={request.id} 
                       hover
-                      >
+                      > 
                       <TableCell>
                         <Stack direction="row" spacing={2} alignItems="flex-start">
                           <Avatar sx={{ 
