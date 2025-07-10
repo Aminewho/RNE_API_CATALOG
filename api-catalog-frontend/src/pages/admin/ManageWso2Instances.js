@@ -11,9 +11,12 @@ import {
   CardContent,
   CardActions,
   Box,
+  useTheme,
+  Paper
 } from '@mui/material';
 
 const ManageWso2Instances = () => {
+  const theme = useTheme();
   const [instances, setInstances] = useState([]);
   const [newInstance, setNewInstance] = useState({
     baseUrl: '',
@@ -62,14 +65,52 @@ const ManageWso2Instances = () => {
   };
 
   return (
-    <Container sx={{ mt: 4 }}>
-      <Typography variant="h4" gutterBottom>
-        Manage WSO2 Instances
-      </Typography>
+    <Box sx={{ 
+          p: 2, 
+          maxWidth: 1400, 
+          margin: '0', // Added margin top/bottom
+          border: `1px solid ${theme.palette.divider}`, // Add border
+          borderRadius: 2, // Rounded corners
+          boxShadow: 3, // Add shadow
+          position: 'relative', // Ensures proper positioning
+          top: 0,
+          left: 0,
+          minWidth: '950px',
+          backgroundColor: 'lightgray'
+    }}>
+
+      {/* Header */}
+      <Paper elevation={0} sx={{ 
+        p: 3, 
+        mb: 3,
+        borderRadius: 3,
+        background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)',
+        color: 'white',
+        boxShadow: '0 4px 20px rgba(106, 17, 203, 0.3)'
+      }}>
+        <Box sx={{ 
+              display: 'flex', 
+              justifyContent: 'space-between', 
+              alignItems: 'center'
+            }}>
+          <Typography variant="h4" component="h1" fontWeight='bold' sx={{ textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+            WSO2 APIs disponibles
+          </Typography>
+      </Box>
+      </Paper>
+
+      <Card elevation={0} sx={{ 
+        borderRadius: 2,
+        border: `1px solid ${theme.palette.divider}`,
+        overflow: 'hidden',
+        background: theme.palette.background.paper,
+        boxShadow: theme.shadows[2],
+        padding: 3,
+      }}>
 
       <Box component="form" onSubmit={handleAddInstance} sx={{ mb: 4 }}>
         <Typography variant="h6" gutterBottom>
-          Add New Instance
+          Ajouter une nouvelle Instance
         </Typography>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={4}>
@@ -84,7 +125,7 @@ const ManageWso2Instances = () => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              label="Client ID"
+              label="ID Client"
               name="clientId"
               value={newInstance.clientId}
               onChange={handleInputChange}
@@ -94,7 +135,7 @@ const ManageWso2Instances = () => {
           </Grid>
           <Grid item xs={12} sm={4}>
             <TextField
-              label="Client Secret"
+              label="Secret Client"
               name="clientSecret"
               value={newInstance.clientSecret}
               onChange={handleInputChange}
@@ -109,14 +150,14 @@ const ManageWso2Instances = () => {
           color="primary"
           sx={{ mt: 2 }}
         >
-          Add Instance
+          Ajouter une Instance
         </Button>
       </Box>
 
       <Divider sx={{ mb: 3 }} />
 
       <Typography variant="h6" gutterBottom>
-        Existing Instances
+        Instances Existantes
       </Typography>
 
       <Grid container spacing={2}>
@@ -128,7 +169,7 @@ const ManageWso2Instances = () => {
                   {instance.baseUrl}
                 </Typography>
                 <Typography variant="body2">
-                  Client ID: {instance.clientId}
+                  ID Client : {instance.clientId}
                 </Typography>
               </CardContent>
               <CardActions>
@@ -138,14 +179,15 @@ const ManageWso2Instances = () => {
                   size="small"
                   onClick={() => handleDeleteInstance(instance.id)}
                 >
-                  Delete
+                  Supprimer
                 </Button>
               </CardActions>
             </Card>
           </Grid>
         ))}
       </Grid>
-    </Container>
+      </Card>
+    </Box>
   );
 };
 

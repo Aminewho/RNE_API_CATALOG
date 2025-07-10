@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import '../pages/signup.css';
 import {
   Container,
   Typography,
@@ -39,7 +40,7 @@ export default function SignupPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:8080/signup`, formData);
+      await axios.post(`http://localhost:8081/signup`, formData);
       alert("Your signup request has been submitted. An email will be sent upon approval.");
     } catch (error) {
       console.error('Signup failed:', error);
@@ -57,20 +58,22 @@ export default function SignupPage() {
           name={field}
           value={formData[field]}
           onChange={handleChange}
+          className='signup-textfield'
         />
       </Grid>
     ));
 
   return (
-    <Container maxWidth="md" sx={{ mt: 5 }}>
-      <Typography variant="h4" align="center" gutterBottom>
-        Signup
+    <>
+    <Container maxWidth="md" sx={{ mt: 5 }} className='signup-container'>
+      <Typography variant="h4" align="center" gutterBottom className='signup-title'>
+        Inscription
       </Typography>
 
-      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 4 }}>
+      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 4 }} >
         {/* Company Info */}
-        <Typography variant="h6" gutterBottom>Company Information</Typography>
-        <Grid container spacing={2}>
+        <Typography variant="h6" gutterBottom className='info'>Informations sur l'entreprise</Typography>
+        <Grid container spacing={2} >
           {renderTextFields([
             'matriculeFiscale',
             'secteurActivite',
@@ -79,10 +82,10 @@ export default function SignupPage() {
           ])}
         </Grid>
 
-        <Divider sx={{ my: 4 }} />
+        <Divider sx={{ my: 4 }}  />
 
         {/* Premier Responsable */}
-        <Typography variant="h6" gutterBottom>Premier Responsable</Typography>
+        <Typography variant="h6" gutterBottom className='info'>Premier Responsable</Typography>
         <Grid container spacing={2}>
           {renderTextFields([
             'nomPremierResponsable',
@@ -95,7 +98,7 @@ export default function SignupPage() {
         <Divider sx={{ my: 4 }} />
 
         {/* Responsable Technique */}
-        <Typography variant="h6" gutterBottom>Responsable Technique</Typography>
+        <Typography variant="h6" gutterBottom className='info'>Responsable Technique</Typography>
         <Grid container spacing={2}>
           {renderTextFields([
             'nomResponsableTechnique',
@@ -108,7 +111,7 @@ export default function SignupPage() {
         <Divider sx={{ my: 4 }} />
 
         {/* Contact Info */}
-        <Typography variant="h6" gutterBottom>Contact Information</Typography>
+        <Typography variant="h6" gutterBottom className='info'>Informations de contact</Typography>
         <Grid container spacing={2}>
           {renderTextFields(['ip', 'tel', 'email'])}
         </Grid>
@@ -116,13 +119,37 @@ export default function SignupPage() {
         <Button
           type="submit"
           variant="contained"
-          color="success"
           fullWidth
-          sx={{ mt: 4 }}
+          sx={{ mt: 4,
+            width: '100%',
+            padding: '1rem',
+            border: 'none',
+            borderRadius: '0.5rem',
+            background: 'linear-gradient(90deg, var(--primary-light) 0%, var(--accent) 100%)',
+            color: 'var(--white)',
+            fontSize: '1rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            transition: 'all 0.3s ease',
+            boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+            textTransform: 'uppercase',
+            letterSpacing: '0.5px',
+            marginTop: '0.5rem',
+            '&:hover':{
+              transform: 'translateY(-2px)',
+              boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)'
+            },
+            '&:active':{
+              transform: 'translateY(0)'
+            }
+           } }
+          
         >
-          Submit Signup Request
+          Envoyer une demande d'inscription
         </Button>
       </Box>
     </Container>
+    <footer className='footer'></footer>
+    </>
   );
 }

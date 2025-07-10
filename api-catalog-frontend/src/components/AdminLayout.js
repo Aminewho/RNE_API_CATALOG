@@ -7,17 +7,17 @@ const drawerWidth = 240;
 
 export default function AdminLayout() {
   return (
-    <Box sx={{ display: 'flex',backgroundColor: '#202531' }}>
+    <Box sx={{ display: 'flex' }}>
  
-     
+      <Toolbar />
       <Box
         component="main"
         sx={{
           flexGrow: 1,
           p: 3,
-          marginLeft: `${drawerWidth}px`,
-      
-       
+          //marginLeft: `${drawerWidth}px`,
+          margin: '0px',
+          padding: '0px',
         }}
       >
         <Toolbar />

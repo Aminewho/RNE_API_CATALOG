@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import '../pages/login.css'; // Ensure this file contains your custom styles
 import { useAuth } from '../authentication/AuthContext';
 import api from '../api'; // Ensure this points to your Axios instance with interceptors set up
 import {
@@ -25,7 +26,7 @@ export default function LoginPage() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/auth/login', {
+      const response = await axios.post('http://localhost:8081/auth/login', {
         username,
         password
       }, {
@@ -64,35 +65,44 @@ export default function LoginPage() {
   
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="xs" className='login-container'>
       <Box
         sx={{
           mt: 8,
           p: 4,
-          boxShadow: 3,
-          borderRadius: 2,
+          borderRadius: '20px', // More rounded corners
           bgcolor: 'background.paper',
+          background: 'linear-gradient(145deg, #0c0372 0%, #1a0ab3 100%)', // Gradient background
+          boxShadow: '0 15px 35px rgba(12, 3, 114, 0.2)', // More pronounced shadow
+          transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+          '&:hover': {
+            transform: 'translateY(-5px)', // Hover effect
+            boxShadow: '0 20px 40px rgba(12, 3, 114, 0.3)'
+          }
         }}
       >
-        <Typography variant="h5" align="center" gutterBottom>
-          Login
+        <div>
+        <Typography variant="h5" align="center" gutterBottom className='login-title'>
+          Connexion
         </Typography>
-
+        <div className='underline'></div>
         <form onSubmit={handleLogin}>
           <TextField
             fullWidth
             margin="normal"
-            label="Username"
+            label="nom d'utilisateur"
             variant="outlined"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
+            className="custom-textfield"
           />
 
           <TextField
+            className="custom-textfield"
             fullWidth
             margin="normal"
-            label="Password"
+            label="Mot de passe"
             variant="outlined"
             type={showPassword ? 'text' : 'password'}
             value={password}
@@ -117,22 +127,51 @@ export default function LoginPage() {
             type="submit"
             variant="contained"
             fullWidth
-            sx={{ mt: 2, mb: 1 }}
+            sx={{ 
+              mt: 3, 
+              mb: 2,
+              padding: '12px',
+              borderRadius: '10px',
+              background: 'linear-gradient(90deg, #6e45e2 0%, #89d4cf 100%)', // Gradient
+              color: 'white',
+              fontWeight: 600,
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px',
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+              '&:hover': {
+                transform: 'translateY(-2px)',
+                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+                background: 'linear-gradient(90deg, #6e45e2 0%, #89d4cf 100%)'
+              }
+            }}
           >
-            Login
+            Connexion
           </Button>
 
-          <Typography variant="body2" align="center">
-            Don’t have an account?{' '}
+          <Typography variant="body2" align="center"
+            sx={{ 
+              color: 'rgba(255, 255, 255, 0.9)',
+              mb: 3
+            }}>
+            Vous n'avez pas de compte?{' '}
             <Link
               component="button"
               variant="body2"
               onClick={() => navigate('/signup')}
+              sx={{ 
+                color: '#89d4cf', // Matching accent color
+                fontWeight: 600,
+                textDecoration: 'none',
+                '&:hover': {
+                  textDecoration: 'underline'
+                }
+              }}
             >
-              Signup Instead
+              Créer un compte
             </Link>
           </Typography>
         </form>
+        </div>
       </Box>
     </Container>
   );

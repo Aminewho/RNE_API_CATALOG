@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    padding: 2rem;
+  }
+  
+  .login-container {
+    width: 100%;
+    max-width: 480px;
+  }
+  
+  .login-title{
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 1rem;
+    text-align: center;
+    font-size: 2rem; /* Add appropriate font size */
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #00d4ff 0%, #6e45e2 100%);
+    border-radius: 2px;
+  }
+  
+  
+  /* Scoped version */
+  .custom-textfield .MuiOutlinedInput-root {
+    background-color: white;
+    border-radius: 10px;
+  }
+  
+  .custom-textfield .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: transparent;
+  }
+  
+  .custom-textfield .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: transparent;
+  }
+  
+  .custom-textfield .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border-color: transparent;
+  }
+  
+  
+  
+  
+  
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .login-container {
+      padding: 1.75rem;
+    }
+    
+    .login-title {
+      font-size: 1.75rem;
+    }
+  }
