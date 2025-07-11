@@ -104,86 +104,162 @@ const toggleExpand = (index) => {
   const paginatedRequests = filteredRequests.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
   return (
-    <Box sx={{ p: 3 , backgroundColor: '#45484f', minHeight: '100vh' }}>
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-        <Typography variant="h4" component="h1">
-          Subscription
-        </Typography>
-        <Box>
-          <Tooltip title="Refresh">
-            <IconButton onClick={fetchSubscriptionRequests} color="primary">
-              <RefreshIcon />
-            </IconButton>
-          </Tooltip>
+    <Box sx={{ 
+      p: 2, 
+      maxWidth: 1400, 
+      margin: '0', // Added margin top/bottom
+      borderRadius: 2, // Rounded corners
+      boxShadow: 3, // Add shadow
+      //backgroundColor: theme.palette.background.paper, // White background
+      position: 'relative', // Ensures proper positioning
+      top: 0, // Explicitly positions at top
+      left: 0, // Explicitly positions at left
+      minWidth: '950px', // Minimum width for responsiveness
+      backgroundColor: 'lightgray', // Light gray background
+    }}>
+
+      {/* Header */}
+      <Paper elevation={0} sx={{ 
+        p: 3, 
+        mb: 3,
+        borderRadius: 3,
+        background: 'linear-gradient(45deg, #6a11cb 0%, #2575fc 100%)',
+        color: 'white',
+        boxShadow: '0 4px 20px rgba(106, 17, 203, 0.3)'
+      }}>
+        <Box sx={{ 
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center'
+          }}>
+          <Typography variant="h4" component="h1" fontWeight='bold' sx={{ textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
+            Abonnements
+          </Typography>
+          <Box>
+            <Tooltip title="Actualiser">
+              <IconButton 
+                onClick={fetchSubscriptionRequests}
+                sx={{
+                  color: 'white',
+                  backgroundColor: 'rgba(255,255,255,0.2)',
+                  '&:hover': {
+                  backgroundColor: 'rgba(255,255,255,0.3)'
+                  }
+                }}  
+                >
+                <RefreshIcon fontSize='large' />
+              </IconButton>
+            </Tooltip>
+          </Box>
         </Box>
+      </Paper>
+      
+      {/* Alerts */}
+      <Box sx={{ mb: 3 }}>
+        {success && (
+          <Alert 
+            severity="success" onClose={() => setSuccess('')} 
+            sx={{ 
+              mb: 2,
+              borderRadius: 2,
+              boxShadow: '0 2px 8px rgba(46, 125, 50, 0.2)'
+            }}>
+            {success}
+          </Alert>
+        )}
+        {error && (
+          <Alert severity="error" onClose={() => setError('')} sx={{ mb: 2 }}>
+            {error}
+          </Alert>
+        )}
       </Box>
 
-      {success && (
-        <Alert severity="success" sx={{ mb: 2 }}>
-          {success}
-        </Alert>
-      )}
-      {error && (
-        <Alert severity="error" sx={{ mb: 2 }}>
-          {error}
-        </Alert>
-      )}
-
-      <Paper sx={{ mb: 2, p: 2 }}>
+      {/* Search Bar */}  
+      <Paper elevation={0} sx={{ 
+        p: 2, 
+        mb: 3,
+        borderRadius: 3,
+        background: 'white',
+        boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+      }}>
         <TextField
           fullWidth
           variant="outlined"
-          placeholder="Search requests..."
+          placeholder="🔍Rechercher par nom d'utilisateur ou API..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           InputProps={{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>
-            ),
+            sx: { 
+              borderRadius: 2,
+              backgroundColor: '#f8f9fa',
+              '&:hover': {
+                backgroundColor: '#e9ecef'
+              }
+            }
           }}
         />
       </Paper>
 
+      {/* Subscription Requests Table */}
       {loading ? (
-        <Box sx={{ display: 'flex', justifyContent: 'center', mt: 4 }}>
-          <CircularProgress />
+        <Box sx={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center',
+          height: 300
+        }}> 
+          <CircularProgress size={60} thickness={4} sx={{ color: '#6a11cb' }}/>
         </Box>
       ) : (
-        <>
-          <TableContainer component={Paper}>
-            <Table sx={{ minWidth: 650 }} aria-label="subscription requests table">
-              <TableHead>
+        <Paper elevation={0} sx={{ 
+          borderRadius: 2,
+          overflow: 'hidden',
+          background: 'white',
+          boxShadow: '0 4px 30px rgba(0,0,0,0.1)'
+        }}>
+          <TableContainer>
+            <Table sx={{ minWidth: 850 }}>
+              <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)' }}>
                 <TableRow>
-               
-                  <TableCell>Username</TableCell>
-                  <TableCell>API</TableCell>
-                  <TableCell>Status</TableCell>
-                  <TableCell>Allowed</TableCell>
-                  <TableCell>Used</TableCell>
-                  <TableCell>Request Date</TableCell>
-                  <TableCell>Approval Date</TableCell>
-                  <TableCell></TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Utilisateur</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>API</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Statut</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Autorisé</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Utilisé</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Date de demande</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2}}>Date d'autorisation</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                     {paginatedRequests.length > 0 ? (
                       paginatedRequests.map((request, index) => (
                         <React.Fragment key={index}>
-                          <TableRow hover>
+                          <TableRow 
+                            hover
+                            sx={{ 
+                              '&:hover': {
+                                backgroundColor: '#e9f5ff'
+                              }
+                            }}>
                         
                             <TableCell>{request.username}</TableCell>
                             <TableCell>{request.api}</TableCell>
                             <TableCell>
                               <Chip
-                                label={request.status}
-                                color={
-                                  request.status === 'APPROVED' ? 'success' :
-                                  request.status === 'REJECTED' ? 'error' : 'warning'
-                                }
-                                size="small"
-                                variant="outlined"
+                                label={request.status === 'APPROVED' ? 'approuvé' : request.status === 'REJECTED' ? 'rejeté' : 'en attente'}
+
+                                sx={{
+                                  fontWeight: 'bold',
+                                  background:
+                                    request.status === 'APPROVED' 
+                                      ? 'linear-gradient(45deg,rgb(34, 104, 2) 0%,rgb(50, 226, 1) 100%)' :
+                                    request.status === 'REJECTED' 
+                                      ? 'linear-gradient(45deg,rgb(148, 0, 0) 0%,rgb(255, 0, 0) 100%)' 
+                                      : 'linear-gradient(45deg,rgb(195, 94, 0) 0%,rgb(255, 157, 0) 100%)',
+                                  color: 'white',
+                                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                                }}  
                               />
                             </TableCell>
                             <TableCell>{request.allowedRequests}</TableCell>
@@ -208,7 +284,7 @@ const toggleExpand = (index) => {
                                           handleApprove(request.id); // define this function to call the backend
                                         }}
                                       >
-                                        Approve
+                                        Approuver 
                                       </Button>
                                       <Button
                                         size="small"
@@ -220,7 +296,7 @@ const toggleExpand = (index) => {
                                           setRejectDialogOpen(true);
                                         }}
                                       >
-                                        Reject
+                                        Rejeter
                                       </Button>
                                     </Stack>
                                   </TableCell>
@@ -229,14 +305,15 @@ const toggleExpand = (index) => {
                             <TableRow>
                               <TableCell colSpan={8}>
                                 <Paper sx={{ p: 3 }}>
-                                  <Typography variant="h6" gutterBottom>General Information</Typography>
+                                  <Typography variant="h6" gutterBottom>Informations Générales</Typography>
                                   <Divider sx={{ mb: 2 }} />
 
-                                  <Typography variant="body1"><strong>Username:</strong> {request.username}</Typography>
+                                  <Typography variant="body1"><strong>Utilisateur:</strong> {request.username}</Typography>
                                   <Typography variant="body1"><strong>API:</strong> {request.api}</Typography>
-                                  <Typography variant="body1"><strong>Status:</strong> 
+                                  <Typography variant="body1"><strong>Statut:</strong> 
                                     <Chip 
-                                      label={request.status}
+                                      label={  request.status === 'APPROVED' ? 'approuvé' :'rejeté' }
+                                    
                                       color={
                                         request.status === 'APPROVED' ? 'success' :
                                         request.status === 'REJECTED' ? 'error' : 'warning'
@@ -245,13 +322,13 @@ const toggleExpand = (index) => {
                                       sx={{ ml: 1 }}
                                     />
                                   </Typography>
-                                  <Typography variant="body1"><strong>Allowed Requests:</strong> {request.allowedRequests}</Typography>
-                                  <Typography variant="body1"><strong>Used Requests:</strong> {request.usedRequests}</Typography>
-                                  <Typography variant="body1"><strong>Request Date:</strong> {new Date(request.requestDate).toLocaleString()}</Typography>
-                                  <Typography variant="body1"><strong>Approval Date:</strong> {request.approvalDate ? new Date(request.approvalDate).toLocaleString() : '-'}</Typography>
+                                  <Typography variant="body1"><strong>Requêtes autorisées:</strong> {request.allowedRequests}</Typography>
+                                  <Typography variant="body1"><strong>Requêtes utilisées:</strong> {request.usedRequests}</Typography>
+                                  <Typography variant="body1"><strong>Date de la demande:</strong> {new Date(request.requestDate).toLocaleString()}</Typography>
+                                  <Typography variant="body1"><strong>Date d'autorisation:</strong> {request.approvalDate ? new Date(request.approvalDate).toLocaleString() : '-'}</Typography>
                                   {request.rejectionReason && (
                                     <Typography variant="body1" sx={{ mt: 2 }}>
-                                      <strong>Rejection Reason:</strong> {request.rejectionReason}
+                                      <strong>Raison du rejet:</strong> {request.rejectionReason}
                                     </Typography>
                                   )}
                                 </Paper>
@@ -264,14 +341,12 @@ const toggleExpand = (index) => {
                       <TableRow>
                         <TableCell colSpan={8} align="center">
                           <Typography variant="body1" color="textSecondary">
-                            No subscription requests found
+                            Aucune requête d'abonnement trouvée
                           </Typography>
                         </TableCell>
                       </TableRow>
                     )}
                   </TableBody>
-
-
             </Table>
           </TableContainer>
 
@@ -283,38 +358,78 @@ const toggleExpand = (index) => {
             page={page}
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
+            labelRowsPerPage="Lignes par page"
+            sx={{ 
+              borderTop: '1px solid #e0e0e0',
+              background: '#f8f9fa',
+            }}
           />
-        </>
+        </Paper>
       )}
-      <Dialog open={rejectDialogOpen} onClose={() => setRejectDialogOpen(false)}>
-  <DialogTitle>Reject Subscription Request</DialogTitle>
-  <DialogContent>
-    <TextField
-      fullWidth
-      multiline
-      rows={4}
-      label="Reason for rejection"
-      value={rejectReason}
-      onChange={(e) => setRejectReason(e.target.value)}
-    />
-  </DialogContent>
-  <DialogActions>
-    <Button onClick={() => setRejectDialogOpen(false)} color="inherit">
-      Cancel
-    </Button>
-    <Button
-      onClick={() => {
-        handleReject(selectedRequest.id, rejectReason); // define this
-        setRejectDialogOpen(false);
-        setRejectReason('');
-      }}
-      color="error"
-      variant="contained"
-    >
-      Reject
-    </Button>
-  </DialogActions>
-</Dialog>
+      <Dialog 
+        open={rejectDialogOpen} 
+        onClose={() => setRejectDialogOpen(false)}
+        PaperProps={{
+          sx: {
+            borderRadius: 2,
+            minWidth: 500,
+            background: 'linear-gradient(45deg, #fdfcfb 0%, #e2d1c3 100%)',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.2)'
+          }
+        }}
+        >
+        <DialogTitle sx={{ fontWeight: 'bold',background: 'linear-gradient(45deg,rgb(171, 0, 6) 0%,rgb(200, 51, 10) 100%)',color: 'white' }}>Rejeter la demande d'abonnement</DialogTitle>
+        <DialogContent dividers sx={{ py: 3 }}>
+          <Typography variant="body1" gutterBottom sx={{ mb: 2 }}>
+            Veuillez expliquer la raison du rejet de cet abonnement:
+          </Typography>
+          <TextField
+            fullWidth
+            multiline
+            rows={4}
+            variant="outlined"
+            value={rejectReason}
+            onChange={(e) => setRejectReason(e.target.value)}
+            sx={{ '& .MuiOutlinedInput-root': {
+                borderRadius: 2,
+                backgroundColor: 'rgba(255,255,255,0.8)'
+              } 
+            }}
+          />
+        </DialogContent>
+        <DialogActions sx={{ p: 2, background: '#f8f9fa' }}>
+          <Button 
+            onClick={() => setRejectDialogOpen(false)} 
+            variant='outlined'
+            sx={{ 
+              mr: 1,
+              color: '#6a11cb',
+              borderColor: '#6a11cb',
+              '&:hover': {
+                backgroundColor: 'rgba(106, 17, 203, 0.08)'
+              }
+            }}>
+            Annuler
+          </Button>
+          <Button
+            onClick={() => {
+              handleReject(selectedRequest.id, rejectReason); // define this
+              setRejectDialogOpen(false);
+              setRejectReason('');
+            }}
+            variant="contained"
+            sx={{
+              background: 'linear-gradient(45deg, #ff416c 0%, #ff4b2b 100%)',
+              boxShadow: '0 3px 5px rgba(255, 75, 43, 0.3)',
+              '&:hover': {
+                boxShadow: '0 5px 8px rgba(255, 75, 43, 0.4)'
+              }
+            }}
+          >
+            Rejeter
+          </Button>
+        </DialogActions>
+      </Dialog>
 
     </Box>
     
