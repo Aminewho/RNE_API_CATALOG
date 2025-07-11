@@ -17,8 +17,7 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  Alert,
-  useTheme
+  Alert
 } from '@mui/material';
 import {
   Search as SearchIcon,
@@ -32,7 +31,6 @@ import api from '../../api';
 import ReactJson from 'react-json-view';
 
 export default function ApiMarketplace() {
-  const theme = useTheme();
   const [apis, setApis] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -49,7 +47,7 @@ export default function ApiMarketplace() {
   useEffect(() => {
     const fetchApis = async () => {
       try {
-        const response = await api.get('/apis');
+        const response = await api.get('/apis/published');
         setApis(response.data);
         setFilteredApis(response.data);
       } catch (error) {
@@ -143,13 +141,11 @@ export default function ApiMarketplace() {
   const handleCloseDetails = () => {
     setSelectedApi(null);
   };
-
   return (
     <Box sx={{ 
           p: 2, 
           maxWidth: 1400, 
           margin: '0', // Added margin top/bottom
-          border: `1px solid ${theme.palette.divider}`, // Add border
           borderRadius: 2, // Rounded corners
           boxShadow: 3, // Add shadow
           position: 'relative', // Ensures proper positioning

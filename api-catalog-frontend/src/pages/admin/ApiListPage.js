@@ -8,7 +8,7 @@ export default function ApiListPage() {
   useEffect(() => {
     const fetchApis = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/api/wso2/list');
+        const response = await axios.get('http://localhost:8081/api/wso2/list');
         setApis(response.data.list || []);
       } catch (error) {
         console.error('Error fetching APIs:', error);

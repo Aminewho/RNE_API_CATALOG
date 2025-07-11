@@ -73,9 +73,9 @@ export default function ManageAPIs() {
   };
 
   const isInCatalog = (id) => {
-    return catalogApis.some(api => api.id === id);
+    return catalogApis.some(api => api.id === id && api.published);
   };
-
+  
   const handleExpand = (id) => {
     setExpandedRow(prev => (prev === id ? null : id));
     setFormValues({});
@@ -170,8 +170,8 @@ export default function ManageAPIs() {
             <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)'}}> 
               <TableRow>
                 <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Nom API</TableCell>
-                <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>ID API</TableCell>
-                <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Instance WSO2</TableCell>
+                <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>ID API</TableCell>
+                <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Instance WSO2</TableCell>
                 <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Actions</TableCell>
               </TableRow>
             </TableHead>
@@ -181,10 +181,10 @@ export default function ManageAPIs() {
                 return (
                   <React.Fragment key={apiObj.id}>
                     <TableRow>
-                      <TableCell>{apiObj.name}</TableCell>
-                      <TableCell>{apiObj.id}</TableCell>
-                      <TableCell>{apiObj.baseUrl}</TableCell>
-                      <TableCell align="right">
+                      <TableCell sx={{ fontWeight: 500,fontSize:'16px' }}>{apiObj.name}</TableCell>
+                      <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{apiObj.id}</TableCell>
+                      <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{apiObj.baseUrl}</TableCell>
+                      <TableCell align="center">
                         {inCatalog ? (
                           <Button
                             variant="outlined"

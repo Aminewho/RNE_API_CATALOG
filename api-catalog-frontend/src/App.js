@@ -25,7 +25,7 @@ function App() {
   return (
     <AuthProvider>
       <Router>
-      <LayoutWithAppBar>
+      <LayoutWithAppBar >
         <AuthHandler />
         <Routes>
   {/* Public Routes */}

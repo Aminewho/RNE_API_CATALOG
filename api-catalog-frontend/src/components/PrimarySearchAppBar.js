@@ -38,6 +38,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { Wallet } from '@mui/icons-material';
 import WalletIcon from './WalletIcon';
+import { grey } from '@mui/material/colors';
 
 
 const drawerWidth = 240;
@@ -115,6 +116,7 @@ export default function CombinedApp() {
 
     if (user.role === 'ROLE_USER') {
       return [
+        { label: 'Dashboard', path: '/dashboard', icon: <DashboardIcon /> },
         { label: 'APIs', path: '/apis', icon: <ApiIcon /> },
         { label: 'Subscriptions', path: '/subscriptions', icon: <InboxIcon/> },
         { label: 'Transactions', path: '/transactions', icon: <AccountBalanceWalletIcon /> },

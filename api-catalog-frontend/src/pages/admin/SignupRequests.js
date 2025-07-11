@@ -148,14 +148,14 @@ export default function SignupRequests() {
           top: 0,
           left: 0,
           minWidth: '950px',
-          backgroundColor: 'lightgray'
+          backgroundColor: 'lightgray',
     }}>
 
       {/* Header */}
       <Paper elevation={0} sx={{ 
         p: 3, 
         mb: 3,
-        borderRadius: 3,
+        borderRadius: 3, 
         background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)',
         color: 'white',
         boxShadow: '0 4px 20px rgba(106, 17, 203, 0.3)'
@@ -281,7 +281,7 @@ export default function SignupRequests() {
                     <TableRow 
                       key={request.id} 
                       hover
-                      > 
+                      >
                       <TableCell>
                         <Stack direction="row" spacing={2} alignItems="flex-start">
                           <Avatar sx={{ 

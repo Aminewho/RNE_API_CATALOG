@@ -35,8 +35,8 @@ public class Api {
     
     @Column(columnDefinition = "TEXT")
     private String output;
-        private String description;
-    private boolean published; // default to false
+    private String description;
+    private boolean published; 
 
     private BigDecimal request_cost;
 
@@ -46,7 +46,7 @@ public class Api {
     private Wso2Instance instance;
 
 
-   @OneToMany(mappedBy = "api", cascade = CascadeType.ALL, orphanRemoval = true)
+   @OneToMany(mappedBy = "api",cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<Subscription> subscriptions = new ArrayList<>();
 
     // Getters and Setters

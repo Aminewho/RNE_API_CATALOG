@@ -1,17 +1,10 @@
-TID: [] [] [2025-07-07 08:50:20,523]  INFO {org.wso2.carbon.identity.application.authentication.framework.store.SessionCleanUpService} - Session Data cleanup task is running successfully for removing expired Data
-TID: [-1234] [devportal] [2025-07-07 10:29:27,517] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@2fde3050
-TID: [-1234] [api/am/devportal] [2025-07-07 10:29:27,651] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
-TID: [-1234] [api/am/devportal] [2025-07-07 10:29:27,652] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
-TID: [] [] [2025-07-07 10:30:07,979]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
-TID: [] [] [2025-07-07 10:30:08,200]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
-TID: [] [] [2025-07-07 10:30:09,470]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
-TID: [] [] [2025-07-07 10:30:24,553]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
-TID: [] [] [2025-07-07 10:39:00,929]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
-TID: [] [] [2025-07-07 10:39:01,042] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} - Invalid JWT token. XXXXX":"RS256"}
-TID: [] [] [2025-07-07 10:39:01,046]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
-TID: [] [] [2025-07-07 10:39:06,608] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} - Invalid JWT token. XXXXX":"RS256"}
-TID: [] [] [2025-07-07 10:39:06,608]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
-TID: [] [] [2025-07-07 10:39:08,964] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} - Invalid JWT token. XXXXX":"RS256"}
-TID: [] [] [2025-07-07 10:39:08,964]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
-TID: [] [] [2025-07-07 10:42:00,512] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} - Invalid JWT token. XXXXX":"RS256"}
-TID: [] [] [2025-07-07 10:42:00,512]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+TID: [-1234] [api/am/devportal] [2025-07-09 14:16:22,475] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-09 14:16:22,475] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-09 14:16:22,634] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [] [] [2025-07-09 14:16:57,177]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-09 14:16:57,395]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-07-09 14:21:16,326]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-09 15:11:01,106]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-09 15:11:01,516]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-07-09 15:14:38,104]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-09 15:16:42,539]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown

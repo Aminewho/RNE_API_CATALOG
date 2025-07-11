@@ -20,6 +20,8 @@ public class SubscriptionService {
     private ApiRepository apiRepository;
     @Autowired
     private WalletService walletService;
+    @Autowired
+    private UsageService usageService;
     // Create a new subscription with default values
     @Transactional
     public Subscription createSubscription(Long userId, String apiId, Integer allowedRequests) {
@@ -63,9 +65,18 @@ public class SubscriptionService {
 
     // Get all subscriptions for a user
     public List<Subscription> getUserSubscriptions(Long userId) {
-        return subscriptionRepository.findByUserId(userId);
+        List<Subscription> subscriptions = subscriptionRepository.findByUserId(userId);
+        for (Subscription subscription : subscriptions) {
+            int actualUsedRequests = usageService.getUsedRequestsForSubscription(userId, subscription);
+            if(actualUsedRequests ==0 ) {
+                return subscriptions;
+            }
+            subscription.setUsedRequests(actualUsedRequests);
+            subscriptionRepository.save(subscription); 
+        }
+        return subscriptions;
     }
-
+    
     // Get subscriptions by status
     public List<Subscription> getSubscriptionsByStatus(SubscriptionStatus status) {
         return subscriptionRepository.findByStatus(status);
@@ -85,7 +96,17 @@ public class SubscriptionService {
         return totalCost;
     }
     public List<Subscription> getSubscriptions() {
-        return subscriptionRepository.findAll();
+        List<Subscription> subscriptions = subscriptionRepository.findAll();
+        for (Subscription subscription : subscriptions) {
+            Long userId = subscription.getUser().getId();
+            int actualUsedRequests = usageService.getUsedRequestsForSubscription(userId, subscription);
+            if(actualUsedRequests ==0 ) {
+                return subscriptions;
+            }
+            subscription.setUsedRequests(actualUsedRequests);
+            subscriptionRepository.save(subscription); 
+        }
+        return subscriptions;
     }
 
     @Transactional
@@ -128,24 +149,8 @@ public class SubscriptionService {
         return subscriptionRepository.save(subscription);
     }
 
-    // Increment used requests counter
-    @Transactional
-    public Subscription incrementUsedRequests(Long subscriptionId) {
-        Subscription subscription = subscriptionRepository.findById(subscriptionId)
-                .orElseThrow(() -> new RuntimeException("Subscription not found"));
-        
-        if (subscription.getStatus() != SubscriptionStatus.APPROVED) {
-            throw new RuntimeException("Subscription is not active");
-        }
-        
-        if (subscription.getUsedRequests() >= subscription.getAllowedRequests()) {
-            throw new RuntimeException("Request limit exceeded");
-        }
-        
-        subscription.setUsedRequests(subscription.getUsedRequests() + 1);
-        return subscriptionRepository.save(subscription);
-    }
-
+    
+   
     // Update request limit for a subscription
     @Transactional
     public Subscription updateRequestLimit(Long subscriptionId, int newLimit) {
@@ -166,5 +171,5 @@ public class SubscriptionService {
                 .orElseThrow(() -> new RuntimeException("Subscription not found"));
     }
 
-    
+
 }

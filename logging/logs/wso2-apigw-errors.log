@@ -1,15 +1,8 @@
-2025-07-07T10:29:27,517 [-] [https-jsse-nio-9443-exec-18] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@2fde3050
-2025-07-07T10:29:27,651 [-] [https-jsse-nio-9443-exec-4] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
-2025-07-07T10:29:27,652 [-] [https-jsse-nio-9443-exec-4] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
-2025-07-07T10:30:07,979 [-] [HTTPS-Listener I/O dispatcher-14]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
-2025-07-07T10:30:09,470 [-] [HTTPS-Listener I/O dispatcher-16]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
-2025-07-07T10:30:24,553 [-] [HTTPS-Listener I/O dispatcher-18]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
-2025-07-07T10:39:00,929 [-] [HTTPS-Listener I/O dispatcher-20]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
-2025-07-07T10:39:01,042 [-] [PassThroughMessageProcessor-90] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} Invalid JWT token. XXXXX":"RS256"}
-2025-07-07T10:39:01,046 [-] [PassThroughMessageProcessor-90]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
-2025-07-07T10:39:06,608 [-] [PassThroughMessageProcessor-92] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} Invalid JWT token. XXXXX":"RS256"}
-2025-07-07T10:39:06,608 [-] [PassThroughMessageProcessor-92]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
-2025-07-07T10:39:08,964 [-] [PassThroughMessageProcessor-93] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} Invalid JWT token. XXXXX":"RS256"}
-2025-07-07T10:39:08,964 [-] [PassThroughMessageProcessor-93]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
-2025-07-07T10:42:00,512 [-] [PassThroughMessageProcessor-106] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} Invalid JWT token. XXXXX":"RS256"}
-2025-07-07T10:42:00,512 [-] [PassThroughMessageProcessor-106]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/pizzashack/1.0.0/menu
+2025-07-09T14:16:22,475 [-] [https-jsse-nio-9443-exec-49] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-09T14:16:22,475 [-] [https-jsse-nio-9443-exec-13] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-09T14:16:22,634 [-] [https-jsse-nio-9443-exec-10] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-09T14:16:57,177 [-] [HTTPS-Listener I/O dispatcher-16]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-09T14:21:16,326 [-] [HTTPS-Listener I/O dispatcher-18]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-09T15:11:01,106 [-] [HTTPS-Listener I/O dispatcher-20]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-09T15:14:38,104 [-] [HTTPS-Listener I/O dispatcher-22]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-09T15:16:42,539 [-] [HTTPS-Listener I/O dispatcher-24]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown

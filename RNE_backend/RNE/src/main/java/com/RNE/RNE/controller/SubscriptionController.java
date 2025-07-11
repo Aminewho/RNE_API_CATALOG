@@ -6,8 +6,10 @@ import com.RNE.RNE.dto.SubscriptionMapper;
 import com.RNE.RNE.model.Subscription;
 import com.RNE.RNE.model.SubscriptionStatus;
 import com.RNE.RNE.model.User;
+import com.RNE.RNE.repository.SubscriptionRepository;
 import com.RNE.RNE.repository.UserRepository;
 import com.RNE.RNE.service.SubscriptionService;
+import com.RNE.RNE.service.UsageService;
 
 import org.springframework.security.core.Authentication;
 import org.slf4j.Logger;
@@ -34,6 +36,13 @@ public class SubscriptionController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private UsageService usageService;
+
+    @Autowired
+    private SubscriptionRepository subscriptionRepository;
+
+    
     // Helper method to get user from authenticated principal
     private User getUserFromAuthentication(Authentication authentication) {
         String username = authentication.getName(); // from JWT
@@ -64,11 +73,9 @@ public class SubscriptionController {
     public ResponseEntity<List<SubscriptionDTO>> getUserSubscriptions(Authentication authentication) {
         User user = getUserFromAuthentication(authentication);
         List<Subscription> subscriptions = subscriptionService.getUserSubscriptions(user.getId());
-
         List<SubscriptionDTO> dtoList = subscriptions.stream()
             .map(SubscriptionMapper::toDto)
             .collect(Collectors.toList());
-
         return ResponseEntity.ok(dtoList);
     }
 
@@ -110,7 +117,24 @@ public class SubscriptionController {
                 .body(Map.of("error", e.getMessage()));
         }
     }*/
+    @GetMapping("/{subscriptionId}")
+    public ResponseEntity<?> getUsedRequestsForSubscription(@PathVariable Long subscriptionId, Authentication authentication) {
+        String username = authentication.getName();
 
+        User user = userRepository.findByUsername(username)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        Subscription subscription = subscriptionRepository.findById(subscriptionId)
+                .orElseThrow(() -> new RuntimeException("Subscription not found"));
+
+        // Make sure the subscription belongs to the authenticated user
+        if (!subscription.getUser().getUsername().equals(user.getUsername())) {
+            return ResponseEntity.status(403).body("Access denied: This subscription does not belong to you.");
+        }
+
+        int usedRequests = usageService.getUsedRequestsForSubscription(user.getId(), subscription);
+        return ResponseEntity.ok(usedRequests);
+    }
     public static class SubscriptionRequest {
         private String apiId;
         private Integer allowedRequests;

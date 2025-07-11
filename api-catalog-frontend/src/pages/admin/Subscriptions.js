@@ -25,17 +25,20 @@ import {
   DialogContent,
   DialogTitle,
   Divider,
-  useTheme
 } from '@mui/material';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import SearchIcon from '@mui/icons-material/Search';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import{
+  Refresh as RefreshIcon,
+  CheckCircle as ApproveIcon,
+  Cancel as RejectIcon,
+  Visibility as ViewIcon,
+  KeyboardArrowUp as KeyboardArrowUpIcon,
+  KeyboardArrowDown as KeyboardArrowDownIcon  
+} from '@mui/icons-material';
+
 import { useNavigate } from 'react-router-dom';
 
 
 export default function Subscriptions() {
-  const theme = useTheme();
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -110,10 +113,8 @@ const toggleExpand = (index) => {
       p: 2, 
       maxWidth: 1400, 
       margin: '0', // Added margin top/bottom
-      border: `1px solid ${theme.palette.divider}`, // Add border
       borderRadius: 2, // Rounded corners
       boxShadow: 3, // Add shadow
-      //backgroundColor: theme.palette.background.paper, // White background
       position: 'relative', // Ensures proper positioning
       top: 0, // Explicitly positions at top
       left: 0, // Explicitly positions at left
@@ -225,13 +226,13 @@ const toggleExpand = (index) => {
               <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)' }}>
                 <TableRow>
                   <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Utilisateur</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>API</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Statut</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Autorisé</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Utilisé</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Date de demande</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2}}>Date d'autorisation</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Actions</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>API</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Statut</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Autorisé</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Utilisé</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Date de demande</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Date d'autorisation</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -246,12 +247,11 @@ const toggleExpand = (index) => {
                               }
                             }}>
                         
-                            <TableCell>{request.username}</TableCell>
-                            <TableCell>{request.api}</TableCell>
-                            <TableCell>
+                            <TableCell sx={{ fontWeight: 500,fontSize:'16px' }}>{request.username}</TableCell>
+                            <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{request.api}</TableCell>
+                            <TableCell align='center'>
                               <Chip
                                 label={request.status === 'APPROVED' ? 'approuvé' : request.status === 'REJECTED' ? 'rejeté' : 'en attente'}
-
                                 sx={{
                                   fontWeight: 'bold',
                                   background:
@@ -263,35 +263,36 @@ const toggleExpand = (index) => {
                                   color: 'white',
                                   boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                                 }}  
+                                onClick={()=>{}}
                               />
                             </TableCell>
-                            <TableCell>{request.allowedRequests}</TableCell>
-                            <TableCell>{request.usedRequests}</TableCell>
-                            <TableCell>{new Date(request.requestDate).toLocaleString()}</TableCell>
-                            <TableCell>{request.approvalDate ? new Date(request.approvalDate).toLocaleString() : '-'}</TableCell>
+                            <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{request.allowedRequests}</TableCell>
+                            <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{request.usedRequests}</TableCell>
+                            <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{new Date(request.requestDate).toLocaleString()}</TableCell>
+                            <TableCell sx={{ fontWeight: 500,fontSize:'16px' }}>{request.approvalDate ? new Date(request.approvalDate).toLocaleString() : '-'}</TableCell>
                             <TableCell>
-                              <IconButton size="small" onClick={() => toggleExpand(index)}>
-                                {expandedIndex === index ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                              </IconButton>
-                            </TableCell>
-                          
-                          {request.status === 'PENDING' && (
-                                  <TableCell>
-                                    <Stack direction="row" spacing={1}>
-                                      <Button
-                                        size="small"
-                                        variant="contained"
+                              <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
+                                <Tooltip title="View details">
+                                  <IconButton size="small" onClick={() => toggleExpand(index)}>
+                                    {expandedIndex === index ? <KeyboardArrowUpIcon /> : <ViewIcon color="info" />}
+                                  </IconButton>
+                                </Tooltip>
+                                {request.status === 'PENDING' && (
+                                  <>
+                                    <Tooltip title="Approve">
+                                      <IconButton 
+                                        size="small" 
                                         color="success"
                                         onClick={(e) => {
                                           e.stopPropagation();
-                                          handleApprove(request.id); // define this function to call the backend
-                                        }}
+                                          handleApprove(request.id)}}
                                       >
-                                        Approuver 
-                                      </Button>
-                                      <Button
-                                        size="small"
-                                        variant="outlined"
+                                        <ApproveIcon />
+                                      </IconButton>
+                                    </Tooltip>
+                                    <Tooltip title="Reject">
+                                      <IconButton 
+                                        size="small" 
                                         color="error"
                                         onClick={(e) => {
                                           e.stopPropagation();
@@ -299,11 +300,14 @@ const toggleExpand = (index) => {
                                           setRejectDialogOpen(true);
                                         }}
                                       >
-                                        Rejeter
-                                      </Button>
-                                    </Stack>
-                                  </TableCell>
-                            )}</TableRow>
+                                        <RejectIcon />
+                                      </IconButton>
+                                    </Tooltip>
+                                  </>
+                                )}
+                              </Box>
+                            </TableCell>
+                          </TableRow>
                           {expandedIndex === index && (
                             <TableRow>
                               <TableCell colSpan={8}>
@@ -316,13 +320,13 @@ const toggleExpand = (index) => {
                                   <Typography variant="body1"><strong>Statut:</strong> 
                                     <Chip 
                                       label={  request.status === 'APPROVED' ? 'approuvé' :'rejeté' }
-                                    
                                       color={
                                         request.status === 'APPROVED' ? 'success' :
                                         request.status === 'REJECTED' ? 'error' : 'warning'
                                       }
                                       size="small"
                                       sx={{ ml: 1 }}
+                                      onClick={()=>{}}
                                     />
                                   </Typography>
                                   <Typography variant="body1"><strong>Requêtes autorisées:</strong> {request.allowedRequests}</Typography>
