@@ -271,8 +271,8 @@ export default function SignupRequests() {
                   <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Entreprise</TableCell>
                   <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Contact principal</TableCell>
                   <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Contact Technique</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Statut</TableCell>
-                  <TableCell sx={{ fontWeight: 700, width: 150,fontSize:'18px',color: 'white' }}>Actions</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Statut</TableCell>
+                  <TableCell sx={{ fontWeight: 700, width: 150,fontSize:'18px',color: 'white' }} align='center'>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -316,7 +316,7 @@ export default function SignupRequests() {
                           </Box>
                         </Stack>
                       </TableCell>
-                      <TableCell>
+                      <TableCell align='center'>
                         <Grid item xs={12} sm={6}>
                           <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
                             <PersonIcon fontSize="small" color="action" sx={{ mr: 1 }} />
@@ -338,7 +338,7 @@ export default function SignupRequests() {
                           </Box>
                         </Grid>
                       </TableCell>
-                      <TableCell>
+                      <TableCell align='center'>
                         {request.nomResponsableTechnique && (
                           <Grid item xs={12} sm={6}>
                             <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
@@ -362,7 +362,7 @@ export default function SignupRequests() {
                           </Grid>
                         )}
                       </TableCell>
-                      <TableCell>
+                      <TableCell align='center'>
                         <Chip
                           label={request.status}
                           color={

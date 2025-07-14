@@ -124,17 +124,17 @@ export default function ManageAPIs() {
 
   return (
     <Box sx={{ 
-          p: 2, 
-          maxWidth: 1400, 
-          margin: '0', // Added margin top/bottom
-          border: `1px solid ${theme.palette.divider}`, // Add border
-          borderRadius: 2, // Rounded corners
-          boxShadow: 3, // Add shadow
-          position: 'relative', // Ensures proper positioning
-          top: 0,
-          left: 0,
-          minWidth: '950px',
-          backgroundColor: 'lightgray'
+      p: 2, 
+      maxWidth: 1400, 
+      margin: '0', // Added margin top/bottom
+      border: `1px solid ${theme.palette.divider}`, // Add border
+      borderRadius: 2, // Rounded corners
+      boxShadow: 3, // Add shadow
+      position: 'relative', // Ensures proper positioning
+      top: 0,
+      left: 0,
+      minWidth: '950px',
+      backgroundColor: 'lightgray'
     }}>
 
       {/* Header */}
@@ -147,14 +147,14 @@ export default function ManageAPIs() {
         boxShadow: '0 4px 20px rgba(106, 17, 203, 0.3)'
       }}>
         <Box sx={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              alignItems: 'center'
-            }}>
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center'
+          }}>
           <Typography variant="h4" component="h1" fontWeight='bold' sx={{ textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
             WSO2 APIs disponibles
           </Typography>
-      </Box>
+        </Box>
       </Paper>
 
       {/* Table */}

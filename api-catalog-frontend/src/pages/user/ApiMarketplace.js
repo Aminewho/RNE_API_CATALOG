@@ -106,7 +106,7 @@ export default function ApiMarketplace() {
     if (!allowedRequests || isNaN(allowedRequests) || parseInt(allowedRequests) <= 0) {
       setSubscriptionDialog(prev => ({
         ...prev,
-        error: 'Please enter a valid number of allowed requests (must be greater than 0)'
+        error: 'Veuillez saisir un nombre valide de demandes autorisées (doit être supérieur à 0).'
       }));
       return;
     }
@@ -123,11 +123,11 @@ export default function ApiMarketplace() {
         allowedRequests: parseInt(allowedRequests)
       });
       setSubscriptionDialog(prev => ({ ...prev, open: false }));
-      alert(`Successfully subscribed to ${selectedApi.name}!`);
+      alert(`Abonné avec succès à ${selectedApi.name}!`);
     } catch (err) {
       setSubscriptionDialog(prev => ({
         ...prev,
-        error: err.response?.data?.error || err.message || 'Failed to create subscription',
+        error: err.response?.data?.error || err.message || "Échec de la création de l'abonnement",
         isSubmitting: false
       }));
     }
@@ -143,15 +143,14 @@ export default function ApiMarketplace() {
   };
   return (
     <Box sx={{ 
-          p: 2, 
-          maxWidth: 1400, 
+          p: 2,  
           margin: '0', // Added margin top/bottom
           borderRadius: 2, // Rounded corners
           boxShadow: 3, // Add shadow
           position: 'relative', // Ensures proper positioning
           top: 0,
           left: 0,
-          minWidth: '750px',
+          width: '756px',
           backgroundColor: 'lightgray'
     }}>
       <Paper elevation={0} sx={{ 
@@ -230,7 +229,7 @@ export default function ApiMarketplace() {
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                   }}>
-                    <Box>
+                    <Box width={'300px'} height={'120px'}>
                       <Typography variant="h5" fontWeight="bold" gutterBottom>
                         {apiItem.name}
                       </Typography>
@@ -248,7 +247,7 @@ export default function ApiMarketplace() {
                     </Box>
                     <CardActions sx={{ justifyContent: 'space-between', p: 2 }}>
                       <Button size="small" startIcon={<ViewIcon />} onClick={() => handleViewDetails(apiItem)}>En savoir plus</Button>
-                      <Button size="small" variant="contained" startIcon={<SubscribeIcon />} onClick={() => handleSubscribeClick(apiItem)} sx={{ backgroundColor: 'primary.main', color: 'white', '&:hover': { backgroundColor: 'primary.dark' } }}>Subscribe</Button>
+                      <Button size="small" variant="contained" startIcon={<SubscribeIcon />} onClick={() => handleSubscribeClick(apiItem)} sx={{ backgroundColor: 'primary.main', color: 'white', '&:hover': { backgroundColor: 'primary.dark' } }}>S'abonner</Button>
                     </CardActions>
                   </Card>
                 </Grid>
@@ -259,16 +258,30 @@ export default function ApiMarketplace() {
       )}
 
       {/* Subscribe Dialog */}
-      <Dialog open={subscriptionDialog.open} onClose={handleSubscriptionClose}>
-        <DialogTitle>Subscribe to {subscriptionDialog.api?.name || 'API'}</DialogTitle>
-        <DialogContent>
+      <Dialog 
+        open={subscriptionDialog.open} 
+        onClose={handleSubscriptionClose}
+        PaperProps={{
+          sx: {
+            borderRadius: 3,
+            width: '100%',
+            maxWidth: '500px'
+          }
+        }}
+      >
+        <DialogTitle sx={{ 
+          fontWeight: 600,
+          borderBottom: '1px solid rgba(0,0,0,0.08)',
+          py: 3
+        }}>S'abonner à {subscriptionDialog.api?.name || 'API'}</DialogTitle>
+        <DialogContent sx={{ py: 3 }}>
           {subscriptionDialog.error && (
-            <Alert severity="error" sx={{ mb: 2 }}>{subscriptionDialog.error}</Alert>
+            <Alert severity="error" sx={{ mb: 3 }}>{subscriptionDialog.error}</Alert>
           )}
           <TextField
             autoFocus
             margin="dense"
-            label="Allowed Requests"
+            label="Requêtes autorisées"
             type="number"
             fullWidth
             variant="outlined"
@@ -280,22 +293,37 @@ export default function ApiMarketplace() {
             sx={{ mt: 2 }}
           />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleSubscriptionClose} disabled={subscriptionDialog.isSubmitting}>Cancel</Button>
-          <Button onClick={handleSubscriptionSubmit} color="primary" disabled={subscriptionDialog.isSubmitting}>
-            {subscriptionDialog.isSubmitting ? 'Subscribing...' : 'Subscribe'}
+        <DialogActions sx={{ 
+          px: 3,
+          py: 2,
+          borderTop: '1px solid rgba(0,0,0,0.08)'
+        }}> 
+          <Button onClick={handleSubscriptionClose} 
+            disabled={subscriptionDialog.isSubmitting} 
+            sx={{ color: 'text.secondary' }}>Annuler</Button>
+          <Button onClick={handleSubscriptionSubmit} color="primary" 
+          disabled={subscriptionDialog.isSubmitting}
+          sx={{ 
+            fontWeight: 600,
+            boxShadow: 'none',
+            '&:hover': {
+              boxShadow: '0 4px 8px rgba(103, 58, 183, 0.3)'
+            }
+          }}>
+            {subscriptionDialog.isSubmitting ? 'Subscribing...' : "S'abonner"}
           </Button>
         </DialogActions>
       </Dialog>
 
       {/* Details Dialog */}
-      <Dialog open={!!selectedApi} onClose={handleCloseDetails} maxWidth="md" fullWidth>
+      <Dialog open={!!selectedApi} onClose={handleCloseDetails} maxWidth="md" >
         <DialogTitle>API Details</DialogTitle>
         <DialogContent dividers>
           <Typography variant="h6" gutterBottom>Request Sample</Typography>
           <Paper
               sx={{
                 bgcolor: '#1e1e1e',
+                minWidth: '600px',
                 p: 2,
                 mb: 3,
                 color: '#b5f774',
@@ -305,35 +333,33 @@ export default function ApiMarketplace() {
                 maxHeight: 300,          // optional: limit vertical space
               }}
           >
-  {selectedApi?.input || 'No input provided'}
-</Paper>
-
-
+            {selectedApi?.input || 'No input provided'}
+          </Paper>
           <Typography variant="h6" gutterBottom>Response Sample</Typography>
-         
           <Paper sx={{ p: 2, bgcolor: '#f5f5f5' }}>
-  <ReactJson
-    src={
-      (() => {
-        try {
-          return JSON.parse(selectedApi?.output);
-        } catch (e) {
-          return { error: 'Invalid JSON format' };
-        }
-      })()
-    }
-    name={false}
-    collapsed={false}
-    displayDataTypes={false}
-    enableClipboard={true}
-    theme="rjv-default"
-  />
-</Paper>
-
+            <ReactJson
+              src={
+                (() => {
+                  try {
+                    return JSON.parse(selectedApi?.output);
+                  } catch (e) {
+                    return { error: 'Invalid JSON format' };
+                  }
+                })()
+              }
+              name={false}
+              collapsed={false}
+              displayDataTypes={false}
+              enableClipboard={true}
+              theme="rjv-default"
+            />
+          </Paper>
         </DialogContent>
+
         <DialogActions>
           <Button onClick={handleCloseDetails}>Close</Button>
         </DialogActions>
+
       </Dialog>
     </Box>
   );

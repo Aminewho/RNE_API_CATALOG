@@ -98,38 +98,53 @@ export default function UserDetailPage() {
       border: `1px solid ${theme.palette.divider}`, // Add border
       borderRadius: 2, // Rounded corners
       boxShadow: 3, // Add shadow
-      backgroundColor: theme.palette.background.paper, // White background
+      backgroundColor: 'lightgrey', // White background
       position: 'relative', // Ensures proper positioning
       top: 0, // Explicitly positions at top
-      left: 0
+      left: 0,
+      minWidth: '850px', // Minimum width for smaller screens
     }}>
+
       {/* User Header */}
       <Box sx={{ 
         display: 'flex', 
         alignItems: 'center', 
+        justifyContent: 'space-between', // Add this
         mb: 4,
         p: 3,
         borderRadius: 2,
-        border: `1px solid ${theme.palette.divider}`,
         background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)',
         color: 'white'
       }}>
-        <Avatar sx={{ 
-          bgcolor: 'white', 
-          color: theme.palette.primary.main,
-          width: 80, 
-          height: 80,
-          mr: 3,
-          fontSize: 40
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Avatar sx={{ 
+            bgcolor: 'white', 
+            color: theme.palette.primary.main,
+            width: 80, 
+            height: 80,
+            mr: 3,
+            fontSize: 40
+          }}>
+            {user.username.charAt(0).toUpperCase()}
+          </Avatar>
+          <Box>
+            <Typography variant="h3" fontWeight="bold">
+              {user.username}
+            </Typography>
+            <Typography variant="subtitle1" sx={{ opacity: 0.9 }}>
+              {user.role} • {user.raisonSociale}
+            </Typography>
+          </Box>
+        </Box>
+        <Box sx={{ 
+          background: 'rgba(255,255,255,0.2)',
+          p: 2,
+          borderRadius: 2,
+          textAlign: 'center'
         }}>
-          {user.username.charAt(0).toUpperCase()}
-        </Avatar>
-        <Box>
-          <Typography variant="h3" fontWeight="bold">
-            {user.username}
-          </Typography>
-          <Typography variant="subtitle1" sx={{ opacity: 0.9 }}>
-            {user.role} • {user.raisonSociale}
+          <Typography variant="h6">Balance</Typography>
+          <Typography variant="h4" sx={{ fontWeight: 'bold' }}>
+            {user.balance} TND
           </Typography>
         </Box>
       </Box>
@@ -143,86 +158,79 @@ export default function UserDetailPage() {
           border: `1px solid ${theme.palette.divider}`,
           borderRadius: 2
         }}>
-      <Grid container spacing={3} sx={{ mb: 4 }}>
-        <Grid item xs={12} md={4} >
-          <Card elevation={3} sx={{ height: '100%' }}>
-            <CardContent>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <BusinessIcon color="primary" sx={{ mr: 1 }} />
-                <Typography variant="h6">Informations sur l'entreprise</Typography>
-              </Box>
-              <Divider sx={{ mb: 2 }} />
-              <Stack spacing={1.5}>
-                <Box>
-                  <Typography variant="caption" color="text.secondary">Entreprise</Typography>
-                  <Typography>{user.raisonSociale}</Typography>
+        <Grid container spacing={3} sx={{ mb: 4 }}>
+          <Grid item xs={12} md={4} >
+            <Card elevation={3} sx={{ height: '100%' }}>
+              <CardContent>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <BusinessIcon color="primary" sx={{ mr: 1 }} />
+                  <Typography variant="h6">Informations sur l'entreprise</Typography>
                 </Box>
-                <Box>
-                  <Typography variant="caption" color="text.secondary">ID Taxe</Typography>
-                  <Typography>{user.matriculeFiscale}</Typography>
-                </Box>
-                <Box>
-                  <Typography variant="caption" color="text.secondary">Secteur</Typography>
-                  <Typography>{user.secteurActivite}</Typography>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <LocationIcon color="action" sx={{ mr: 1 }} />
-                  <Typography>{user.adresse}</Typography>
-                </Box>
-              </Stack>
-            </CardContent>
-          </Card>
-        </Grid>
+                <Divider sx={{ mb: 2 }} />
+                <Stack spacing={1.5}>
+                  <Box>
+                    <Typography variant="caption" color="text.secondary">Entreprise</Typography>
+                    <Typography>{user.raisonSociale}</Typography>
+                  </Box>
+                  <Box>
+                    <Typography variant="caption" color="text.secondary">ID Taxe</Typography>
+                    <Typography>{user.matriculeFiscale}</Typography>
+                  </Box>
+                  <Box>
+                    <Typography variant="caption" color="text.secondary">Secteur</Typography>
+                    <Typography>{user.secteurActivite}</Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <LocationIcon color="action" sx={{ mr: 1 }} />
+                    <Typography>{user.adresse}</Typography>
+                  </Box>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
 
-        <Grid item xs={12} md={4}>
-          <Card elevation={3} sx={{ height: '100%' }}>
-            <CardContent>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <EmailIcon color="primary" sx={{ mr: 1 }} />
-                <Typography variant="h6">Contact</Typography>
-              </Box>
-              <Divider sx={{ mb: 2 }} />
-              <Stack spacing={1.5}>
-                <Box>
-                  <Typography variant="caption" color="text.secondary">Email</Typography>
-                  <Typography>{user.email}</Typography>
+          <Grid item xs={12} md={4}>
+            <Card elevation={3} sx={{ height: '100%',minWidth: '220px' }}>
+              <CardContent>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <EmailIcon color="primary" sx={{ mr: 1 }} />
+                  <Typography variant="h6">Contact</Typography>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <PhoneIcon color="action" sx={{ mr: 1 }} />
-                  <Typography>{user.tel}</Typography>
-                </Box>
-                <Box>
-                  <Typography variant="caption" color="text.secondary">Rôle : </Typography><br />
-                  <Chip label={user.role} size="small" color="primary" />
-                </Box>
-              </Stack>
-            </CardContent>
-          </Card>
-        </Grid>
+                <Divider sx={{ mb: 2 }} />
+                <Stack spacing={1.5}>
+                  <Box>
+                    <Typography variant="caption" color="text.secondary">Email</Typography>
+                    <Typography>{user.email}</Typography>
+                  </Box>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <PhoneIcon color="action" sx={{ mr: 1 }} />
+                    <Typography>{user.tel}</Typography>
+                  </Box>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
 
-        <Grid item xs={12} md={4}>
-          <Card elevation={3} sx={{ height: '100%' }}>
-            <CardContent>
-              <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                <SecurityIcon color="primary" sx={{ mr: 1 }} />
-                <Typography variant="h6">Sécurité</Typography>
-              </Box>
-              <Divider sx={{ mb: 2 }} />
-              <Stack spacing={1.5}>
-                <Box>
-                  <Typography variant="caption" color="text.secondary">IP Autorisé</Typography>
-                  <Typography>{user.ipAutorisee}</Typography>
+          <Grid item xs={12} md={4}>
+            <Card elevation={3} sx={{ height: '100%',minWidth: '220px' }}>
+              <CardContent>
+                <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
+                  <SecurityIcon color="primary" sx={{ mr: 1 }} />
+                  <Typography variant="h6">Sécurité</Typography>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <WalletIcon color="action" sx={{ mr: 1 }} />
-                  <Typography>Balance: {user.balance} TND</Typography>
-                </Box>
-              </Stack>
-            </CardContent>
-          </Card>
+                <Divider sx={{ mb: 2 }} />
+                <Stack spacing={1.5}>
+                  <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Typography variant="caption" color="text.secondary">IP Autorisé : </Typography>
+                    <Typography>{user.ipAutorisee}</Typography>
+                  </Box>
+                </Stack>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
       </Paper>  
+
       {/* Subscriptions Section */}
       <Typography variant="h5" sx={{ 
         mb: 3, 
@@ -238,9 +246,9 @@ export default function UserDetailPage() {
           <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)' }}>
             <TableRow>
               <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>API</TableCell>
-              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Statut</TableCell>
-              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Autorisé</TableCell>
-              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Utilisé</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Statut</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Autorisé</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Utilisé</TableCell>
               <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Demandé</TableCell>
               <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Approuvé</TableCell>
             </TableRow>
@@ -248,8 +256,8 @@ export default function UserDetailPage() {
           <TableBody>
             {subscriptions.map((sub) => (
               <TableRow key={sub.id} hover>
-                <TableCell sx={{ fontWeight: 500 }}>{sub.api}</TableCell>
-                <TableCell>
+                <TableCell sx={{ fontWeight: 500,fontSize:'16px' }}>{sub.api}</TableCell>
+                <TableCell align='center'>
                   <Chip 
                     label={sub.status} 
                     color={getStatusColor(sub.status)} 
@@ -257,10 +265,10 @@ export default function UserDetailPage() {
                     sx={{ fontWeight: 'bold' }}
                   />
                 </TableCell>
-                <TableCell>{sub.allowedRequests}</TableCell>
-                <TableCell>{sub.usedRequests}</TableCell>
-                <TableCell>{new Date(sub.requestDate).toLocaleString()}</TableCell>
-                <TableCell>
+                <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{sub.allowedRequests}</TableCell>
+                <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{sub.usedRequests}</TableCell>
+                <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{new Date(sub.requestDate).toLocaleString()}</TableCell>
+                <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>
                   {sub.approvalDate ? (
                     new Date(sub.approvalDate).toLocaleString()
                   ) : (
@@ -295,19 +303,20 @@ export default function UserDetailPage() {
           <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)' }}>
             <TableRow>
               <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Date</TableCell>
-              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Description</TableCell>
-              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Montant (TND)</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Description</TableCell>
+              <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Montant (TND)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {transactions.map((tx) => (
               <TableRow key={tx.id} hover>
-                <TableCell>{new Date(tx.timestamp).toLocaleString()}</TableCell>
-                <TableCell sx={{ fontWeight: 500 }}>{tx.description}</TableCell>
+                <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} >{new Date(tx.timestamp).toLocaleString()}</TableCell>
+                <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{tx.description}</TableCell>
                 <TableCell sx={{ 
                   fontWeight: 'bold',
+                  fontSize: '16px',
                   color: tx.amount >= 0 ? 'success.main' : 'error.main' 
-                }}>
+                }} align='center'>
                   {tx.amount >= 0 ? `+${tx.amount}` : tx.amount}
                 </TableCell>
               </TableRow>
