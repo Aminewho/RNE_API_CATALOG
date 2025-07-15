@@ -16,7 +16,7 @@ const AuthHandler = () => {
           navigate('/login');
         } else if (status === 403) {
           // User is authenticated but not authorized
-          alert('Access denied: insufficient permissions');
+          alert('Accès refusé : permissions insuffisantes.');
           navigate('/login'); // or navigate('/access-denied') if you have such a page
         }
         return Promise.reject(error);

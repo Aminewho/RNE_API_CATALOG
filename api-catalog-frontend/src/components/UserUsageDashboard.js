@@ -114,7 +114,7 @@ export default function UserUsageDashboard({ userId }) {
         </Box>
       </Paper>      
       <Typography variant="h6" color="text.secondary" gutterBottom>
-        Track and analyze your API consumption
+        Suivre et analyser votre consommation d'API
       </Typography>
 
       {/* Filter and Total Requests Section */}

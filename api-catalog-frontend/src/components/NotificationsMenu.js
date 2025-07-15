@@ -55,7 +55,7 @@ export default function NotificationsMenu() {
         <List sx={{ minWidth: 300 }}>
           {!requests || requests.length === 0 ? (
             <ListItem>
-              <ListItemText primary="No pending requests" />
+              <ListItemText primary="Pas de demande en cours" />
             </ListItem>
           ) : (
             requests.map((req, index) => {
@@ -65,7 +65,7 @@ export default function NotificationsMenu() {
                 return (
                   <ListItem key={index} button component="a" href={`/admin/subscriptions`}>
                     <ListItemText
-                      primary={`New request from ${req.username}`}
+                      primary={`Nouvelle demande de ${req.username}`}
                       secondary={`API: ${req.api} • Date: ${formattedDate}`}
                     />
                   </ListItem>

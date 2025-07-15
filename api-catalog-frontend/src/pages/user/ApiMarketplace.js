@@ -150,7 +150,7 @@ export default function ApiMarketplace() {
           position: 'relative', // Ensures proper positioning
           top: 0,
           left: 0,
-          width: '756px',
+          width: '856px',
           backgroundColor: 'lightgray'
     }}>
       <Paper elevation={0} sx={{ 
@@ -167,7 +167,7 @@ export default function ApiMarketplace() {
               alignItems: 'center'
             }}>
           <Typography variant="h4" component="h1" fontWeight='bold' sx={{ textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
-            API Marketplace
+            Catalogue API
           </Typography>
         </Box>
       </Paper>
@@ -229,7 +229,7 @@ export default function ApiMarketplace() {
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                   }}>
-                    <Box width={'300px'} height={'120px'}>
+                    <Box width={'350px'} height={'120px'}>
                       <Typography variant="h5" fontWeight="bold" gutterBottom>
                         {apiItem.name}
                       </Typography>
