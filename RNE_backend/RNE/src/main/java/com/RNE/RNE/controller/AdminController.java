@@ -178,7 +178,7 @@ public class AdminController {
                 .map(SubscriptionMapper::toDto)
                 .filter(Objects::nonNull)  // Filter out any null DTOs
                 .collect(Collectors.toList());
-                
+
             return ResponseEntity.ok(dtoList);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();

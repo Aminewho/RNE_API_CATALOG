@@ -1,5 +1,7 @@
 package com.RNE.RNE.model;
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,7 +23,7 @@ public class Subscription {
     // Timestamps
     private LocalDateTime requestDate = LocalDateTime.now();
     private LocalDateTime approvalDate;
-
+    private LocalDateTime expirationDate; // Optional, if needed
     //
 
     // Who?
@@ -52,6 +54,9 @@ public class Subscription {
     public LocalDateTime getApprovalDate() { return approvalDate; }
     public void setApprovalDate(LocalDateTime approvalDate) { this.approvalDate = approvalDate; }
 
+    public LocalDateTime getExpirationDate() { return expirationDate; }
+    public void setExpirationDate(LocalDateTime expirationDate) { this.expirationDate = expirationDate; }  
+    
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
 

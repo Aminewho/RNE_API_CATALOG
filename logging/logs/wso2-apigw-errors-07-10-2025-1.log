@@ -1,0 +1,6 @@
+2025-07-10T12:42:46,589 [-] [https-jsse-nio-9443-exec-27] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@55e14456
+2025-07-10T12:42:46,642 [-] [https-jsse-nio-9443-exec-21] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-07-10T12:42:46,642 [-] [https-jsse-nio-9443-exec-21] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-07-10T12:45:38,621 [-] [https-jsse-nio-9443-exec-38] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-10T12:45:38,621 [-] [https-jsse-nio-9443-exec-5] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-10T12:45:38,805 [-] [https-jsse-nio-9443-exec-46] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing

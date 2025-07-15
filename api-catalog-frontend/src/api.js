@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 
 
 const api = axios.create({
-  baseURL: 'http://localhost:8081', // Replace with your backend URL
+  baseURL: 'http://localhost:8080', // Replace with your backend URL
 });
 
 // Add a request interceptor to include the Bearer token

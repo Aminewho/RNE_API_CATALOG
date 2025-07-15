@@ -55,7 +55,7 @@ const toggleExpand = (index) => {
     setError('');
 
     try {
-      const response = await api.get('http://localhost:8080/admin/subscriptions');
+      const response = await api.get('/admin/subscriptions');
       setRequests(response.data);
       setSuccess('Data loaded successfully');
     } catch (err) {
@@ -247,16 +247,16 @@ const toggleExpand = (index) => {
                             <TableCell>{request.api}</TableCell>
                             <TableCell>
                               <Chip
-                                label={request.status === 'APPROVED' ? 'approuvé' : request.status === 'REJECTED' ? 'rejeté' : 'en attente'}
+                                label={request.status === 'APPROVED' ? 'Approuvé' : request.status === 'REJECTED' ? 'Rejeté' : request.status === 'EXPIRED'?'Expiré' : 'En attente'}
 
                                 sx={{
                                   fontWeight: 'bold',
                                   background:
                                     request.status === 'APPROVED' 
                                       ? 'linear-gradient(45deg,rgb(34, 104, 2) 0%,rgb(50, 226, 1) 100%)' :
-                                    request.status === 'REJECTED' 
-                                      ? 'linear-gradient(45deg,rgb(148, 0, 0) 0%,rgb(255, 0, 0) 100%)' 
-                                      : 'linear-gradient(45deg,rgb(195, 94, 0) 0%,rgb(255, 157, 0) 100%)',
+                                    request.status === 'PENDING' 
+                                      ? 'linear-gradient(45deg,rgb(195, 94, 0) 0%,rgb(255, 157, 0) 100%)'
+                                      : 'linear-gradient(45deg,rgb(148, 0, 0) 0%,rgb(255, 0, 0) 100%)' ,
                                   color: 'white',
                                   boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                                 }}  

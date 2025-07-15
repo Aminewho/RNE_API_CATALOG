@@ -40,7 +40,7 @@ export default function SignupPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:8081/signup`, formData);
+      await axios.post(`http://localhost:8080/signup`, formData);
       alert("Your signup request has been submitted. An email will be sent upon approval.");
     } catch (error) {
       console.error('Signup failed:', error);

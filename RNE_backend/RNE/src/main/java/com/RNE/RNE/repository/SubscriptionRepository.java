@@ -6,7 +6,10 @@ import com.RNE.RNE.model.SubscriptionStatus;
 import com.RNE.RNE.model.User;
 import com.RNE.RNE.model.Api;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface SubscriptionRepository extends JpaRepository<Subscription, Long> {
@@ -26,6 +29,21 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, Long
     List<Subscription> findByUserAndStatusIn(User user, List<SubscriptionStatus> statuses);
     
     List<Subscription> findByApiAndStatusIn(Api api, List<SubscriptionStatus> statuses);
+    /**
+ * All APPROVED subscriptions
+ * plus EXPIRED subscriptions whose expirationDate falls on the given day
+ */
+@Query("""
+   select s
+   from   Subscription s
+   where  s.status = 'APPROVED'
+      or ( s.status = 'EXPIRED'
+           and s.expirationDate >= :start
+           and s.expirationDate <  :end )
+""")
+List<Subscription> findActiveOrExpiredToday(@Param("start") LocalDateTime start,
+                                            @Param("end")   LocalDateTime end);
+
     
     int countByUserAndStatus(User user, SubscriptionStatus status);
     

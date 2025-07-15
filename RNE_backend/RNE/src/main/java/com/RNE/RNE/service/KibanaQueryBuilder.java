@@ -9,15 +9,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class KibanaQueryBuilder {
 
-    public static String buildUserUsageQuery(String applicationName, String createdAt, String now) {
-        return buildQuery(applicationName, createdAt, now, null);
+    public static String buildUserUsageQuery(String applicationName, String createdAt, String last) {
+        return buildQuery(applicationName, createdAt, last, null);
     }
 
-    public static String buildUserUsageQueryWithApi(String applicationName, String createdAt, String now, String apiName) {
-        return buildQuery(applicationName, createdAt, now, apiName);
+    public static String buildUserUsageQueryWithApi(String applicationName, String createdAt, String last, String apiName) {
+        return buildQuery(applicationName, createdAt, last, apiName);
     }
 
-    private static String buildQuery(String applicationName, String createdAt, String now, String apiName) {
+    private static String buildQuery(String applicationName, String createdAt, String last, String apiName) {
         StringBuilder sb = new StringBuilder();
         sb.append("{")
           .append("\"aggs\": {")
@@ -53,7 +53,7 @@ public class KibanaQueryBuilder {
           .append("\"requestTimestamp\": {")
           .append("\"format\": \"strict_date_optional_time\",")
           .append("\"gte\": \"").append(createdAt).append("\",")
-          .append("\"lte\": \"").append(now).append("\"")
+          .append("\"lte\": \"").append(last).append("\"")
           .append("}")
           .append("}")
           .append("}")

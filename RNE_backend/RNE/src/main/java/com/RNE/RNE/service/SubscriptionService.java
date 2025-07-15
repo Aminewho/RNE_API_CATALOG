@@ -6,6 +6,7 @@ import com.RNE.RNE.model.*;
 import com.RNE.RNE.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -67,12 +68,15 @@ public class SubscriptionService {
     public List<Subscription> getUserSubscriptions(Long userId) {
         List<Subscription> subscriptions = subscriptionRepository.findByUserId(userId);
         for (Subscription subscription : subscriptions) {
-            int actualUsedRequests = usageService.getUsedRequestsForSubscription(userId, subscription);
-            if(actualUsedRequests ==0 ) {
-                return subscriptions;
-            }
-            subscription.setUsedRequests(actualUsedRequests);
-            subscriptionRepository.save(subscription); 
+            if(SubscriptionStatus.APPROVED.equals(subscription.getStatus())) {
+                int actualUsedRequests = usageService.getUsedRequestsForSubscription(subscription);
+                subscription.setUsedRequests(actualUsedRequests);
+                if(actualUsedRequests >= subscription.getAllowedRequests()) {
+                    subscription.setStatus(SubscriptionStatus.EXPIRED);
+                    subscription.setExpirationDate(LocalDateTime.now());
+                }
+                    subscriptionRepository.save(subscription);
+            } 
         }
         return subscriptions;
     }
@@ -85,26 +89,26 @@ public class SubscriptionService {
     public BigDecimal getCostOfPendingSubscriptionsByUser(Long userId) {
         List<Subscription> pendingSubscriptions = subscriptionRepository.findByUserIdAndStatus(userId, SubscriptionStatus.PENDING);
         BigDecimal totalCost = BigDecimal.ZERO;
-        
         for (Subscription subscription : pendingSubscriptions) {
            
             BigDecimal costPerRequest = subscription.getApi().getRequest_cost();
             int allowedRequests = subscription.getAllowedRequests();
             totalCost = totalCost.add((costPerRequest).multiply(BigDecimal.valueOf(allowedRequests)));
         }
-        
         return totalCost;
     }
     public List<Subscription> getSubscriptions() {
         List<Subscription> subscriptions = subscriptionRepository.findAll();
         for (Subscription subscription : subscriptions) {
-            Long userId = subscription.getUser().getId();
-            int actualUsedRequests = usageService.getUsedRequestsForSubscription(userId, subscription);
-            if(actualUsedRequests ==0 ) {
-                return subscriptions;
+            if(SubscriptionStatus.APPROVED.equals(subscription.getStatus())) {
+                int actualUsedRequests = usageService.getUsedRequestsForSubscription(subscription);
+                subscription.setUsedRequests(actualUsedRequests);
+                    if(actualUsedRequests >= subscription.getAllowedRequests()) {
+                        subscription.setStatus(SubscriptionStatus.EXPIRED);
+                        subscription.setExpirationDate(LocalDateTime.now());
+                    }
+                    subscriptionRepository.save(subscription); 
             }
-            subscription.setUsedRequests(actualUsedRequests);
-            subscriptionRepository.save(subscription); 
         }
         return subscriptions;
     }

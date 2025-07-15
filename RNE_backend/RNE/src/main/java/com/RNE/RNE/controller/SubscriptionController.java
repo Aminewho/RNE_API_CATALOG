@@ -1,10 +1,8 @@
 package com.RNE.RNE.controller;
 
-import com.RNE.RNE.config.JwtAuthenticationFilter;
 import com.RNE.RNE.dto.SubscriptionDTO;
 import com.RNE.RNE.dto.SubscriptionMapper;
 import com.RNE.RNE.model.Subscription;
-import com.RNE.RNE.model.SubscriptionStatus;
 import com.RNE.RNE.model.User;
 import com.RNE.RNE.repository.SubscriptionRepository;
 import com.RNE.RNE.repository.UserRepository;
@@ -17,7 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -131,8 +128,7 @@ public class SubscriptionController {
         if (!subscription.getUser().getUsername().equals(user.getUsername())) {
             return ResponseEntity.status(403).body("Access denied: This subscription does not belong to you.");
         }
-
-        int usedRequests = usageService.getUsedRequestsForSubscription(user.getId(), subscription);
+        int usedRequests = usageService.getUsedRequestsForSubscription( subscription);
         return ResponseEntity.ok(usedRequests);
     }
     public static class SubscriptionRequest {
