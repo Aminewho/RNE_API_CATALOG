@@ -1,0 +1,9 @@
+ThreadID: [151] TenantID: [] [2025-07-16 00:00:33,286]  INFO {APIM_GOV_AUDIT_LOG} - [Scheduler Thread Pool Status] :: Active Thread Count: 0 -- | -- Completed Task Count: 0 -- | -- Submitted Task Count: 0 -- | -- Queue Size: 0 -- | -- Core Pool Size: 20 -- | -- Maximum Pool Size: 20 -- | -- Current Pool Size: 0
+ThreadID: [151] TenantID: [] [2025-07-16 00:00:33,302]  INFO {APIM_GOV_AUDIT_LOG} - [Delete Processing Requests] :: Deleted 0 long-lasting processing requests with IDs: []
+ThreadID: [151] TenantID: [] [2025-07-16 00:00:33,302]  INFO {APIM_GOV_AUDIT_LOG} - [Fetch Requests] :: Scheduler fetched 0 requests with IDs: []
+ThreadID: [151] TenantID: [] [2025-07-16 00:02:33,278]  INFO {APIM_GOV_AUDIT_LOG} - [Scheduler Thread Pool Status] :: Active Thread Count: 0 -- | -- Completed Task Count: 0 -- | -- Submitted Task Count: 0 -- | -- Queue Size: 0 -- | -- Core Pool Size: 20 -- | -- Maximum Pool Size: 20 -- | -- Current Pool Size: 0
+ThreadID: [151] TenantID: [] [2025-07-16 00:02:33,332]  INFO {APIM_GOV_AUDIT_LOG} - [Delete Processing Requests] :: Deleted 0 long-lasting processing requests with IDs: []
+ThreadID: [151] TenantID: [] [2025-07-16 00:02:33,332]  INFO {APIM_GOV_AUDIT_LOG} - [Fetch Requests] :: Scheduler fetched 0 requests with IDs: []
+ThreadID: [151] TenantID: [] [2025-07-16 00:04:33,273]  INFO {APIM_GOV_AUDIT_LOG} - [Scheduler Thread Pool Status] :: Active Thread Count: 0 -- | -- Completed Task Count: 0 -- | -- Submitted Task Count: 0 -- | -- Queue Size: 0 -- | -- Core Pool Size: 20 -- | -- Maximum Pool Size: 20 -- | -- Current Pool Size: 0
+ThreadID: [151] TenantID: [] [2025-07-16 00:04:33,302]  INFO {APIM_GOV_AUDIT_LOG} - [Delete Processing Requests] :: Deleted 0 long-lasting processing requests with IDs: []
+ThreadID: [151] TenantID: [] [2025-07-16 00:04:33,302]  INFO {APIM_GOV_AUDIT_LOG} - [Fetch Requests] :: Scheduler fetched 0 requests with IDs: []

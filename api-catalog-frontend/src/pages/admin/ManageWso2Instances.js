@@ -12,8 +12,15 @@ import {
   CardActions,
   Box,
   useTheme,
-  Paper
+  Paper,
+  Avatar,
+  IconButton,
+  Chip,
+  Tooltip,
+  Fade,
+  Zoom,
 } from '@mui/material';
+import { AddCircleOutline, DeleteOutline, Cloud, Security, Link } from '@mui/icons-material';
 
 const ManageWso2Instances = () => {
   const theme = useTheme();
@@ -99,6 +106,8 @@ const ManageWso2Instances = () => {
       </Box>
       </Paper>
 
+      
+      {/* Main Content */}
       <Card elevation={0} sx={{ 
         borderRadius: 2,
         border: `1px solid ${theme.palette.divider}`,
@@ -108,84 +117,165 @@ const ManageWso2Instances = () => {
         padding: 3,
       }}>
 
-      <Box component="form" onSubmit={handleAddInstance} sx={{ mb: 4 }}>
-        <Typography variant="h6" gutterBottom>
-          Ajouter une nouvelle Instance
-        </Typography>
-        <Grid container spacing={2}>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Base URL"
-              name="baseUrl"
-              value={newInstance.baseUrl}
-              onChange={handleInputChange}
-              required
-              fullWidth
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="ID Client"
-              name="clientId"
-              value={newInstance.clientId}
-              onChange={handleInputChange}
-              required
-              fullWidth
-            />
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <TextField
-              label="Secret Client"
-              name="clientSecret"
-              value={newInstance.clientSecret}
-              onChange={handleInputChange}
-              required
-              fullWidth
-            />
-          </Grid>
+        {/* add new WSO2 instance */}
+        <Grid item xs={12} md={5}>
+          <Card elevation={0} sx={{
+            borderRadius: 4,
+            border: '1px solid',
+            borderColor: theme.palette.divider,
+            p: 3,
+            height: '100%',
+            background: 'linear-gradient(to bottom right, #ffffff 0%, #f9faff 100%)'
+          }}>
+            <Box display="flex" alignItems="center" gap={1} mb={3}>
+              <AddCircleOutline color="primary" fontSize="medium" />
+              <Typography variant="h5" fontWeight={600}>
+                Add New Instance
+              </Typography>
+            </Box>
+            <Box component="form" onSubmit={handleAddInstance}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Base URL"
+                    name="baseUrl"
+                    value={newInstance.baseUrl}
+                    onChange={handleInputChange}
+                    required
+                    fullWidth
+                    variant="outlined"
+                    size="small"
+                    InputProps={{
+                      startAdornment: (
+                        <Link color="action" sx={{ mr: 1, opacity: 0.7 }} />
+                      )
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    label="ID Client"
+                    name="clientId"
+                    value={newInstance.clientId}
+                    onChange={handleInputChange}
+                    required
+                    fullWidth
+                    variant="outlined"
+                    size="small"
+                    InputProps={{
+                      startAdornment: (
+                        <Security color="action" sx={{ mr: 1, opacity: 0.7 }} />
+                      )
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    label="Secret Client"
+                    name="clientSecret"
+                    value={newInstance.clientSecret}
+                    onChange={handleInputChange}
+                    required
+                    fullWidth
+                    variant="outlined"
+                    size="small"
+                  />
+                </Grid>
+              </Grid>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                size="large"
+                fullWidth
+                sx={{ mt: 3, py: 1.5, borderRadius: 2 }}
+                startIcon={<AddCircleOutline />}
+              >
+                Ajouter une Instance
+              </Button>
+            </Box>
+          </Card>   
+        </Grid><br />
+
+        {/* Existing Instances */}
+        <Grid item xs={12} md={7}>
+          <Card elevation={0} sx={{
+            borderRadius: 4,
+            border: '1px solid',
+            borderColor: theme.palette.divider,
+            p: 3,
+            height: '100%'
+          }}>
+            <Box display="flex" alignItems="center" gap={1} mb={3}>
+              <Cloud color="primary" fontSize="medium" />
+              <Typography variant="h5" fontWeight={600}>
+                Instances Existantes
+              </Typography>
+              <Chip
+                label={`${instances.length} enregistré `}
+                size="small"
+                color="primary"
+                variant="outlined"
+                sx={{ ml: 'auto' }}
+                onClick={()=>{}}
+              />
+            </Box>
+
+            {instances.length === 0 ? (
+              <Box textAlign="center" py={6}>
+                <Typography color="text.secondary">
+                  No instances found. Add your first WSO2 instance above.
+                </Typography>
+              </Box>
+            ) : (
+              <Grid container spacing={2}>
+                {instances.map((instance) => (
+                  <Grid item xs={12} key={instance.id}>
+                    <Zoom in={true}>
+                      <Card variant="outlined" sx={{
+                        borderRadius: 3,
+                        transition: 'all 0.2s ease',
+                        '&:hover': {
+                          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+                          transform: 'translateY(-2px)'
+                        }
+                      }}>
+                        <CardContent>
+                          <Box display="flex" alignItems="center" gap={2}>
+                            <Avatar sx={{ bgcolor: '#e3f2fd', color: '#1976d2' }}>
+                              <Cloud />
+                            </Avatar>
+                            <Box flex={1}>
+                              <Typography variant="subtitle1" fontWeight={600}>
+                                {instance.baseUrl}
+                              </Typography>
+                              <Typography variant="body2" color="text.secondary">
+                                Client ID: {instance.clientId}
+                              </Typography>
+                            </Box>
+                            <Tooltip title="Delete instance" arrow TransitionComponent={Fade}>
+                              <IconButton
+                                color="error"
+                                onClick={() => handleDeleteInstance(instance.id)}
+                                sx={{
+                                  '&:hover': {
+                                    backgroundColor: 'rgba(239, 83, 80, 0.08)'
+                                  }
+                                }}
+                              >
+                                <DeleteOutline />
+                              </IconButton>
+                            </Tooltip>
+                          </Box>
+                        </CardContent>
+                      </Card>
+                    </Zoom>
+                  </Grid>
+                ))}
+              </Grid>
+            )}
+          </Card>
         </Grid>
-        <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          sx={{ mt: 2 }}
-        >
-          Ajouter une Instance
-        </Button>
-      </Box>
-
-      <Divider sx={{ mb: 3 }} />
-
-      <Typography variant="h6" gutterBottom>
-        Instances Existantes
-      </Typography>
-
-      <Grid container spacing={2}>
-        {instances.map((instance) => (
-          <Grid item xs={12} md={6} key={instance.id}>
-            <Card>
-              <CardContent>
-                <Typography variant="subtitle1" fontWeight="bold">
-                  {instance.baseUrl}
-                </Typography>
-                <Typography variant="body2">
-                  ID Client : {instance.clientId}
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button
-                  variant="outlined"
-                  color="error"
-                  size="small"
-                  onClick={() => handleDeleteInstance(instance.id)}
-                >
-                  Supprimer
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
       </Card>
     </Box>
   );

@@ -147,17 +147,17 @@ export default function UserManagementPage() {
   return (
 
     <Box sx={{ 
-          p: 2, 
-          maxWidth: 1400, 
-          margin: '0', // Added margin top/bottom
-          border: `1px solid ${theme.palette.divider}`, // Add border
-          borderRadius: 2, // Rounded corners
-          boxShadow: 3, // Add shadow
-          position: 'relative', // Ensures proper positioning
-          top: 0,
-          left: 0,
-          minWidth: '950px',
-          backgroundColor: 'lightgray'
+      p: 2, 
+      maxWidth: 1400, 
+      margin: '0', // Added margin top/bottom
+      border: `1px solid ${theme.palette.divider}`, // Add border
+      borderRadius: 2, // Rounded corners
+      boxShadow: 3, // Add shadow
+      position: 'relative', // Ensures proper positioning
+      top: 0,
+      left: 0,
+      minWidth: '950px',
+      backgroundColor: 'lightgray'
     }}>
 
       {/* Header */}
@@ -359,12 +359,12 @@ export default function UserManagementPage() {
                       </TableCell>
 
                       <TableCell>
-                        <Chip label="Active" color="success" size="small" variant="outlined" onClick={()=>{}} />
+                        <Chip label="Active" color="success" size="small" variant="filled" onClick={()=>{}} />
                       </TableCell>
 
                       <TableCell align="center">
                         <Stack direction="row" spacing={1} justifyContent="center">
-                          <Tooltip title="View">
+                          <Tooltip title="Voir">
                             <IconButton onClick={() => handleViewUser(user.id)}>
                               <VisibilityIcon color="info" />
                             </IconButton>
@@ -372,11 +372,6 @@ export default function UserManagementPage() {
                           <Tooltip title="Add funds">
                           <IconButton onClick={() => handleOpenFundsDialog(user)}>
                           <AddCardIcon color="primary" />
-                            </IconButton>
-                          </Tooltip>
-                          <Tooltip title="Delete">
-                            <IconButton onClick={() => handleDeleteUser(user.id)}>
-                              <DeleteIcon color="error" />
                             </IconButton>
                           </Tooltip>
                         </Stack>

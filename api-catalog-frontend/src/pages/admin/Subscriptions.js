@@ -25,11 +25,18 @@ import {
   DialogContent,
   DialogTitle,
   Divider,
+  Avatar,
+  Grid
 } from '@mui/material';
-import RefreshIcon from '@mui/icons-material/Refresh';
-import SearchIcon from '@mui/icons-material/Search';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import{
+  Refresh as RefreshIcon,
+  CheckCircle as ApproveIcon,
+  Cancel as RejectIcon,
+  Visibility as ViewIcon,
+  KeyboardArrowUp as KeyboardArrowUpIcon,
+  KeyboardArrowDown as KeyboardArrowDownIcon  
+} from '@mui/icons-material';
+
 import { useNavigate } from 'react-router-dom';
 
 
@@ -44,6 +51,7 @@ export default function Subscriptions() {
   const [selectedRequest, setSelectedRequest] = useState(null);
   const [rejectDialogOpen, setRejectDialogOpen] = useState(false);
   const [rejectReason, setRejectReason] = useState('');
+  const [viewDetails, setViewDetails] = useState(false);
   const navigate = useNavigate();
   const [expandedIndex, setExpandedIndex] = useState(null); // index of expanded row
 
@@ -57,9 +65,9 @@ const toggleExpand = (index) => {
     try {
       const response = await api.get('/admin/subscriptions');
       setRequests(response.data);
-      setSuccess('Data loaded successfully');
+      setSuccess('Données chargées avec succès');
     } catch (err) {
-      setError('Failed to fetch subscription requests');
+      setError("Échec de l'extraction des demandes d'abonnement");
     } finally {
       setLoading(false);
     }
@@ -96,6 +104,16 @@ const toggleExpand = (index) => {
     setPage(0);
   };
 
+  const handleViewDetails = (request) => {
+    setSelectedRequest(request);
+    setViewDetails(true);
+  };
+
+  const handleCloseDetails = () => {
+    setSelectedRequest(null);
+    setViewDetails(false);
+  };
+
   const filteredRequests = requests.filter((request) =>
     request.username.toLowerCase().includes(searchTerm.toLowerCase()) ||
     request.api.toLowerCase().includes(searchTerm.toLowerCase())
@@ -110,11 +128,10 @@ const toggleExpand = (index) => {
       margin: '0', // Added margin top/bottom
       borderRadius: 2, // Rounded corners
       boxShadow: 3, // Add shadow
-      //backgroundColor: theme.palette.background.paper, // White background
       position: 'relative', // Ensures proper positioning
       top: 0, // Explicitly positions at top
       left: 0, // Explicitly positions at left
-      minWidth: '950px', // Minimum width for responsiveness
+      minWidth: '750px', // Minimum width for responsiveness
       backgroundColor: 'lightgray', // Light gray background
     }}>
 
@@ -123,7 +140,7 @@ const toggleExpand = (index) => {
         p: 3, 
         mb: 3,
         borderRadius: 3,
-        background: 'linear-gradient(45deg, #6a11cb 0%, #2575fc 100%)',
+        background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)',
         color: 'white',
         boxShadow: '0 4px 20px rgba(106, 17, 203, 0.3)'
       }}>
@@ -222,13 +239,11 @@ const toggleExpand = (index) => {
               <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)' }}>
                 <TableRow>
                   <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Utilisateur</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>API</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Statut</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Autorisé</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Utilisé</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Date de demande</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2}}>Date d'autorisation</TableCell>
-                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }}>Actions</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>API</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Statut</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Autorisé</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Utilisé</TableCell>
+                  <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white',py:2 }} align='center'>Actions</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -243,52 +258,56 @@ const toggleExpand = (index) => {
                               }
                             }}>
                         
-                            <TableCell>{request.username}</TableCell>
-                            <TableCell>{request.api}</TableCell>
-                            <TableCell>
+                            <TableCell >
+                              <Stack direction="row" spacing={2} alignItems="center">
+                                <Avatar sx={{ bgcolor: 'primary.main' }}>
+                                  {request.username.charAt(0).toUpperCase()}
+                                </Avatar>
+                                <Typography sx={{ fontWeight: 500,fontSize:'16px' }}>{request.username}</Typography> 
+                              </Stack>
+                            </TableCell>
+                            <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{request.api}</TableCell>
+                            <TableCell align='center'>
                               <Chip
-                                label={request.status === 'APPROVED' ? 'Approuvé' : request.status === 'REJECTED' ? 'Rejeté' : request.status === 'EXPIRED'?'Expiré' : 'En attente'}
-
+                                label={request.status === 'APPROVED' ? 'Approuvé' : request.status === 'REJECTED' ? 'Rejeté' : 'En Attente'}
+                                color={
+                                  request.status === 'APPROVED'
+                                    ? 'success'
+                                    : request.status === 'REJECTED'
+                                    ? 'error'
+                                    : 'warning'
+                                }
                                 sx={{
                                   fontWeight: 'bold',
-                                  background:
-                                    request.status === 'APPROVED' 
-                                      ? 'linear-gradient(45deg,rgb(34, 104, 2) 0%,rgb(50, 226, 1) 100%)' :
-                                    request.status === 'PENDING' 
-                                      ? 'linear-gradient(45deg,rgb(195, 94, 0) 0%,rgb(255, 157, 0) 100%)'
-                                      : 'linear-gradient(45deg,rgb(148, 0, 0) 0%,rgb(255, 0, 0) 100%)' ,
-                                  color: 'white',
                                   boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
                                 }}  
+                                onClick={()=>{}}
                               />
                             </TableCell>
-                            <TableCell>{request.allowedRequests}</TableCell>
-                            <TableCell>{request.usedRequests}</TableCell>
-                            <TableCell>{new Date(request.requestDate).toLocaleString()}</TableCell>
-                            <TableCell>{request.approvalDate ? new Date(request.approvalDate).toLocaleString() : '-'}</TableCell>
+                            <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{request.allowedRequests}</TableCell>
+                            <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{request.usedRequests}</TableCell>
                             <TableCell>
-                              <IconButton size="small" onClick={() => toggleExpand(index)}>
-                                {expandedIndex === index ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-                              </IconButton>
-                            </TableCell>
-                          
-                          {request.status === 'PENDING' && (
-                                  <TableCell>
-                                    <Stack direction="row" spacing={1}>
-                                      <Button
-                                        size="small"
-                                        variant="contained"
+                              <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
+                                <Tooltip title="Voir détails">
+                                  <Button size="small" startIcon={<ViewIcon />} onClick={() => handleViewDetails(request)}>
+                                  </Button>
+                                </Tooltip>
+                                {request.status === 'PENDING' && (
+                                  <>
+                                    <Tooltip title="Approve">
+                                      <IconButton 
+                                        size="small" 
                                         color="success"
                                         onClick={(e) => {
                                           e.stopPropagation();
-                                          handleApprove(request.id); // define this function to call the backend
-                                        }}
+                                          handleApprove(request.id)}}
                                       >
-                                        Approuver 
-                                      </Button>
-                                      <Button
-                                        size="small"
-                                        variant="outlined"
+                                        <ApproveIcon />
+                                      </IconButton>
+                                    </Tooltip>
+                                    <Tooltip title="Reject">
+                                      <IconButton 
+                                        size="small" 
                                         color="error"
                                         onClick={(e) => {
                                           e.stopPropagation();
@@ -296,45 +315,14 @@ const toggleExpand = (index) => {
                                           setRejectDialogOpen(true);
                                         }}
                                       >
-                                        Rejeter
-                                      </Button>
-                                    </Stack>
-                                  </TableCell>
-                            )}</TableRow>
-                          {expandedIndex === index && (
-                            <TableRow>
-                              <TableCell colSpan={8}>
-                                <Paper sx={{ p: 3 }}>
-                                  <Typography variant="h6" gutterBottom>Informations Générales</Typography>
-                                  <Divider sx={{ mb: 2 }} />
-
-                                  <Typography variant="body1"><strong>Utilisateur:</strong> {request.username}</Typography>
-                                  <Typography variant="body1"><strong>API:</strong> {request.api}</Typography>
-                                  <Typography variant="body1"><strong>Statut:</strong> 
-                                    <Chip 
-                                      label={  request.status === 'APPROVED' ? 'approuvé' :'rejeté' }
-                                    
-                                      color={
-                                        request.status === 'APPROVED' ? 'success' :
-                                        request.status === 'REJECTED' ? 'error' : 'warning'
-                                      }
-                                      size="small"
-                                      sx={{ ml: 1 }}
-                                    />
-                                  </Typography>
-                                  <Typography variant="body1"><strong>Requêtes autorisées:</strong> {request.allowedRequests}</Typography>
-                                  <Typography variant="body1"><strong>Requêtes utilisées:</strong> {request.usedRequests}</Typography>
-                                  <Typography variant="body1"><strong>Date de la demande:</strong> {new Date(request.requestDate).toLocaleString()}</Typography>
-                                  <Typography variant="body1"><strong>Date d'autorisation:</strong> {request.approvalDate ? new Date(request.approvalDate).toLocaleString() : '-'}</Typography>
-                                  {request.rejectionReason && (
-                                    <Typography variant="body1" sx={{ mt: 2 }}>
-                                      <strong>Raison du rejet:</strong> {request.rejectionReason}
-                                    </Typography>
-                                  )}
-                                </Paper>
-                              </TableCell>
-                            </TableRow>
-                          )}
+                                        <RejectIcon />
+                                      </IconButton>
+                                    </Tooltip>
+                                  </>
+                                )}
+                              </Box>
+                            </TableCell>
+                          </TableRow>
                         </React.Fragment>
                       ))
                     ) : (
@@ -431,6 +419,176 @@ const toggleExpand = (index) => {
         </DialogActions>
       </Dialog>
 
+      {/* View Details Dialog */}
+      <Dialog
+        open={viewDetails}
+        onClose={handleCloseDetails}
+        maxWidth="md"
+        PaperProps={{
+          sx: {
+            borderRadius: '16px',
+            minWidth: { xs: '90%', sm: '600px' },
+            background: 'white',
+            boxShadow: '0 8px 32px rgba(0,0,0,0.1)'
+          }
+        }}
+      >
+        <DialogTitle sx={{
+          fontWeight: 'bold',
+          background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)',
+          color: 'white',
+          py: 2,
+          px: 3
+        }}>
+          Détails de l'abonnement
+        </DialogTitle>
+        <DialogContent dividers sx={{ py: 3, px: 3 }}>
+          {selectedRequest ? (
+            <Box>
+              <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 3 }}>
+                <Avatar sx={{
+                  bgcolor: 'primary.main', 
+                  width: 48,
+                  height: 48,
+                  fontSize: '18px'
+                }}>
+                  {selectedRequest.username.charAt(0).toUpperCase()}
+                </Avatar>
+                <Box>
+                  <Typography variant="h6" fontWeight={600}>{selectedRequest.username}</Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    Demande le {new Date(selectedRequest.requestDate).toLocaleDateString()}
+                  </Typography>
+                </Box>
+              </Stack>
+
+              <Grid container spacing={3} sx={{ mb: 2 }}>
+                <Grid item xs={12} md={6}>
+                  <Paper elevation={0} sx={{
+                    p: 2,
+                    borderRadius: '8px',
+                    backgroundColor: '#f8f9ff',
+                    height: '100%'
+                  }}>
+                    <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                      API
+                    </Typography>
+                    <Typography variant="body1" fontWeight={500}>
+                      {selectedRequest.api}
+                    </Typography>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Paper elevation={0} sx={{
+                    p: 2,
+                    borderRadius: '8px',
+                    backgroundColor: '#f8f9ff',
+                    height: '100%'
+                  }}>
+                    <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                      Statut
+                    </Typography>
+                    <Chip
+                      label={selectedRequest.status === 'APPROVED' ? 'Approuvé' : selectedRequest.status === 'REJECTED' ? 'Rejeté' : 'En attente'}
+                      color={
+                        selectedRequest.status === 'APPROVED'
+                          ? 'success'
+                          : selectedRequest.status === 'REJECTED'
+                          ? 'error'
+                          : 'warning'
+                      }
+                      sx={{
+                        fontWeight: 'bold',
+                        fontSize: '0.75rem',
+                        minWidth: '90px'
+                      }}
+                      onClick={() => {}}
+                    />
+                  </Paper>
+                </Grid>
+              </Grid>
+
+              <Grid container spacing={3} sx={{ mb: 3 }}>
+                <Grid item xs={6} md={3}>
+                  <Paper elevation={0} sx={{
+                    p: 2,
+                    borderRadius: '8px',
+                    backgroundColor: '#f8f9ff',
+                    height: '100%'
+                  }}>
+                    <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                      Requêtes autorisées
+                    </Typography>
+                    <Typography variant="h5" fontWeight={600} color="primary">
+                      {selectedRequest.allowedRequests}
+                    </Typography>
+                  </Paper>
+                </Grid>
+                <Grid item xs={6} md={3}>
+                  <Paper elevation={0} sx={{
+                    p: 2,
+                    borderRadius: '8px',
+                    backgroundColor: '#f8f9ff',
+                    height: '100%'
+                  }}>
+                    <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                      Requêtes utilisées
+                    </Typography>
+                    <Typography variant="h5" fontWeight={600} color="secondary">
+                      {selectedRequest.usedRequests}
+                    </Typography>
+                  </Paper>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                  <Paper elevation={0} sx={{
+                    p: 2,
+                    borderRadius: '8px',
+                    backgroundColor: '#f8f9ff',
+                    height: '100%'
+                  }}>
+                    <Typography variant="subtitle2" color="text.secondary" gutterBottom>
+                      {selectedRequest.status === 'APPROVED' ? 'Date d\'approbation' : selectedRequest.status === 'REJECTED' ? 'Date de rejet' : 'En attente depuis'}
+                    </Typography>
+                    <Typography variant="body1" fontWeight={500}>
+                      {selectedRequest.approvalDate ? new Date(selectedRequest.approvalDate).toLocaleString() : new Date(selectedRequest.requestDate).toLocaleString()}
+                    </Typography>
+                  </Paper>
+                </Grid>
+              </Grid>
+
+              {selectedRequest.rejectionReason && (
+                <Paper elevation={0} sx={{
+                  p: 2,
+                  borderRadius: '8px',
+                  backgroundColor: '#fff8f8',
+                  border: '1px solid #ffebee'
+                }}>
+                  <Typography variant="subtitle2" color="error" gutterBottom>
+                    Raison du rejet
+                  </Typography>
+                  <Typography variant="body1">
+                    {selectedRequest.rejectionReason}
+                  </Typography>
+                </Paper>
+              )}
+            </Box>
+          ) : (
+            <Alert severity="info">Aucune demande sélectionnée</Alert>
+          )}
+        </DialogContent>
+        <DialogActions sx={{ p: 2, background: '#f9f9f9', borderTop: '1px solid #f0f0f0' }}>
+          <Button
+            onClick={handleCloseDetails}
+            variant="text"
+            sx={{
+              backgroundColor: 'rgba(255, 0, 0, 0.97)',
+              color: 'white'
+            }}  
+          >
+            Fermer
+          </Button>
+        </DialogActions>
+      </Dialog>
     </Box>
     
   );

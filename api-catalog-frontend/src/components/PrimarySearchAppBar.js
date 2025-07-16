@@ -38,6 +38,8 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
 import { Wallet } from '@mui/icons-material';
 import WalletIcon from './WalletIcon';
+import { blue, grey } from '@mui/material/colors';
+import { Avatar } from '@mui/material';
 
 
 const drawerWidth = 240;
@@ -103,22 +105,23 @@ export default function CombinedApp() {
 
     if (user.role === 'ROLE_ADMIN') {
       return [
-        { label: 'Dashboard', path: '/admin/dashboard', icon: <DashboardIcon /> },
-        { label: 'Manage Subscriptions', path: '/admin/subscriptions', icon: <InboxIcon /> },
-        { label: 'Signup Requests', path: '/admin/signup-requests', icon: <GroupAddIcon /> },
-        { label: 'Manage Users', path: '/admin/users', icon: <PeopleIcon /> },
-        { label: 'Manage APIs', path: '/admin/apis', icon: <ApiIcon /> },
-        { label: 'Manage WSO2 Instances', path: '/admin/wso2', icon: <StorageIcon /> },
-        { label: 'Logout', path: '/logout', icon: <LogoutIcon />, danger: true }
+        { label: 'Tableau de bord', path: '/admin/dashboard', icon: <DashboardIcon /> },
+        { label: 'Gestion des Abonnements', path: '/admin/subscriptions', icon: <InboxIcon /> },
+        { label: "Demandes d'Inscriptions", path: '/admin/signup-requests', icon: <GroupAddIcon /> },
+        { label: 'Gestion des utilisateurs', path: '/admin/users', icon: <PeopleIcon /> },
+        { label: 'Gestion des API', path: '/admin/apis', icon: <ApiIcon /> },
+        { label: 'Gestion des Instances WSO2', path: '/admin/wso2', icon: <StorageIcon /> },
+        { label: 'Se Déconnecter', path: '/logout', icon: <LogoutIcon />, danger: true }
       ];
     }
 
     if (user.role === 'ROLE_USER') {
       return [
-        { label: 'APIs', path: '/apis', icon: <ApiIcon /> },
-        { label: 'Subscriptions', path: '/subscriptions', icon: <InboxIcon/> },
-        { label: 'Transactions', path: '/transactions', icon: <AccountBalanceWalletIcon /> },
-        { label: 'Logout', path: '/logout', icon: <LogoutIcon />, danger: true }
+        { label: 'Tableau de bord', path: '/dashboard', icon: <DashboardIcon /> },
+        { label: 'Les API', path: '/apis', icon: <ApiIcon /> },
+        { label: 'Les Abonnements', path: '/subscriptions', icon: <InboxIcon/> },
+        { label: 'Les Transactions', path: '/transactions', icon: <AccountBalanceWalletIcon /> },
+        { label: 'Se Déconnecter', path: '/logout', icon: <LogoutIcon />, danger: true }
       ];
     }
 
@@ -171,7 +174,6 @@ export default function CombinedApp() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
   );
 
@@ -247,8 +249,8 @@ export default function CombinedApp() {
           />
          
           <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-           <WalletIcon/>
+          <Box sx={{ display: { xs: 'none', md: 'flex'} }}>
+           <WalletIcon />
             <IconButton
               size="large"
               aria-label="show 17 new notifications"
@@ -258,17 +260,34 @@ export default function CombinedApp() {
               <NotificationsMenu />
               </Badge>
             </IconButton>
-            <IconButton
-              size="large"
+            <Avatar 
               edge="end"
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
-              color="inherit"
+              sx={{ 
+                marginTop: 1,
+                backgroundColor: '#3c6bd1', 
+                color: 'white',
+                width: 50,
+                height: 50,
+                mr: 3,
+                fontSize: '1.5rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                border: `2px solid ${grey[300]}`,
+                boxShadow: `0 2px 4px ${alpha(grey[500], 0.2)}`,
+                '&:hover': {
+                  backgroundColor: alpha(blue[500], 0.1),
+                  boxShadow: `0 4px 8px ${alpha(grey[500], 0.3)}`,
+                }
+              }}
             >
-              <AccountCircle />
-            </IconButton>
+              {user?.username?.charAt(0).toUpperCase() ?? '?'}
+            </Avatar>
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton

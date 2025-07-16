@@ -44,8 +44,6 @@ export default function UserSubscriptionsPage() {
         return 'warning';
       case 'REJECTED':
         return 'error';
-      case 'EXPIRED':
-        return 'error';
       default:
         return 'default';
     }

@@ -112,10 +112,11 @@ const TransactionsPage = () => {
                     <TableCell sx={{ fontWeight: 500,fontSize:'16px' }}>{tx.description}</TableCell>
                     <TableCell align='center' sx={{ fontWeight: 500,fontSize:'16px' }}>
                       <Chip
-                        sx={{ fontWeight: 'bold' ,width: '100px'}}
+                        sx={{ fontWeight: 500 ,width: '150px',fontSize:'16px'}}
                         label={`${tx.amount > 0 ? '+' : ''}${tx.amount} TND`}
                         color={tx.amount >= 0 ? 'success' : 'error'}
-                        variant="outlined"
+                        variant="filled"
+                        onClick={() => {}}
                       />
                     </TableCell>
                   </TableRow>

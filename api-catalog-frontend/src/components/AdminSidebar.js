@@ -6,12 +6,12 @@ const drawerWidth = 240;
 
 export default function AdminSidebar() {
   const navItems = [
-    { label: 'Dashboard', path: '/admin/dashboard' },
-    { label: 'Signup Requests', path: '/admin/signup-requests' },
-    { label: 'Manage Users', path: '/admin/users' },
-    { label: 'Manage APIs', path: '/admin/apis' },
-    { label: 'Manage WSO2 Instances', path: '/admin/wso2' },
-    { label: 'Logout', path: '/logout', danger: true }
+    { label: 'Tableau de bord', path: '/admin/dashboard' },
+    { label: "Demandes d'Inscriptions", path: '/admin/signup-requests' },
+    { label: 'Gestion des utilisateurs', path: '/admin/users' },
+    { label: 'Gestion des API', path: '/admin/apis' },
+    { label: 'Gestion des instances WSO2', path: '/admin/wso2' },
+    { label: 'Se Déconnecter', path: '/logout', danger: true }
   ];
 
   return (

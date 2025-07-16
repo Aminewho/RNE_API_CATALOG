@@ -124,17 +124,17 @@ export default function ManageAPIs() {
 
   return (
     <Box sx={{ 
-          p: 2, 
-          maxWidth: 1400, 
-          margin: '0', // Added margin top/bottom
-          border: `1px solid ${theme.palette.divider}`, // Add border
-          borderRadius: 2, // Rounded corners
-          boxShadow: 3, // Add shadow
-          position: 'relative', // Ensures proper positioning
-          top: 0,
-          left: 0,
-          minWidth: '950px',
-          backgroundColor: 'lightgray'
+      p: 2, 
+      maxWidth: 1400, 
+      margin: '0', // Added margin top/bottom
+      border: `1px solid ${theme.palette.divider}`, // Add border
+      borderRadius: 2, // Rounded corners
+      boxShadow: 3, // Add shadow
+      position: 'relative', // Ensures proper positioning
+      top: 0,
+      left: 0,
+      minWidth: '950px',
+      backgroundColor: 'lightgray'
     }}>
 
       {/* Header */}
@@ -147,14 +147,14 @@ export default function ManageAPIs() {
         boxShadow: '0 4px 20px rgba(106, 17, 203, 0.3)'
       }}>
         <Box sx={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
-              alignItems: 'center'
-            }}>
+            display: 'flex', 
+            justifyContent: 'space-between', 
+            alignItems: 'center'
+          }}>
           <Typography variant="h4" component="h1" fontWeight='bold' sx={{ textShadow: '0 2px 4px rgba(0,0,0,0.2)' }}>
             WSO2 APIs disponibles
           </Typography>
-      </Box>
+        </Box>
       </Paper>
 
       {/* Table */}
@@ -170,8 +170,8 @@ export default function ManageAPIs() {
             <TableHead sx={{ background: 'linear-gradient(45deg,rgb(10, 0, 101) 10%,rgb(7, 3, 223) 90%)'}}> 
               <TableRow>
                 <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Nom API</TableCell>
-                <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>ID API</TableCell>
-                <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }}>Instance WSO2</TableCell>
+                <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>ID API</TableCell>
+                <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Instance WSO2</TableCell>
                 <TableCell sx={{ fontWeight: 700,fontSize:'18px',color: 'white' }} align='center'>Actions</TableCell>
               </TableRow>
             </TableHead>
@@ -181,10 +181,10 @@ export default function ManageAPIs() {
                 return (
                   <React.Fragment key={apiObj.id}>
                     <TableRow>
-                      <TableCell>{apiObj.name}</TableCell>
-                      <TableCell>{apiObj.id}</TableCell>
-                      <TableCell>{apiObj.baseUrl}</TableCell>
-                      <TableCell align="right">
+                      <TableCell sx={{ fontWeight: 500,fontSize:'16px' }}>{apiObj.name}</TableCell>
+                      <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{apiObj.id}</TableCell>
+                      <TableCell sx={{ fontWeight: 500,fontSize:'16px' }} align='center'>{apiObj.baseUrl}</TableCell>
+                      <TableCell align="center">
                         {inCatalog ? (
                           <Button
                             variant="outlined"
