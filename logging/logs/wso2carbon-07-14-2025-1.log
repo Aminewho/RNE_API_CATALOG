@@ -1,0 +1,35 @@
+TID: [] [] [2025-07-14 08:16:51,944]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-14 08:16:52,437]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+TID: [-1234] [devportal] [2025-07-14 08:17:27,267] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@5851dbc1
+TID: [-1234] [api/am/devportal] [2025-07-14 08:17:27,345] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/devportal] [2025-07-14 08:17:27,345] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [] [] [2025-07-14 08:17:55,058]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-07-14 09:29:54,556]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-14 09:29:54,653]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+TID: [] [] [2025-07-14 09:31:21,383] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} - Invalid JWT token. XXXXX":"RS256"}
+TID: [] [] [2025-07-14 09:31:21,383]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+TID: [] [] [2025-07-14 09:49:38,611]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-14 09:49:38,686]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+TID: [] [] [2025-07-14 09:49:58,553] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} - Invalid JWT token. XXXXX":"RS256"}
+TID: [] [] [2025-07-14 09:49:58,553]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+TID: [] [] [2025-07-14 09:49:59,403] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} - Invalid JWT token. XXXXX":"RS256"}
+TID: [] [] [2025-07-14 09:49:59,403]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} - API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+TID: [-1234] [devportal] [2025-07-14 09:50:04,442] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@2e4fe4d7
+TID: [-1234] [api/am/devportal] [2025-07-14 09:50:04,537] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/devportal] [2025-07-14 09:50:04,537] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [] [] [2025-07-14 09:50:27,316]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-07-14 09:58:13,357]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-14 10:13:12,360]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-14 10:14:26,270]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-07-14 10:14:26,307]  INFO {org.wso2.carbon.event.output.adapter.jms.internal.util.JMSConnectionFactory} - JMS ConnectionFactory : notificationJMSPublisher initialized
+TID: [-1234] [devportal] [2025-07-14 18:25:27,216] ERROR {org.apache.jsp.services.refresh.refresh_jsp} - org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@f1fdd61
+TID: [-1234] [api/am/devportal] [2025-07-14 18:25:27,269] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+TID: [-1234] [api/am/devportal] [2025-07-14 18:25:27,269] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} - Provided access token is invalid
+TID: [-1234] [api/am/devportal] [2025-07-14 18:25:37,617] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-14 18:25:37,618] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [-1234] [api/am/devportal] [2025-07-14 18:25:37,774] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} - Authentication failed: Bearer/Basic authentication header is missing
+TID: [] [] [2025-07-14 18:26:10,759]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-14 18:26:10,909]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected
+TID: [] [] [2025-07-14 18:55:55,758]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-14 19:18:48,625]  WARN {org.apache.synapse.transport.passthru.SourceHandler} - I/O error: Received fatal alert: certificate_unknown
+TID: [] [] [2025-07-14 19:18:49,193]  INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected

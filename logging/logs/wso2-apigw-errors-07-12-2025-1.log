@@ -1,0 +1,11 @@
+2025-07-12T16:11:21,001 [-] [HTTPS-Listener I/O dispatcher-18]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-12T16:27:37,066 [-] [HTTPS-Listener I/O dispatcher-20]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-12T16:31:08,049 [-] [HTTPS-Listener I/O dispatcher-22]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-12T16:48:38,329 [-] [HTTPS-Listener I/O dispatcher-24]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-12T17:19:02,611 [-] [HTTPS-Listener I/O dispatcher-14]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-12T17:19:02,689 [-] [PassThroughMessageProcessor-182]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+2025-07-12T17:19:17,068 [-] [PassThroughMessageProcessor-184] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} Invalid JWT token. XXXXX":"RS256"}
+2025-07-12T17:19:17,068 [-] [PassThroughMessageProcessor-184]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+2025-07-12T17:19:45,234 [-] [https-jsse-nio-9443-exec-14] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@5cc71ffa
+2025-07-12T17:19:45,257 [-] [https-jsse-nio-9443-exec-49] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-07-12T17:19:45,257 [-] [https-jsse-nio-9443-exec-49] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid

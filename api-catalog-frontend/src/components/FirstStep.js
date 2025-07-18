@@ -1,0 +1,82 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
+
+const FormContainer = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(3),
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: theme.palette.background.paper,
+  boxShadow: theme.shadows[2],
+  margin: '0 auto'
+}));
+
+const FormTitle = styled(Typography)(({ theme }) => ({
+  marginBottom: theme.spacing(3),
+  color: theme.palette.text.primary,
+  fontWeight: 500
+}));
+
+export default function FirstStep({ formData, handleChange, onStepComplete }) {
+
+  React.useEffect(() => {
+    const allFilled =
+      formData.matriculeFiscale.trim() !== '' &&
+      formData.secteurActivite.trim() !== '' &&
+      formData.raisonSociale.trim() !== '' &&
+      formData.adresse.trim() !== '';
+
+    onStepComplete(allFilled);
+  }, [
+    formData.matriculeFiscale,
+    formData.secteurActivite,
+    formData.raisonSociale,
+    formData.adresse,
+    onStepComplete,
+  ]);
+
+  return (
+    <FormContainer sx={{ width: '100%' }}>
+      <FormTitle variant="h5" gutterBottom>
+        Informations sur l'entreprise
+      </FormTitle>
+      <Box
+        component="form"
+        sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          label="Matricule Fiscale"
+          name="matriculeFiscale"
+          value={formData.matriculeFiscale}
+          onChange={handleChange}
+          size="small"
+        />
+        <TextField
+          label="Secteur d'activité"
+          name="secteurActivite"
+          value={formData.secteurActivite}
+          onChange={handleChange}
+          size="small"
+        />
+        <TextField
+          label="Raison Sociale"
+          name="raisonSociale"
+          value={formData.raisonSociale}
+          onChange={handleChange}
+          size="small"
+        />
+        <TextField
+          label="Adresse"
+          name="adresse"
+          value={formData.adresse}
+          onChange={handleChange}
+          size="small"
+        />
+      </Box>
+    </FormContainer>
+  );
+}

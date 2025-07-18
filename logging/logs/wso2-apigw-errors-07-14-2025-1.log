@@ -1,0 +1,29 @@
+2025-07-14T08:16:51,944 [-] [HTTPS-Listener I/O dispatcher-16]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-14T08:16:52,437 [-] [PassThroughMessageProcessor-5]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+2025-07-14T08:17:27,267 [-] [https-jsse-nio-9443-exec-40] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@5851dbc1
+2025-07-14T08:17:27,345 [-] [https-jsse-nio-9443-exec-20] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-07-14T08:17:27,345 [-] [https-jsse-nio-9443-exec-20] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-07-14T09:29:54,556 [-] [HTTPS-Listener I/O dispatcher-18]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-14T09:29:54,653 [-] [PassThroughMessageProcessor-15]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+2025-07-14T09:31:21,383 [-] [PassThroughMessageProcessor-17] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} Invalid JWT token. XXXXX":"RS256"}
+2025-07-14T09:31:21,383 [-] [PassThroughMessageProcessor-17]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+2025-07-14T09:49:38,611 [-] [HTTPS-Listener I/O dispatcher-20]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-14T09:49:38,686 [-] [PassThroughMessageProcessor-19]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+2025-07-14T09:49:58,553 [-] [PassThroughMessageProcessor-21] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} Invalid JWT token. XXXXX":"RS256"}
+2025-07-14T09:49:58,553 [-] [PassThroughMessageProcessor-21]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+2025-07-14T09:49:59,403 [-] [PassThroughMessageProcessor-22] ERROR {org.wso2.carbon.apimgt.gateway.handlers.security.jwt.JWTValidator} Invalid JWT token. XXXXX":"RS256"}
+2025-07-14T09:49:59,403 [-] [PassThroughMessageProcessor-22]  WARN {org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler} API authentication failure due to Invalid Credentials for requestURI=/test/1.0.0
+2025-07-14T09:50:04,442 [-] [https-jsse-nio-9443-exec-19] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@2e4fe4d7
+2025-07-14T09:50:04,537 [-] [https-jsse-nio-9443-exec-2] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-07-14T09:50:04,537 [-] [https-jsse-nio-9443-exec-2] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-07-14T09:58:13,357 [-] [HTTPS-Listener I/O dispatcher-22]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-14T10:13:12,360 [-] [HTTPS-Listener I/O dispatcher-24]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-14T18:25:27,216 [-] [https-jsse-nio-9443-exec-9] ERROR {org.apache.jsp.services.refresh.refresh_jsp} org.wso2.carbon.ui.filters.cache.ContentTypeBasedCachePreventionFilter$1@f1fdd61
+2025-07-14T18:25:27,269 [-] [https-jsse-nio-9443-exec-27] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Invalid OAuth Token : Invalid Access Token. ACTIVE access token is not found.
+2025-07-14T18:25:27,269 [-] [https-jsse-nio-9443-exec-27] ERROR {org.wso2.carbon.apimgt.rest.api.util.impl.OAuthOpaqueAuthenticatorImpl} Provided access token is invalid
+2025-07-14T18:25:37,617 [-] [https-jsse-nio-9443-exec-32] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-14T18:25:37,618 [-] [https-jsse-nio-9443-exec-22] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-14T18:25:37,774 [-] [https-jsse-nio-9443-exec-49] ERROR {org.wso2.carbon.apimgt.rest.api.util.interceptors.PostAuthenticationInterceptor} Authentication failed: Bearer/Basic authentication header is missing
+2025-07-14T18:26:10,759 [-] [HTTPS-Listener I/O dispatcher-14]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-14T18:55:55,758 [-] [HTTPS-Listener I/O dispatcher-16]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
+2025-07-14T19:18:48,625 [-] [HTTPS-Listener I/O dispatcher-18]  WARN {org.apache.synapse.transport.passthru.SourceHandler} I/O error: Received fatal alert: certificate_unknown
